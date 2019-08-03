@@ -36,6 +36,19 @@ Things you may want to cover:
 |nickname         |string  |null: false                     |
 |email            |string  |null: false ,unique: true       |
 |password         |string  |null: false                     |
+|phone            |integer |null: false ,unique: true       |
+
+### Association
+- has_many :items
+- has_one :card
+- has_one :address
+
+
+
+## address_inputsテーブル
+
+|Column           |Type    |Options                         |
+|-----------------|--------|--------------------------------|
 |first_name       |string  |null: false                     |
 |last_name        |string  |null: false                     |
 |first_name_kana  |string  |null: false                     |
@@ -45,12 +58,9 @@ Things you may want to cover:
 |city             |string  |null: false                     |
 |address          |string  |null: false                     |
 |building_name    |string  |null: false                     |
-|phone            |integer |null: false ,unique: true       |
 
 ### Association
-- has_many :items
-- has_one :credit
-
+- has_one :user
 
 
 ## itemsテーブル
@@ -112,7 +122,7 @@ Things you may want to cover:
 
 
 
-## creditsテーブル
+## cardsテーブル
 
 |Column           |Type    |Options                         |
 |-----------------|--------|--------------------------------|
@@ -122,5 +132,4 @@ Things you may want to cover:
 
 ### Association
 - has_one :user
-
 
