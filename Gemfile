@@ -73,3 +73,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
+gem 'pry-rails'
+gem "haml-rails"
+gem "jquery-rails"
+gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem 'devise'
