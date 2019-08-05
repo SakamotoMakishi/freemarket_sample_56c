@@ -1,5 +1,4 @@
 .main-contents{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo';
   background-color: #F5F5F5;
   .pickup {
   padding: 40px 0;
@@ -64,6 +63,16 @@
         line-height: 1.5;
         word-break: break-word;
         white-space: normal;
+      }
+      .items-name:after{
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 1.5em;
+        background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
       }
     }
     &__view-all {
