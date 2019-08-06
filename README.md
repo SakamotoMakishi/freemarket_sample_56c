@@ -58,6 +58,9 @@ Things you may want to cover:
 |city             |string  |null: false                     |
 |address          |string  |null: false                     |
 |building_name    |string  |null: false                     |
+|user_id          |integer |null: false ,foreign_key: true  |
+
+
 
 ### Association
 - has_one :user
@@ -71,17 +74,16 @@ Things you may want to cover:
 |price            |integer |null: false                     |
 |text             |text    |null: false                     |
 |status           |string  |null: false                     |
-|category_id      |ingeter |null: false ,foreign_key: true  |
-|brand_id         |ingeter |null: false ,foreign_key: true  |
-|seller_id        |ingeter |null: false ,foreign_key: true  |
-|buyer_id         |ingeter |null: false ,foreign_key: true  |
-|delivery_id      |integer |null: false ,foreign_key: true  |
+|category_id      |integer |null: false ,foreign_key: true  |
+|brand_id         |integer |null: false ,foreign_key: true  |
+|seller_id        |integer |null: false ,foreign_key: true  |
+|buyer_id         |integer |null: false ,foreign_key: true  |
 
 ### Association
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :delivery
+- has_one :delivery
 
 
 
@@ -90,7 +92,7 @@ Things you may want to cover:
 |Column           |Type    |Options                         |
 |-----------------|--------|--------------------------------|
 |name             |string  |null: false                     |
-|parrent_id       |integer |null: false ,foreign_key: true  |
+|parrent_id       |integer |null: false                     |
 
 ### Association
 - has_many :items
@@ -102,7 +104,7 @@ Things you may want to cover:
 |Column           |Type    |Options                         |
 |-----------------|--------|--------------------------------|
 |name             |string  |null: false                     |
-|parrent_id       |integer |null: false ,foreign_key: true  |
+|parrent_id       |integer |null: false                     |
 
 ### Association
 - has_many :items
@@ -116,9 +118,10 @@ Things you may want to cover:
 |price            |integer |null: false                     |
 |area             |string  |null: false                     |
 |delivary_day     |integer |null: false                     |
+|item_id          |integer |null: false ,foreign_key: true  |
 
 ### Association
-- has_many :items
+- has_one :item
 
 
 
@@ -127,8 +130,8 @@ Things you may want to cover:
 |Column           |Type    |Options                         |
 |-----------------|--------|--------------------------------|
 |user_id          |integer |null: false ,foreign_key: true  |
-|customer_id      |string  |null: false ,foreign_key: true  |
-|card_id          |string  |null: false ,foreign_key: true  |
+|customer_id      |string  |null: false                     |
+|card_id          |string  |null: false                     |
 
 ### Association
 - has_one :user
