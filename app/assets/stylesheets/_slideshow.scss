@@ -1,0 +1,143 @@
+.slideshow-pull{
+  cursor: default;
+}
+
+.slideshow{
+  height:390px;
+  width:100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  &__outer{
+    height: 100%;
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    &__stage{
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      &__item{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        min-height: 1px;
+        display: block;
+        overflow: hidden;
+        text-align:center;
+        a .slideshow-inner{
+          background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg);
+          background-position:50% 50%;
+          width:100%;
+          height:100%;
+        }
+        .slideshow-vi{
+          background-size: cover;
+          display: block;
+          width: 100%;
+          height:390px;
+          background: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
+          background-size: cover;
+          .slideshow-visual{
+            max-width: 860px;
+            position: relative;
+            height: 100%;
+            width:100%;
+            margin: 0 auto;
+            background-repeat: no-repeat;
+            &__content{
+              position: absolute;
+              top: 50%;
+              left: 0;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              background-repeat: no-repeat;
+              margin: 0;
+              padding: 0;
+              &__store{
+                margin: 24px 0 0;
+                line-height: 0;
+                height:50px;
+                width:480px;
+              }
+              h2{
+                font-size: 60px;
+                line-height: 1.2;
+                font-weight: bold;
+              }
+              p{
+                margin: 16px 0 0;
+                font-size: 16px;
+                line-height: 1.77778;
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+              }
+              a img{
+                position: relative;
+                height: 50px;
+                width: auto;
+              }
+            }
+            img{
+              position: absolute;
+              top: 0;
+              right: 0;
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .slideshow-nav{
+    font-size: 0;
+    &__prev{
+      background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png);
+      left: 60px;
+      cursor: pointer;
+      height: 46px;
+      width: 31px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-23px);
+    }
+    &__next{
+      background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/carousel-next.png);
+      right: 60px;
+      cursor: pointer;
+      height: 46px;
+      width: 31px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-23px);
+    }
+  }
+
+  .slideshow-dots{
+    width:100%;
+    height:12px;
+    margin:-30px;
+    text-align: center;
+    .slideshow-dot{
+      position: relative;
+      display: inline-block;
+      height:12px;
+      width:12px;
+      border-radius: 50%;
+      margin-right:15px;
+    }
+    .slideshow-dot .active{
+      cursor: default;
+    }
+  }
+}
+
+
+
+
