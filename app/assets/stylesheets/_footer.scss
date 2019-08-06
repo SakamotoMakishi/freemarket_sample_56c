@@ -1,0 +1,190 @@
+@import './clearfix';
+
+.banner{
+  background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?78373356);
+  background-position: center;
+  background-size: cover;
+  
+  &__pc{
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+
+    &__inner{
+      position: absolute;
+      left: 0;
+      top: 25%;
+      h2{
+        font-size: 24px;
+      }
+      p{
+        margin: 10px 0 0;
+        font-size: 35px;
+      }
+      &__icon-box{
+        @include clearfix;
+        margin: 20px 0 0;
+        &__icon{
+          float: left;
+          img{
+            width: 68px;
+          }
+        }
+        &__icons{
+          @include clearfix;
+          float: left;
+          margin: 15px 0 0 8px;
+          line-height: 68px;
+
+          &__icon{
+            float: left;
+            margin: 0 0 0 16px;
+            img{
+              display: block;
+              line-height: 70px;
+              width: 133px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+    &__image{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      img{
+        width: 300px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.footer{
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+
+  &__cells {
+    @include clearfix;
+    width: 1020px;
+    margin: 0 auto;
+    &__cell{
+      display: block;
+      float: left;
+      margin-top: 18px;
+      padding-right: 20px;
+      width: 20%;
+
+      &__head{
+      color: #fff;
+      font-size: 16px;
+      font-weight: 100;
+      line-height: 1.4;
+      }
+      &__lists{
+        
+        &__list{
+          margin-top: 18px;
+          a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            opacity: 0.7;
+            line-height: 1.5em;
+          }
+        }
+        &__social-links{
+          margin-top: 30px;
+          display: block;
+          &__link{
+            margin-right: 18px;
+            .fa{
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    &__full-width{
+      display: block;
+      float: left;
+      margin-top: 18px;
+      padding-right: 20px;
+      width: 42%;
+      
+      &__head{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 1.4;
+      }
+      &__inner-cell{
+        float: left;
+        width: 50%;
+        
+        &__lists{
+          padding-right: 25px;
+          a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            opacity: 0.7;
+            line-height: 1.5em;
+          }
+          &__list{
+            margin-top: 18px;
+          }
+        }
+      }
+    }
+    &__lang{
+      display: block;
+      float: left;
+      margin-top: 18px;
+      padding-right: 20px;
+      width: 8%;
+
+      &__lists{
+        a{
+          color: #fff;
+          text-decoration: none;
+          font-size: 12px;
+          opacity: 0.7;
+          line-height: 1.5em;
+        }
+        &__list{
+          margin-top: 18px;
+        }
+      }
+    }
+  }
+  &__bottom{
+    margin: 30px auto 20px;
+    width: 1020px;
+    padding: 0 190px;
+    img{
+      width: 124px;
+      height: 33px;
+      padding-right: 10px;
+    }
+    img:hover{
+      opacity: 0.7;
+    }
+    &__copyright{
+      display: inline-block;
+      margin: 8px 0 0;
+      text-align: center;
+      font-size: 12px;
+      width: 745px;
+    }
+  }
+}
+
+.footer a:hover{
+  text-decoration: underline;
+}
