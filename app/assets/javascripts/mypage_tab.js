@@ -12,4 +12,9 @@ $(function() {
     $(this).addClass('active');
     $('.mypage__nav__main-contents__bottom-tabcontents__item-lists li').removeClass('show').eq(index).addClass('show');
   });
+
+
+  $('.mypage__nav__main-contents__single-inner__button').click(function() {
+    $(this).addClass('active');  
+  });
 });
