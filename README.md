@@ -36,7 +36,6 @@ Things you may want to cover:
 |nickname         |string  |null: false                     |
 |email            |string  |null: false ,unique: true       |
 |password         |string  |null: false                     |
-|phone            |integer |null: false ,unique: true       |
 
 ### Association
 - has_many :items
@@ -59,11 +58,11 @@ Things you may want to cover:
 |address          |string  |null: false                     |
 |building_name    |string  |null: false                     |
 |user_id          |integer |null: false ,foreign_key: true  |
-
-
+|phone_num        |integer |null: false ,unique: true       |
 
 ### Association
 - has_one :user
+
 
 
 ## itemsテーブル

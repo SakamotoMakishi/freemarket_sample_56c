@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_053902) do
+ActiveRecord::Schema.define(version: 2019_08_07_033421) do
 
   create_table "address_inputs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_053902) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone_num"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,9 +54,10 @@ ActiveRecord::Schema.define(version: 2019_08_06_053902) do
     t.integer "price", null: false
     t.string "area", null: false
     t.string "delivary_day", null: false
-    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_delivaries_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,11 +67,16 @@ ActiveRecord::Schema.define(version: 2019_08_06_053902) do
     t.string "status", null: false
     t.integer "seller_id"
     t.integer "buyer_id"
-    t.integer "category_id"
-    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
 
+  add_foreign_key "delivaries", "items"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
 end
