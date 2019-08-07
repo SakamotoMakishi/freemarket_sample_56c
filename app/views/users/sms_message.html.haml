@@ -1,0 +1,71 @@
+.mercari_sign_up_container3
+  .header
+    .header__logo
+      = link_to "/" do
+        %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3791839826"}/
+    .header__progress
+      %ul.header__progress__bars
+        %li.header__progress__bars__text1
+          会員情報
+        %li.header__progress__bars__text2
+          電話番号認証
+        %li.header__progress__bars__text3
+          お届け先住所入力
+        %li.header__progress__bars__text4
+          支払い方法
+        %li.header__progress__bars__text5
+          完了
+      %ul.header__progress__bar
+        %li.header__progress__bar__point1
+          ●
+        %li.header__progress__bar__point2
+          ●
+        %li.header__progress__bar__point3
+          ●
+        %li.header__progress__bar__point4
+          ●
+        %li.header__progress__bar__point5
+          ●
+      %ul.header__progress__line
+        %li.header__progress__line__bar1
+        %li.header__progress__line__bar2
+        %li.header__progress__line__bar3
+        %li.header__progress__line__bar4
+        %li.header__progress__line__bar5
+  .main
+    .main__section
+      .main__section__top
+        電話番号の確認
+    .main__conect
+      .main__conect__lists
+        %ul.main__conect__lists__list
+          = form_with url: root_path do |f|
+            %li.main__conect__lists__list__message1
+              携帯電話の番号
+            %li.main__conect__lists__list__phone
+              = f.text_field :phone, placeholder:'携帯電話の番号を入力',class: "text_field"
+            %br/
+            %li.main__conect__lists__list__message2
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            %br/
+            %li.main__conect__lists__list__btn
+              = f.button 'SMSを送信する',class: "submit_btn"
+            %br/
+            %li
+              ＊電話番号は本人確認や不正利用防止のために利用します。他のユーザに公開されることはありません。
+            %li.main__conect__lists__list__link
+              = link_to '電話番号の確認が必要な理由','delivary_input'
+  .footer
+    %ul.footer__nav
+      %li
+        = link_to 'プライバシーポリシー'
+      %li
+        = link_to 'メルカリ利用規約'
+      %li
+        = link_to '特定商取引に関する規約'
+    .footer__logo
+      = link_to '/' do
+        .footer__logo__image
+          %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826"}/
+      %p.footer__logo__text
+        © 2019 Mercari

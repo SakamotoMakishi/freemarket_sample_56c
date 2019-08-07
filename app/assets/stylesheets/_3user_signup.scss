@@ -1,0 +1,215 @@
+.mercari_sign_up_container3{
+  background: rgb(245, 245, 245);
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .header{
+    height: 128px;
+    padding-left:348px;
+    &__logo{
+      height: 100px;
+      a{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      height: 100px;
+        img{
+          margin: 40px 0 0;
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    &__progress{
+      width: 700px;
+      position: relative;
+      bottom: 60px;
+      left: 240px;
+      font-weight:bold;
+      &__bars{
+        &__text1{
+          display: inline-block;
+          font-size:12px;
+          color: #888888;
+          margin-right:44px;
+        }
+        &__text2{
+          display: inline-block;
+          font-size:12px;
+          color: #ea352d;
+          margin-right:44px;
+        }
+        &__text3{
+          display: inline-block;
+          font-size:12px;
+          color: #888888;
+          margin-right:37px;
+        }
+        &__text4{
+          display: inline-block;
+          font-size:12px;
+          color: #888888;
+          margin-right:52px;
+        }
+        &__text5{
+          display: inline-block;
+          font-size:12px;
+          color: #888888;
+          margin-right:44px;
+        }
+      }
+      &__bar{
+        margin-left:17px;
+        &__point1{
+          display: inline-block;
+          font-size:25px;
+          color: #ea352d;
+        }
+        &__point2{
+          display: inline-block;
+          font-size:25px;
+          color: #ea352d;
+          position: relative;
+          left: 90px;
+        }
+        &__point3{
+          display: inline-block;
+          font-size:25px;
+          color: #cccccc;
+          position: relative;
+          left: 197px;
+        }
+        &__point4{
+          display: inline-block;
+          font-size:25px;
+          color: #cccccc;
+          position: relative;
+          left: 299px;
+        }
+        &__point5{
+          display: inline-block;
+          font-size:25px;
+          color: #cccccc;
+          position: relative;
+          left: 380px;
+        }
+      }
+      &__line{
+        border-bottom: 3px solid #cccccc;
+        width: 451px;
+        position: relative;
+        bottom: 15px;
+        left: 30px;
+        &__bar1{
+          border-bottom: 3px solid #ea352d;
+          width: 110px;
+          position: relative;
+          bottom: -3px;
+          left: -1px;
+        }
+      }
+    }
+  }
+  .main{
+    width: 700px;
+    margin: 0 auto;
+    background-color:white;
+    &__section{
+      font-size: 22px;
+      padding: 32px;
+      text-align: center;
+      -moz-box-shadow: rgba(146, 179, 187, 0.2) 0px 0px 1px 0px;
+      box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+      font-weight:bold;
+      &__top{
+      }
+    }
+    &__conect{
+      padding: 60px 40px 64px;
+      &__lists{
+        padding-left:160px;
+        &__list{
+          width: 343px;
+          font-size:15px;
+          &__message1{
+            font-weight:bold;
+          }
+          &__phone{
+            .text_field{
+              width: 330px;
+              height: 48px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              padding-left: 10px;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              margin-top: 8px;
+            }
+          }
+          &__message2{
+          }
+          &__btn{
+            margin-top:50px;
+            .submit_btn{
+              width: 343px;
+              height: 50px;
+              padding: 0 30px;
+              background-color: #ea352d;
+              color: white;
+              cursor: pointer;
+              font-size: 14px;
+              border-radius: 3px;
+            }
+          }
+          &__link{
+            margin-top:40px;
+            margin-left:150px;
+            a{
+              color: #0099e8;
+              text-decoration: none;
+              font-size:14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 40px 0px 40px;
+    &__nav{
+      border-style:none;
+      li{
+        display: inline-block;
+        font-size:10px;
+        letter-spacing:2px;
+        a{
+          position: relative;
+          text-decoration: none;
+          top:10px;
+          margin:10px;
+          color:black;
+        }
+        a:hover{
+          color:gray;
+          text-decoration: none;
+        }
+      }
+    }
+    &__logo{
+      width: 85px;
+      height: 80px;
+      margin:auto;
+      margin-top:50px;
+      &__image{
+        width: 85px;
+        height: 80px;
+      }
+      &__text{
+        font-size:3px;
+      }
+    }
+  }
+}
