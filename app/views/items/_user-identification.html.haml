@@ -29,7 +29,7 @@
               = form.label :"郵便番号"
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
               %br
-                = form.text_field :text, name: "zip_code", placeholder: "例）1234567", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
+                = form.text_field :postal_code, name: "postal_code", placeholder: "例）1234567", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
             .mypage__nav__main-contents__mypage-identification__form__group
               %label{for: "prefecture"} 都道府県
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
@@ -41,17 +41,17 @@
               = form.label :"市区町村"
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
               %br
-                = form.text_field :text, name: "city", placeholder: "例) 横浜市緑区", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
+                = form.text_field :city, name: "city", placeholder: "例) 横浜市緑区", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
             .mypage__nav__main-contents__mypage-identification__form__group
               = form.label :"番地"
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
               %br
-                = form.text_field :text, name: "address1", placeholder: "例) 例) 青山1−1−1", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
+                = form.text_field :address, name: "address", placeholder: "例) 例) 青山1−1−1", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
             .mypage__nav__main-contents__mypage-identification__form__group
               = form.label :"市区町村"
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 建物名
               %br
-                = form.text_field :text, name: "address2", placeholder: "例) 例) 柳ビル103", class: "mypage__nav__main-contents__mypage-identification__form__group__box"   
+                = form.text_field :building_name, name: "building_name", placeholder: "例) 例) 柳ビル103", class: "mypage__nav__main-contents__mypage-identification__form__group__box"   
             = form.submit "登録する", class: "mypage__nav__main-contents__mypage-identification__form__btn-red"
             .mypage__nav__main-contents__mypage-identification__form__right-group
               = link_to '/' do
