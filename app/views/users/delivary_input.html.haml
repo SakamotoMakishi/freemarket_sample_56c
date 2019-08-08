@@ -1,0 +1,69 @@
+.mercari_sign_up_container3
+  = render 'users/header-registrations'
+  .main
+    .main__section
+      .main__section__top
+        住所入力
+    .main__conect
+      .main__conect__lists
+        %ul.main__conect__lists__list
+          = form_with url: root_path do |f|
+            %li.main__conect__lists__list__text
+              お名前
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :first_name, placeholder:'例）山田',class: "text_field"
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :last_name, placeholder:'例）彩',class: "text_field"
+            %li.main__conect__lists__list__text
+              お名前カナ
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :first_name_kana, placeholder:'例）ヤマダ',class: "text_field"
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :last_name_kana, placeholder:'例）アヤ',class: "text_field"
+            %li.main__conect__lists__list__text
+              郵便番号
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.select :prefectures ,[["北海道", ""], ["中国", ""],["インド", ""],["埼玉", ""],["ブラジル", ""]],{},class:"select_box"
+              %i.fas.fa-angle-down
+              .far
+                ■
+            %li.main__conect__lists__list__text
+              都道府県
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :prefectures, placeholder:'例) 123-4567',class: "text_field"
+            %li.main__conect__lists__list__text
+              市区町村
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :city, placeholder:'例) 横浜市緑区',class: "text_field"
+            %li.main__conect__lists__list__text
+              番地
+            %li.main__conect__lists__list__required
+              必須
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :address, placeholder:'例) 番地-1-1-1',class: "text_field"
+            %li.main__conect__lists__list__text
+              建物名
+            %li.main__conect__lists__list__any
+              任意
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :building_name, placeholder:'例) 難波skyo',class: "text_field"
+            %li.main__conect__lists__list__text
+              電話番号
+            %li.main__conect__lists__list__any
+              任意
+            %li.main__conect__lists__list__text_erea
+              = f.text_field :phone, placeholder:'例) 090-1234-5678',class: "text_field"
+            %li.main__conect__lists__list__btn
+              = f.button '次へ進む',class: "submit_btn"
+            = link_to '仮','card_input'
+  = render 'users/footer-registrations'

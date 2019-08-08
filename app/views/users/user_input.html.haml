@@ -1,0 +1,42 @@
+.mercari_sign_up_container1
+  = render 'users/header-registrations'
+  .main
+    .main__section
+      .main__section__top
+        会員情報入力
+    .main__conect
+      = form_with url: root_path do |f|
+        .main__conect__lists
+          ニックネーム
+          .main__conect__lists__text
+            必須
+          %br/
+          = f.text_field :nickname,class:'input_box',placeholder:'例）ジェイソンスティサム'
+        .main__conect__lists
+          メールアドレス
+          .main__conect__lists__text
+            必須
+          %br/
+          = f.email_field :email, autocomplete: "email", class:'input_box',placeholder:'PC・携帯どちらでも可'
+        .main__conect__lists
+          パスワード
+          .main__conect__lists__text
+            必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
+        .main__conect__lists
+          パスワード確認
+          .main__conect__lists__text
+            必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
+        .main__conect__lists
+          .main__conect__lists__reCAPTCHA
+        .main__conect__lists__next
+          「次へ進む」のボタンを押すことにより利用規約に同意したものとみなします
+        .actions
+          .actions__btn
+            = f.submit "次へ進む", class: "submit_btn"
+          .actions__link
+            = link_to '本人情報の登録について', 'sms_message', class:'next_link'
+  = render 'users/footer-registrations'

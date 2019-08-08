@@ -1,0 +1,148 @@
+.mercari_sign_up_container{
+  background: rgb(245, 245, 245);
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  padding:100px;
+  .header{
+    height: 128px;
+    text-align: center;
+    &__logo{
+      height: 100px;
+      a{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      height: 100px;
+        img{
+          margin: 40px 0 0;
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+  }
+  .main{
+    width: 700px;
+    margin: 0 auto;
+    background-color:white;
+    &__section{
+      font-size: 22px;
+      font-weight:bold;
+      padding: 32px;
+      text-align: center;
+      -moz-box-shadow: rgba(146, 179, 187, 0.2) 0px 0px 1px 0px;
+      box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+      &__top{
+      }
+    }
+    &__conect{
+      padding:40px 40px 64px;
+      &__lists{
+      li{
+        max-width: 343px;
+        height: 50px;
+        border-radius: 4px;
+        margin: auto;
+        margin-bottom: 16px;
+        width: 343px;
+        font-size:14px;
+        text-align: center;
+        a{
+          float: right;
+          width: 343px;
+          height: 60px;
+          text-decoration: none;
+          color:white;
+        }
+      }
+      &__mail{
+        color: #fff;
+        background-color: #ea352d;
+        width: 100px;
+        &__btn{
+          padding-top:17px;
+        }
+        .far{
+          float: left;
+          padding-left:17px;
+          position: relative;
+          bottom:20px;
+          font-size: 25px;
+        }
+        }
+      &__facebook{
+        margin: 16px 0 0;
+        background: #385185;
+        color: #fff;
+        &__btn{
+          padding-top:17px;
+        }
+        .fab{
+          float: left;
+          padding-left: 17px;
+          position: relative;
+          bottom: 20px;
+          font-size: 25px;
+        }
+      }
+      &__google{
+        border: #979797 solid 1px;
+        color: #333;
+        &__btn{
+          padding-top:17px;
+          color: #333;
+        }
+        &__icon{
+          background-image:url(https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png);
+          background-size:cover;
+          height: 30px;
+          width: 30px;
+          position: relative;
+          bottom:18px;
+          left:10px;
+        }
+      }
+      }
+    }
+  }
+  .footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 40px 0px 40px;
+    background: rgb(245, 245, 245);
+    &__nav{
+      border-style:none;
+      li{
+        display: inline-block;
+        font-size:10px;
+        letter-spacing:2px;
+        a{
+          position: relative;
+          text-decoration: none;
+          top:10px;
+          margin:10px;
+          color:black;
+        }
+        a:hover{
+          color:gray;
+          text-decoration: none;
+        }
+      }
+    }
+    &__logo{
+      width: 85px;
+      height: 80px;
+      margin:auto;
+      margin-top:50px;
+      &__image{
+        width: 85px;
+        height: 80px;
+      }
+      &__text{
+        font-size:3px;
+        color:black;
+      }
+    }
+  }
+}

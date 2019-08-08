@@ -1,0 +1,208 @@
+.mercari_login_container{
+  background: rgb(245, 245, 245);
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .header{
+    height: 128px;
+    text-align: center;
+    &__logo{
+      height: 100px;
+      a{
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      height: 100px;
+        img{
+          margin: 40px 0 0;
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+  }
+  .main{
+    width: 500px;
+    margin: 0 auto;
+    background-color:white;
+    &__section{
+      font-size: 14px;
+      padding: 32px;
+      text-align: center;
+      -moz-box-shadow: rgba(146, 179, 187, 0.2) 0px 0px 1px 0px;
+      box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+      &__top{
+        margin-bottom:10px;
+      }
+    }
+    &__conect{
+      padding:40px 40px 64px;
+      &__lists{
+        &__input{
+          margin-top:100px;
+          .input_box1{
+            width: 330px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding-left: 10px;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 40px;
+          }
+          .input_box2{
+            width: 330px;
+            height: 48px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding-left: 10px;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 50px;
+          }
+        }
+        &__reCAPTCHA{
+          background-image:url(https://i.gyazo.com/655e123782dd5cec89127e1a914e64c8.png);
+          background-size:cover;
+          width: 343px;
+          height: 90px;
+          margin-top: 73px;
+        }
+      li{
+        max-width: 343px;
+        height: 50px;
+        border-radius: 4px;
+        margin: auto;
+        margin-bottom: 16px;
+        width: 343px;
+        font-size:14px;
+        text-align: center;
+        a{
+          float: right;
+          width: 343px;
+          height: 60px;
+          text-decoration: none;
+          color:white;
+        }
+      }
+      &__mail{
+        color: #fff;
+        background-color: #2daeea;
+        width: 100px;
+        &__btn{
+          padding-top:17px;
+        }
+        .far{
+          float: left;
+          padding-left:17px;
+          position: relative;
+          bottom:20px;
+          font-size: 25px;
+        }
+        }
+      &__facebook{
+        margin: 16px 0 0;
+        background: #385185;
+        color: #fff;
+        &__btn{
+          padding-top:17px;
+        }
+        .fab{
+          float: left;
+          padding-left: 17px;
+          position: relative;
+          bottom: 20px;
+          font-size: 25px;
+        }
+      }
+      &__google{
+        border: #979797 solid 1px;
+        color: #333;
+        &__btn{
+          padding-top:17px;
+          color: #333;
+        }
+        &__icon{
+          background-image:url(https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png);
+          background-size:cover;
+          height: 30px;
+          width: 30px;
+          position: relative;
+          bottom:18px;
+          left:10px;
+        }
+      }
+      }
+    }
+    .actions{
+      margin:auto;
+      &__btn{
+        width: 343px;
+        height: 50px;
+        input.submit_btn{
+          width: 343px;
+          height: 50px;
+          padding: 0 30px;
+          background-color: #ea352d;
+          color: white;
+          position: relative;
+          cursor: pointer;
+          font-size: 14px;
+          top: 60px;
+          right: -42px;
+          border-radius: 3px;
+        }
+      }
+      &__link{
+        margin-top: 113px;
+        margin-left: 43px;
+        a{
+          color: #0099e8;
+          text-decoration: none;
+          font-size:14px;
+        }
+      }
+    }
+  }
+  .footer{
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 40px 0px 40px;
+    background: rgb(245, 245, 245);
+    &__nav{
+      border-style:none;
+      li{
+        display: inline-block;
+        font-size:10px;
+        letter-spacing:2px;
+        a{
+          position: relative;
+          text-decoration: none;
+          top:10px;
+          margin:10px;
+          color:black;
+        }
+        a:hover{
+          color:gray;
+          text-decoration: none;
+        }
+      }
+    }
+    &__logo{
+      width: 85px;
+      height: 80px;
+      margin:auto;
+      margin-top:50px;
+      &__image{
+        width: 85px;
+        height: 80px;
+      }
+      &__text{
+        font-size:3px;
+        color:black;
+      }
+    }
+  }
+}

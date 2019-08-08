@@ -1,0 +1,22 @@
+.mercari_sign_up_container5
+  = render 'users/header-registrations'
+  .main
+    .main__section
+      .main__section__top
+        会員登録完了
+    .main__conect
+      .main__conect__message
+        ありがとうございます。
+        %br/
+        会員登録が完了しました。
+      = form_with url: root_path do |f|
+        .main__conect__btn
+          = f.button 'メルカリをはじめる',class: "submit_btn"
+      .main__conect__message
+        ＼スマフォで始めるフリマアプリ／
+      .main__conect__image
+        = link_to 'https://play.google.com/store?hl=ja' do
+          %li.main__conect__image__google
+        = link_to 'https://www.apple.com/jp/' do
+          %li.main__conect__image__apple
+  = render 'users/footer-registrations'
