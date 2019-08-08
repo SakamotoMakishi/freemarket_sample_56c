@@ -1,0 +1,26 @@
+.mercari_sign_up_container2
+  = render 'users/header-registrations'
+  .main
+    .main__section
+      .main__section__top
+        電話番号の確認
+    .main__conect
+      .main__conect__lists
+        %ul.main__conect__lists__list
+          = form_with url: root_path do |f|
+            %li.main__conect__lists__list__message1
+              携帯電話の番号
+            %li.main__conect__lists__list__phone
+              = f.text_field :phone, placeholder:'携帯電話の番号を入力',class: "text_field"
+            %br/
+            %li.main__conect__lists__list__message2
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            %br/
+            %li.main__conect__lists__list__btn
+              = f.button 'SMSを送信する',class: "submit_btn"
+            %br/
+            %li
+              ＊電話番号は本人確認や不正利用防止のために利用します。他のユーザに公開されることはありません。
+            %li.main__conect__lists__list__link
+              = link_to '電話番号の確認が必要な理由','delivary_input'
+  = render 'users/footer-registrations'
