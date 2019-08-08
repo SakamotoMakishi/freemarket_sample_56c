@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   resources :items
   resources :categories, only: :show
   resources :brands, only: :show
+
+  get 'users/signup_page' => 'users/signup_page'
+  get 'users/user_input' => 'users/user_input'
+  get 'users/sms_message' => 'users/sms_message'
+  get 'users/delivary_input' => 'users/delivary_input'
+  get 'users/card_input' => 'users/card_input'
+  get 'users/complete_page' => 'users/complete_page'
 end
