@@ -77,8 +77,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_083407) do
     t.string "delivary_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_delivaries_on_item_id"
+    t.integer "item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -111,7 +110,4 @@ ActiveRecord::Schema.define(version: 2019_08_07_083407) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "delivaries", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
 end

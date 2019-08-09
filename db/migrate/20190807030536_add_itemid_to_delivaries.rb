@@ -1,5 +1,5 @@
 class AddItemidToDelivaries < ActiveRecord::Migration[5.2]
   def change
-    add_reference :delivaries, :item, foreign_key: true
+    add_column :delivaries, :item_id, :integer
   end
 end
