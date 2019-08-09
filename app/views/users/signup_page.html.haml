@@ -1,5 +1,5 @@
 .mercari_sign_up_container
-  = render 'users/header-logo'
+  = render 'layouts/header-logo'
   .main
     .main__section
       .main__section__top
@@ -7,7 +7,7 @@
     .main__conect
       %ul.main__conect__lists
         %li.main__conect__lists__mail
-          = link_to 'user_input' do
+          = link_to 'sign_up' do
             .main__conect__lists__mail__btn
               メールアドレスで登録する
             %i.far.fa-envelope
@@ -21,4 +21,8 @@
             .main__conect__lists__google__btn
               Googleで登録する
             .main__conect__lists__google__icon
-  = render 'users/footer-registrations'
+  = render 'layouts/footer-registrations'
+  - if user_signed_in?
+    = current_user.nickname
+    = link_to "Logout", destroy_user_session_path, method: :delete
+  - else

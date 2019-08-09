@@ -1,0 +1,51 @@
+%header
+  .header__inner
+    .header__inner__top
+      .header__inner__top__logo
+        =link_to "/" do
+          = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983', alt: 'mercari', height: '36', width: '134'
+      %form.header__inner__top__form
+        %input.header__inner__top__form__input{name:"keyword", value:"", placeholder:"何かお探しですか？"} 
+        %i.fa.fa-search
+    .header__inner__main
+      .header__inner__main__left
+        %nav.header__inner__main__left__nav
+          %ul.header__inner__main__left__nav__item
+            %li
+              %h2
+                =link_to "/" do
+                  %i.fa.fa-list-ul
+                %span
+                  =link_to "カテゴリーから探す","/"
+            %li
+              %h2
+                =link_to "/" do
+                  %i.fa.fa-tag
+                %span
+                  =link_to "ブランドから探す","/"
+      .header__inner__main__right
+        - if user_signed_in?
+          %nav.header__inner__main__right__nav
+            %ul.header__inner__main__right__nav__user
+              %li.header__inner__main__right__nav__user__like
+                =link_to "/" do
+                  %i.fa.fa-heart
+                  %span いいね！一覧
+              %li.header__inner__main__right__nav__user__notification
+                =link_to "/" do
+                  %i.fa.fa-bell
+                  %span お知らせ
+              %li.header__inner__main__right__nav__user__todo
+                =link_to "/" do
+                  %i.fa.fa-check
+                  %span やることリスト
+              %li.header__inner__main__right__nav__user__mypage
+                =link_to "users/show" do
+                  = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', alt: '', width: '32'
+                  %span マイページ
+        - else
+          .header__inner__main__btn
+            .header__inner__main__btn__signup
+              =link_to '新規会員登録','users/signup_page',class: 'btn_red'
+            .header__inner__main__btn__login
+              =link_to 'ログイン',"users/sign_in",class: 'btn_blue'

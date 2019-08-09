@@ -1,5 +1,5 @@
 .mercari_login_container
-  = render 'users/header-logo'
+  = render 'layouts/header-logo'
   .main
     .main__section
       .main__section__top
@@ -33,4 +33,4 @@
               = f.submit 'ログイン', class: "submit_btn"
             .actions__link
               = link_to "パスワードお忘れの方",'signup_page',class:'next_link'
-  = render 'users/footer-registrations'
+  = render 'layouts/footer-registrations'
