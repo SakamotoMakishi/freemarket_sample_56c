@@ -1,0 +1,54 @@
+.mercari_sign_up_container
+  = render 'users/header-logo'
+  .main
+    .main__section
+      .main__section__top
+        購入内容の確認
+    .main__buy-content
+      .main__buy-content__inner
+        %h3.main__buy-content__inner__buy-item-image
+          = image_tag "https://kohacu.com/wp-content/uploads/2018/04/kohacu.com_001111_20180428-300x300.png"
+        %p.main__buy-content__inner__buy-item-name.bold ワンピース
+        %form.main__buy-content__inner__buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m74012491239/", :method => "POST", :novalidate => "novalidate"}
+          %p.main__buy-content__inner__buy-form__buy-price.bold
+            ¥ 1,200
+            %span.main__buy-content__inner__buy-form__buy-price__item-shipping-fee 送料込み
+          %ul.main__buy-content__inner__buy-form__point
+            %li.main__buy-content__inner__buy-form__point__accordion-parent
+              .main__buy-content__inner__buy-form__point__accordion-parent__accordion-toggle
+                ポイントはありません
+          %ul.main__buy-content__inner__buy-form__buy-price-table
+            %li.main__buy-content__inner__buy-form__buy-price-table__buy-price-row.bold
+              .main__buy-content__inner__buy-form__buy-price-table__buy-price-row__left-cell 支払い金額
+              .main__buy-content__inner__buy-form__buy-price-table__buy-price-row__right-cell ¥ 1,200
+          %button.main__buy-content__inner__buy-form__btn{:type => "submit"} 購入する
+      .main__buy-content__buy-content
+        .main__buy-content__buy-content__user-inner
+          %h3 配送先
+          %address.main__buy-content__buy-content__user-inner__buy-user-text
+            〒111-1111
+            %br/
+            大阪府 大阪市西区
+            新町1-1-1
+            hogehogeマンション101
+            %br/
+            ほげ ほげお
+          %p.main__buy-content__buy-content__user-inner__buy-user-text
+          = link_to'/', class: 'main__buy-content__buy-content__user-inner__buy-user-fix' do
+            %span 変更する
+            %i.fa.fa-chevron-right
+      %section.main__buy-content__buy-content{"data-buy" => "pay-method"}
+        .main__buy-content__buy-content__buy-inner
+          %h3 支払い方法
+          %p.main__buy-content__buy-content__buy-inner__buy-user-card-text
+            ************1111
+            %br/
+            04 / 22
+          %figure
+            = image_tag 'http://logo-sozai.com/data/img/h0002.png'
+            
+          %p
+          = link_to'/', class: 'main__buy-content__buy-content__buy-inner__buy-user-fix' do
+            %span 変更する
+            %i.fa.fa-chevron-right
+  = render 'users/footer-registrations'
