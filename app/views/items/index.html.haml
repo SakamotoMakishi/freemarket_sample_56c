@@ -43,18 +43,7 @@
       %h3.pickup__text
         = link_to "/" do
           レディース 新着アイテム
-      - @women_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @women_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
@@ -63,18 +52,7 @@
       %h3.pickup__text
         = link_to "/" do
           メンズ 新着アイテム
-      - @men_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @men_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
@@ -83,18 +61,7 @@
       %h3.pickup__text
         = link_to "/" do
           ベビー・キッズ 新着アイテム
-      - @child_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @child_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
@@ -107,18 +74,7 @@
       %h3.pickup__text
         = link_to "/" do
           シャネル 新着アイテム
-      - @women_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @chanel_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
@@ -127,18 +83,7 @@
       %h3.pickup__text
         = link_to "/" do
           ルイ ヴィトン 新着アイテム
-      - @men_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @vuitton_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
@@ -147,18 +92,7 @@
       %h3.pickup__text
         = link_to "/" do
           ナイキ 新着アイテム
-      - @child_items.each do |item|
-        .pickup__contents.clearfix
-          .pickup__box
-            = link_to item_path(item) do
-              .pickup__photo
-                = image_tag (item.images.first), class: "img-width"
-              .pickup__body
-                %h3.items-name 
-                  = item.name
-                .items-box
-                  .items-price 
-                    = "¥ #{item.price}"
+      =render 'picup_content',{ items: @nike_items }
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
