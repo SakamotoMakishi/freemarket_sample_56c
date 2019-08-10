@@ -2,11 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
-  resources :items
+  
   resources :categories, only: :show
   resources :brands, only: :show
 
 
+  
+  resources :items do
+    collection  do
+      get 'buy'
+    end
+  end
+  
   resources :users do
     collection  do
       get 'signup_page'
@@ -16,6 +23,8 @@ Rails.application.routes.draw do
       get 'card_input'
       get 'complete_page'
       get 'signout'
+      get 'profile'
+      get 'identification'
     end
   end
 end
