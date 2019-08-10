@@ -46,7 +46,7 @@
       - @women_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
@@ -66,7 +66,7 @@
       - @men_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
@@ -86,7 +86,7 @@
       - @child_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
@@ -110,7 +110,7 @@
       - @women_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
@@ -130,7 +130,7 @@
       - @men_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
@@ -150,7 +150,7 @@
       - @child_items.each do |item|
         .pickup__contents.clearfix
           .pickup__box
-            = link_to "/items/#{item.id}" do
+            = link_to item_path(item) do
               .pickup__photo
                 = image_tag (item.images.first), class: "img-width"
               .pickup__body
