@@ -1,0 +1,12 @@
+- items.each do |item|
+  .pickup__contents.clearfix
+    .pickup__box
+      = link_to item_path(item) do
+        .pickup__photo
+          = image_tag (item.images.first), class: "img-width"
+        .pickup__body
+          %h3.items-name 
+            = item.name
+          .items-box
+            .items-price 
+              = "¥ #{item.price}"
