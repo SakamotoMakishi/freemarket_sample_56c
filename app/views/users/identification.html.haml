@@ -1,7 +1,8 @@
+=render 'layouts/header'
 .mypage
   .mypage__nav
     .mypage__nav__side-bar
-      = render 'mypage-sidebar'
+      = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .mypage__nav__main-contents__mypage-identification
         %h2.mypage__nav__main-contents__mypage-identification__head 本人情報の登録
@@ -18,7 +19,8 @@
                   %i.fa.fa-angle-right
             .mypage__nav__main-contents__mypage-identification__form__group
               %label お名前
-              %p hoge
+              %p 
+                = current_user.nickname
             .mypage__nav__main-contents__mypage-identification__form__group
               %label お名前カナ
               %p ホゲ
