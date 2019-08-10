@@ -1,0 +1,28 @@
+= render 'layouts/header'
+.mypage
+  .mypage__nav
+    .mypage__nav__side-bar
+      = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .card_page_menu
+        .card_add_to
+          .card_add_to__form-top
+            支払い方法
+          .main
+            .main__conect
+              .main__conect__lists
+                %ul.main__conect__lists
+                  %li.main__conect__lists__text
+                    クレジットカード一覧
+                  %li.main__conect__lists__link
+                    = link_to '/' ,class: 'card_link'do
+                      .main__conect__lists__link__text
+                        クレジットカードを追加する
+                      %i.far.fa-credit-card
+                  %li.main__conect__lists__border
+                  %li.main__conect__lists__message
+                    = link_to '支払い方法について','/',class: 'message'
+  .banner
+    = render "layouts/banner"
+  .footer
+    = render "layouts/footer"

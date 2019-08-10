@@ -1,0 +1,54 @@
+= render 'layouts/header'
+.mypage
+  .mypage__nav
+    .mypage__nav__side-bar
+      = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .credit-card
+        .credit-card__form-top
+          クレジットカード情報入力
+        .main
+          .main__conect
+            .main__conect__lists
+              %ul.main__conect__lists__list
+                = form_with url: root_path do |f|
+                  %li.main__conect__lists__list__text
+                    カード番号
+                  %li.main__conect__lists__list__required
+                    必須
+                  %li.main__conect__lists__list__image
+                  %li.main__conect__lists__list__text_area
+                    = f.text_field :number, placeholder:'半角数字のみ',class: "text_field"
+                  %ul.main__conect__lists__list__expiration
+                    %li.main__conect__lists__list__expiration__text
+                      有効期限
+                    %li.main__conect__lists__list__expiration__required
+                      必須
+                    %li.main__conect__lists__list__expiration__select_box
+                      = f.select :month ,[["１月", ""], ["２月", ""],["３月", ""],["４月", ""],["５月", ""]],{},class:"select_box"
+                      %i.fas.fa-angle-down
+                      .far
+                        ■
+                    %li.main__conect__lists__list__expiration__select_box
+                      = f.select :year ,[["2010", ""], ["2020", ""],["2030", ""],["2040", ""],["2050", ""]],{},class:"select_box"
+                      %i.fas.fa-angle-down
+                      .far
+                        ■
+                  %li.main__conect__lists__list__data
+                    月
+                  %li.main__conect__lists__list__data
+                    年
+                  %li.main__conect__lists__list__text
+                    セキュリティコード
+                  %li.main__conect__lists__list__required
+                    必須
+                  %li.main__conect__lists__list__text_area
+                    = f.text_field :number, placeholder:'カード背面4桁もしくは3桁の番号',class: "text_field"
+                  %li.main__conect__lists__list__link
+                    = link_to 'カード裏面の番号とは？','complete_page'
+                  %li.main__conect__lists__list__btn
+                    = f.button '追加する',class: "submit_btn"
+.banner
+  = render "layouts/banner"
+.footer
+  = render "layouts/footer"

@@ -1,0 +1,163 @@
+.credit-card{
+  width: 712px;
+  height:700px;
+  background-color:white;
+  display: inline-block;
+  float: right;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-weight:bold;
+  &__form-top{
+    text-align: center;
+    font-size:24px;
+    padding:30px;
+    box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+  }
+  .main{
+    &__conect{
+      padding: 0px 40px 64px;
+      &__lists{
+        padding-left:155px;
+        padding-top:30px;
+        &__list{
+          width: 343px;
+          font-size:15px;
+          &__text{
+            font-weight:bold;
+            padding-top:3px;
+            float:left;
+          }
+          &__required{
+            background: #ea352d;
+            font-size:13px;
+            width: 27px;
+            color:white;
+            padding:3px;
+            border-radius:3px;
+            float:left;
+            margin-left:10px;
+          }
+          &__any{
+            background: #888888;
+            font-size:13px;
+            width: 27px;
+            color:white;
+            padding:3px;
+            border-radius:3px;
+            float:left;
+            margin-left:10px;
+            margin-top:30px;
+          }
+          &__text_area{
+            float: left;
+            .text_field{
+              width: 330px;
+              height: 38px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              padding-left: 10px;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              margin-top: 8px;
+            }
+          }
+          &__expiration{
+            width: 100%;
+            margin-top:100px;
+            margin-bottom:5px;
+            position: relative;
+            bottom:10px;
+            &__text{
+              font-weight:bold;
+              padding-top:3px;
+              float:left;
+              margin-top:50px;
+            }
+            &__required{
+              background: #ea352d;
+              font-size:13px;
+              width: 27px;
+              color:white;
+              padding:3px;
+              border-radius:3px;
+              margin-left:10px;
+              margin-top:50px;
+              float: left;
+            }
+            &__select_box{
+              .select_box{
+                width: 100px;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                padding-left: 10px;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                margin-top: 8px;
+                cursor: pointer;
+                position: relative;
+                top: 88px;
+                left: -102px;
+              }
+              .fas{
+                font-size: 25px;
+                position: relative;
+                color: #888888;
+                top: 108px;
+                left: -259px;
+                float: right;
+                cursor: pointer;
+              }
+              .far{
+                color: white;
+                position: relative;
+                top: 90px;
+                right: 125px;
+                font-size: 20px;
+              }
+            }
+          }
+          &__data{
+            position: relative;
+            bottom: 15px;
+            left: 125px;
+            font-size: 16px;
+            padding-bottom: 41px;
+            color: #888888;
+          }
+          &__link{
+            margin-top: 84px;
+            margin-left: 206px;
+            width: 100%;
+            a{
+              color: #0099e8;
+              text-decoration: none;
+              font-size:14px;
+            }
+          }
+          &__image{
+            background-image:url(https://i.gyazo.com/b4b10305c78ac96c9bdc71a856fa9d2c.png);
+            background-size:cover;
+            background-position: 50% 50%;
+            widht:300px;
+            height: 25px;
+            position: relative;
+            top:104px;
+          }
+            .submit_btn{
+              width: 357px;
+              height: 50px;
+              padding: 0 30px;
+              background-color: #ea352d;
+              color: white;
+              cursor: pointer;
+              font-size: 14px;
+              border-radius: 4px;
+              margin-top:50px;
+          }
+        }
+      }
+    }
+  }
+}

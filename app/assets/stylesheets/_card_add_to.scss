@@ -1,0 +1,79 @@
+.card_page_menu{
+  .card_add_to{
+    width: 712px;
+    height:400px;
+    background-color:white;
+    display: inline-block;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    &__form-top{
+      text-align: center;
+      font-size:24px;
+      font-weight:bold;
+      padding:30px;
+      box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+    }
+    .main{
+      &__conect{
+        padding:40px 40px 64px;
+        &__lists{
+          li{
+            height: 50px;
+            margin: auto;
+            font-size:14px;
+            text-align: center;
+            .card_link{
+              float: right;
+              width: 343px;
+              height: 30px;
+              text-decoration: none;
+              color:white;
+              padding: 17px 0px 10px;
+              border-radius:4px;
+            }
+          }
+          &__text{
+            padding-right:200px;
+            padding-top:10px;
+            font-weight:bold;
+          }
+          &__link{
+            background-color: #ea352d;
+            border-radius: 4px;
+            width: 343px;
+            &__text{
+            }
+            &__btn{
+              padding-top:17px;
+            }
+            .far{
+              float: left;
+              padding-left:45px;
+              position: relative;
+              bottom:16px;
+              font-size: 20px;
+            }
+          }
+          &__link:hover{
+            background-color: #f7564d;
+            transition: 0.5s;
+            border-radius: 4px;
+          }
+          &__border{
+            border-bottom: 1px solid #d3d1d171;
+            width: 600px;
+          }
+          &__message{
+            float: right;
+            padding-top: 30px;
+            padding-right: 15px;
+            color:white;
+            .message{
+              color:#0099e8;
+              text-decoration:none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
