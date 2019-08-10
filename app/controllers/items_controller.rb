@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   protect_from_forgery 
   def index
-    # @women＿items = Category.find(1).items
-    # @men＿items = Category.find(2).items
-    # @child＿items = Category.find(3).items
-    # @chanel＿items = Brand.find(1).items
-    # @mvuitton＿items = Brand.find(2).items
-    # @nike＿items = Brand.find(3).items
+    @women_items = Item.order("id DESC").limit(4)
+    @men_items = Item.order("id DESC").limit(4)
+    @child_items = Item.order("id DESC").limit(4)
+    @chanel_items = Item.order("id DESC").limit(4)
+    @vuitton_items = Item.order("id DESC").limit(4)
+    @nike_items = Item.order("id DESC").limit(4)
   end
 
   def new
