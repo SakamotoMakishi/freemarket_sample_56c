@@ -1,0 +1,253 @@
+.item-details-container
+  =render 'layouts/header'
+
+  %section.item-details
+  
+    %h1.item-details__name item-name
+    .item-details__main
+      .item-details__photo
+        .item-details__photo__main
+          .item-details__photo__main__outer
+            .item-details__photo__main__outer__stage{style: "left: 0px; width: 1500px;"}
+              .item-details__photo__main__outer__stage__item{style: "width: 300px;"}
+                .item-details__photo__main__outer__stage__item__inner
+                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129', alt: '花びらアイレットワンピース ブラック', class: 'item-details-outer-image', style:"opacity: 1;"
+
+          .item-details__photo__main__dots
+            .item-details__photo__main__dots__dot
+              %span
+              .item-details__photo__main__dots__dot__inner
+                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+            .item-details__photo__main__dots__dot
+              %span
+              .item-details__photo__main__dots__dot__inner
+                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+            .item-details__photo__main__dots__dot
+              %span
+              .item-details__photo__main__dots__dot__inner
+                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+            .item-details__photo__main__dots__dot
+              %span
+              .item-details__photo__main__dots__dot__inner
+                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+            .item-details__photo__main__dots__dot
+              %span
+              .item-details__photo__main__dots__dot__inner
+                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+
+      %table.item-details__main__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              =link_to "item-user-name", "https://www.mercari.com/jp/u/933971091/"
+              %div
+                .item-details__main__table__ratings
+                  %i.fas.fa-laugh
+                  %span 100
+                .item-details__main__table__ratings
+                  %i.fas.fa-meh
+                  %span 10
+                .item-details__main__table__ratings
+                  %i.fas.fa-frown-open
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              =link_to "https://www.mercari.com/jp/category/1/" do
+                %div category-name1
+              =link_to "https://www.mercari.com/jp/category/15/" do
+                %div.item-details__main__table__category__sub
+                  %i.fas.fa-angle-right category-name2
+              =link_to "https://www.mercari.com/jp/category/173/" do
+                %div.item-details__main__table__category__sub__sub
+                  %i.fas.fa-angle-right category-name3
+          %tr
+            %th ブランド
+            %td brand-id-name
+          %tr
+            %th 商品のサイズ
+            %td
+          %tr
+            %th 商品の状態
+            %td item-status
+          %tr
+            %th 配送料の負担
+            %td delivary-price
+          %tr
+            %th 配送の方法
+            %td
+          %tr
+            %th 配送元地域
+            %td
+              =link_to "delivary-area", "/"
+          %tr
+            %th 発送日の目安
+            %td derivary-day
+
+    .item-details__price-box
+      %span.item-details__price-box__price ¥1,000,000
+      %span.item-details__price-box__tax (税込)
+      %span.item-details__price-box__fee 送料込み
+
+    =link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m30752012921/?_s=U2FsdGVkX1-h3_l9pfk7YiafMqbKWOLV7eReyQtFEE65v9Z_6Rp5rrUWj_CL2ttxblNbd0LngQ_oRCJ4IFts40V2G5IrgXQ3rqYZlfjONZFJ84gfsIcfL-V2ANCtTERH", id:"item-details-buy-btn"
+          
+    .item-details__description
+      %p.item-details__description__inner アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト
+
+    .item-details__buttons
+      .item-details__buttons__left
+        %button.item-details__buttons__left__like{type:"button"}
+          %i.far.fa-heart
+          %span いいね!
+          %span 0
+
+        =link_to "/",{id:"item-details-buttons-left-report"} do
+          %i.far.fa-flag
+          %span 不適切な商品の報告
+
+      .item-details__buttons__right
+        =link_to "https://www.mercari.com/jp/safe/description/", target:"_blank" do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+  
+
+  %ul.item-details-nav-link
+    %li.item-details-nav-link__prev
+      =link_to "https://item.mercari.com/jp/m99078939100/" do
+        %i.fas.fa-angle-left
+        【値下げ】【新品未使用】ATTENTION刺繍入り黄色トップス ブラウス
+    %li.item-details-nav-link__next
+      =link_to "https://item.mercari.com/jp/m13768809092/" do
+        ワンピース
+        %i.fas.fa-angle-right
+
+
+  .item-details-media
+    .item-details-media__text
+    %ul.item-details-media__box
+      %li
+        =link_to "/", class:"share-btn" do
+          %i.fab.fa-facebook-square
+      %li
+        =link_to "/", class:"share-btn" do
+          %i.fab.fa-twitter-square
+      %li
+        =link_to "/", class:"share-btn" do
+          %i.fab.fa-pinterest-square
+
+  .items-details-profile
+    %section.items-details-profile__user
+      %h2.items-details-profile__user__head
+        =link_to "ユーザーのその他の出品","https://www.mercari.com/jp/u/145861833/" 
+      
+      .items-details-profile__user__content
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+
+  .items-details-profile
+    %section.items-details-profile__user
+      %h2.items-details-profile__user__head
+        =link_to "関連商品その他の出品","https://www.mercari.com/jp/u/145861833/" 
+      
+      .items-details-profile__user__content
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+        %section.items-details-profile__user__content__box
+          =link_to "https://item.mercari.com/jp/m38518419292/" do
+            %figure.items-details-profile__user__content__box__photo
+              =image_tag "https://static.mercdn.net/thumb/photos/m38518419292_1.jpg?1565255193",  alt:"ジャージ風 プリーツワイドパンツ", id:"items-details-lazyloaded"
+            .items-details-profile__user__content__box__body
+              %h3.items-details-profile__user__content__box__body__name ジャージ風 プリーツワイドパンツ
+              .items-details-profile__user__content__box__body__num
+                .items-details-profile__user__content__box__body__num__price ¥ 3,000
+
+
+.banner
+  = render "layouts/banner"
+.footer
+  = render "layouts/footer"
