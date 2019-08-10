@@ -53,8 +53,10 @@
                   .serlect-default
                     = form.select :category_id, [['---', ""],['Tシャツ', 7],['パーカー', 8],['ニット', 9]],{class: ""}
                 .select-wrap
-                  .select-default
-                    = form.text_area :brand_id, placeholder: "例) シャネル", class: "input-default"
+                %label
+                  ブランド
+                  %span.form-any 任意
+                  = form.text_area :brand_id, placeholder: "例) シャネル", class: "input-brand"
             .sell__group__box__sutetas
               %label
                 商品の状態
@@ -94,28 +96,28 @@
                   .serlect-default
                     %i.fa.fa-angle-down
                     = delivary.select :delivary_day, [['---', ""], ['1~2日で発送',1],['2~3日で発送', 2],['4~7日で発送', 3]]
-          .sell__group.clearfix
-        = form.fields_for :item do |item|
-          %h3.sell__group__head 販売価格(300〜9,999,999)
-          .sell__group__question
-            = link_to '?','/'
-          .sell__group__box
-            %ul.sell__price
-              %li.sell__price__form
-                価格
-                %span.form-require 必須
-                .sell__price__form__right
-                  ¥
-                  = item.text_field :price, placeholder:  "例）300", class: "input-price"
-              %li.sell__price__text
-                .li-left
-                  販売手数料 (10%)
-                .li-right -
-              %li.sell__price__bold
-                .li-left 販売利益
-                .li-right -
-          .modal
-            .modal-inner
+        .sell__group.clearfix
+          = form.fields_for :item do |item|
+            %h3.sell__group__head 販売価格(300〜9,999,999)
+            .sell__group__question
+              = link_to '?','/'
+            .sell__group__box
+              %ul.sell__price
+                %li.sell__price__form
+                  価格
+                  %span.form-require 必須
+                  .sell__price__form__right
+                    ¥
+                    = item.text_field :price, placeholder:  "例）300", class: "input-price"
+                %li.sell__price__text
+                  .li-left
+                    販売手数料 (10%)
+                  .li-right -
+                %li.sell__price__bold
+                  .li-left 販売利益
+                  .li-right -
+        .modal
+          .modal-inner
           .sell__btn__box
             .sell__btn__box__info
               %p
@@ -131,10 +133,12 @@
                 また、出品をもちまして
               = link_to '加盟店規約', '/'
               %nobr に同意したことになります。
-            .sell__btn__box__default.btn-red
-              出品する
-              = form.submit class: "btn-red", style: ""
-            %a.sell__btn__box__default__gray.btn-gray もどる
+            %label(for="data-submit")
+              = form.submit class: "sell__btn__box__default btn-red", id: 'data-submit',type: "submit", style: "display:none;"
+              .submit-text
+                出品する
+            %a
+              =link_to 'もどる', '/', {class: "sell__btn__box__default__gray"}
   .single__footer
     %ul.single__footer__text
       %li
