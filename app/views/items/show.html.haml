@@ -3,7 +3,8 @@
 
   %section.item-details
   
-    %h1.item-details__name item-name
+    %h1.item-details__name 
+      = "#{@item.name}"
     .item-details__main
       .item-details__photo
         .item-details__photo__main
@@ -11,13 +12,12 @@
             .item-details__photo__main__outer__stage{style: "left: 0px; width: 1500px;"}
               .item-details__photo__main__outer__stage__item{style: "width: 300px;"}
                 .item-details__photo__main__outer__stage__item__inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129', alt: '花びらアイレットワンピース ブラック', class: 'item-details-outer-image', style:"opacity: 1;"
-
+                  = image_tag @item.images.first , class: 'item-details-outer-image', style:"opacity: 1;"
           .item-details__photo__main__dots
             .item-details__photo__main__dots__dot
               %span
               .item-details__photo__main__dots__dot__inner
-                =image_tag 'https://static.mercdn.net/item/detail/orig/photos/m30752012921_1.jpg?1565083129',class: 'item-details-dot-image'
+                =image_tag = image_tag @item.images.last ,class: 'item-details-dot-image'
             .item-details__photo__main__dots__dot
               %span
               .item-details__photo__main__dots__dot__inner
@@ -40,7 +40,7 @@
           %tr
             %th 出品者
             %td
-              =link_to "item-user-name", "https://www.mercari.com/jp/u/933971091/"
+              =link_to @item.seller_name
               %div
                 .item-details__main__table__ratings
                   %i.fas.fa-laugh
@@ -86,15 +86,16 @@
             %td derivary-day
 
     .item-details__price-box
-      %span.item-details__price-box__price ¥1,000,000
+      %span.item-details__price-box__price
+        = "#{@item.price}"
       %span.item-details__price-box__tax (税込)
       %span.item-details__price-box__fee 送料込み
 
     =link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m30752012921/?_s=U2FsdGVkX1-h3_l9pfk7YiafMqbKWOLV7eReyQtFEE65v9Z_6Rp5rrUWj_CL2ttxblNbd0LngQ_oRCJ4IFts40V2G5IrgXQ3rqYZlfjONZFJ84gfsIcfL-V2ANCtTERH", id:"item-details-buy-btn"
           
     .item-details__description
-      %p.item-details__description__inner アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト アイテムテキスト
-
+      %p.item-details__description__inner
+        = "#{@item.text}"
     .item-details__buttons
       .item-details__buttons__left
         %button.item-details__buttons__left__like{type:"button"}
