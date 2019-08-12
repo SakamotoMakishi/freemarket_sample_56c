@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       get 'user_input'
       get 'sms_message'
       get 'delivary_input'
-      get 'card_input'
       get 'complete_page'
       get 'signout'
       get 'profile'

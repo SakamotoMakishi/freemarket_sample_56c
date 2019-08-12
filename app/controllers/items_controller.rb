@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @chanel_items = Item.order("id DESC").limit(4)
     @vuitton_items = Item.order("id DESC").limit(4)
     @nike_items = Item.order("id DESC").limit(4)
+    
   end
 
   def new
@@ -22,6 +23,8 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
+    @user = Item.find(params[:id]).seller
+    @user_item = Item.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def edit
@@ -35,7 +38,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id,seller_name: current_user.nickname)
+    params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
   end
 
   def delivary_params
