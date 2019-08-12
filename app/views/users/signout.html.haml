@@ -1,3 +1,6 @@
+=render 'layouts/header'
+- breadcrumb :logout
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
     .mypage__nav__side-bar
@@ -6,7 +9,7 @@
       .mypage__nav__main-contents__single-inner
         .mypage__nav__main-contents__single-inner__button
           = link_to "ログアウト", "/users/sign_out", method: :delete, class: "mypage__nav__main-contents__single-inner__button__text"
-
-
-
-
+.banner
+  = render "layouts/banner"
+.footer
+  = render "layouts/footer"
