@@ -4,8 +4,12 @@ class AddressInputsController < ApplicationController
   end
 
   def create
-    @address_inputs = AddressInput.create(address_input_params)
-      redirect_to new_card_path
+    @address_inputs = AddressInput.new(address_input_params)
+      if @address_inputs.save
+        redirect_to new_card_path
+      else
+        render :new
+      end
   end
 
   private
