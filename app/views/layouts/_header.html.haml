@@ -40,7 +40,7 @@
                   %i.fa.fa-check
                   %span やることリスト
               %li.header__inner__main__right__nav__user__mypage
-                =link_to "users/show" do
+                =link_to "/users/#{current_user.id}" do
                   = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', alt: '', width: '32'
                   %span マイページ
         - else
