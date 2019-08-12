@@ -135,6 +135,23 @@
         margin-top:5px;
         line-height:28px;
       }
+      &__btn {
+        display: block;
+        width: 357px;
+        height: 50px;
+        margin: 50px auto;
+        background-color: #ea352d;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 4px;
+        a{
+          color: white;
+          text-decoration: none;
+          width: 357px;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
       &__image{
         background-image: url(http://is1.mzstatic.com/image/thumb/Purple111/v4/7b/72/a8/7b72a84f-1bd9-f5c7-519e-7de967bbba7e/source/512x512bb.jpg);
         background-size: cover;
@@ -187,18 +204,6 @@
         }
       }
     }
-  }
-  .submit_btn{
-    width: 357px;
-    height: 50px;
-    padding: 0 30px;
-    background-color: #ea352d;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 4px;
-    margin-top:50px;
-    margin-bottom:50px;
   }
   .footer{
     width: 456px;
