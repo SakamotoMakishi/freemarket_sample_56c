@@ -161,11 +161,11 @@
   width: 60px;
   height:60px;
   opacity: .4;
-  // position: absolute;
-  // bottom:0px;
-  // left:0px;
-  // transition: all 0.7s;
-  // z-index: 5;
+  position: absolute;
+  bottom:0px;
+  left:0px;
+  transition: all 0.7s;
+  z-index: 5;
 }
 .item-details-dot-image1:hover{
   width: 300px;
