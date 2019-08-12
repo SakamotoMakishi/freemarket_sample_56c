@@ -83,6 +83,7 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :brand
 - has_one :delivery
+- has_many_attached :images
 
 
 
@@ -114,10 +115,10 @@ Things you may want to cover:
 
 |Column           |Type    |Options                         |
 |-----------------|--------|--------------------------------|
-|price            |integer |null: false                     |
+|price            |string  |null: false                     |
 |area             |string  |null: false                     |
 |delivary_day     |integer |null: false                     |
-|item_id          |integer |null: false ,foreign_key: true  |
+|item_id          |integer |null: false                     |
 
 ### Association
 - has_one :item
@@ -130,7 +131,6 @@ Things you may want to cover:
 |-----------------|--------|--------------------------------|
 |user_id          |integer |null: false ,foreign_key: true  |
 |customer_id      |string  |null: false                     |
-|card_id          |string  |null: false                     |
 
 ### Association
 - has_one :user
