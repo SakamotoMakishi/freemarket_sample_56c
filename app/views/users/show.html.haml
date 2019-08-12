@@ -3,8 +3,7 @@
 = render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
-    .mypage__nav__side-bar
-      = render 'layouts/mypage-sidebar'
+    = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .mypage__nav__main-contents__user-icon
         = link_to "/" do
@@ -39,9 +38,7 @@
         %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
           %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show 取引中の商品がありません
           %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list 過去の取引はありません
-.banner
-  = render "layouts/banner"
-.footer
-  = render "layouts/footer"
+= render "layouts/banner"
+= render "layouts/footer"
 
 

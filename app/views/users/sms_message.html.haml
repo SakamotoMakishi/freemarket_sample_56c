@@ -17,10 +17,11 @@
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             %br/
             %li.main__conect__lists__list__btn
-              = f.button 'SMSを送信する',class: "submit_btn"
+              = link_to "SMSを送信する", new_address_input_path
             %br/
             %li
               ＊電話番号は本人確認や不正利用防止のために利用します。他のユーザに公開されることはありません。
             %li.main__conect__lists__list__link
-              = link_to '電話番号の確認が必要な理由','delivary_input'
+              = link_to '電話番号の確認が必要な理由', "/"
+              %i.fa.fa-angle-right
   = render 'layouts/footer-registrations'
