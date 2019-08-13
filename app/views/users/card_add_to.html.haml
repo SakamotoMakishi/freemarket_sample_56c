@@ -1,8 +1,9 @@
 = render 'layouts/header'
+- breadcrumb :card
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
-    .mypage__nav__side-bar
-      = render 'layouts/mypage-sidebar'
+    = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .card_page_menu
         .card_add_to
@@ -15,14 +16,12 @@
                   %li.main__conect__lists__text
                     クレジットカード一覧
                   %li.main__conect__lists__link
-                    = link_to '/' ,class: 'card_link'do
+                    = link_to user_card_users_path(current_user) ,class: 'card_link' do
                       .main__conect__lists__link__text
                         クレジットカードを追加する
                       %i.far.fa-credit-card
                   %li.main__conect__lists__border
                   %li.main__conect__lists__message
                     = link_to '支払い方法について','/',class: 'message'
-  .banner
-    = render "layouts/banner"
-  .footer
-    = render "layouts/footer"
+= render "layouts/banner"
+= render "layouts/footer"

@@ -1,5 +1,6 @@
+
 class ItemsController < ApplicationController
-  protect_from_forgery 
+  protect_from_forgery
   befor_action :set_item, only: [:show, :show_user_item, :edit, :update]
 
   def index
@@ -9,6 +10,7 @@ class ItemsController < ApplicationController
     @chanel_items = Item.order("id DESC").limit(4)
     @vuitton_items = Item.order("id DESC").limit(4)
     @nike_items = Item.order("id DESC").limit(4)
+
   end
 
   def new
@@ -17,15 +19,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    @delivary = Delivary.create(delivary_params)
-    redirect_to new_item_path
-  end
-  
-  def show
-    if @item.seller_id === current_user.id
-      redirect_to action: 'show_user_item'
+    @item = Item.new(item_params)
+    @delivary = Delivary.new(delivary_params)
+    if @item.save && @delivary.save
+      redirect_to item_path(@item)
+    else
+      render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    @user = Item.find(params[:id]).seller
+    @user_item = Item.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def show_user_item
@@ -56,7 +62,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_name: current_user.nickname, seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
   end
 
   def delivary_params
@@ -69,4 +75,3 @@ class ItemsController < ApplicationController
 
 
 end
-

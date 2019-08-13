@@ -80,3 +80,8 @@ gem "jquery-rails"
 gem 'font-awesome-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'devise'
+gem 'payjp'
+gem 'dotenv-rails'
+gem 'gretel'
+gem 'mini_magick'
+gem "aws-sdk-s3", require: false
