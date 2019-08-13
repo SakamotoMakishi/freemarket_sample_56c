@@ -1,8 +1,7 @@
 = render 'layouts/header'
 .mypage
   .mypage__nav
-    .mypage__nav__side-bar
-      = render 'layouts/mypage-sidebar'
+    = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .credit-card
         .credit-card__form-top
@@ -25,12 +24,12 @@
                     %li.main__conect__lists__list__expiration__required
                       必須
                     %li.main__conect__lists__list__expiration__select_box
-                      = f.select :month ,[["１月", ""], ["２月", ""],["３月", ""],["４月", ""],["５月", ""]],{},class:"select_box"
+                      = f.select :month ,[["1月", "1"], ["2月", "2"], ["3月", "3"], ["4月", "4"], ["5月", "5"], ["6月", "6"], ["7月", "7"], ["8月", "8"], ["9月", "9"],["10月", "10"],["11月", "11"],["12月", "12"]],{},class:"select_box"
                       %i.fas.fa-angle-down
                       .far
                         ■
                     %li.main__conect__lists__list__expiration__select_box
-                      = f.select :year ,[["2010", ""], ["2020", ""],["2030", ""],["2040", ""],["2050", ""]],{},class:"select_box"
+                      = f.select :year ,[["2019", "2019"], ["2020", "2020"],["2021", "2021"],["2022", "2022"],["2023", "2023"],["2024", "2024"], ["2025", "2025"],["2026", "2026"],["2027", "2027"],["2028", "2028"]],{},class:"select_box"
                       %i.fas.fa-angle-down
                       .far
                         ■
@@ -47,6 +46,7 @@
                   %li.main__conect__lists__list__link
                     = link_to 'カード裏面の番号とは？','complete_page'
                   %li.main__conect__lists__list__btn
-                    = f.button '追加する',class: "submit_btn"
+                    -# = f.button '追加する',class: "submit_btn"
+                    = link_to '追加する', '/'
 = render "layouts/banner"
 = render "layouts/footer"
