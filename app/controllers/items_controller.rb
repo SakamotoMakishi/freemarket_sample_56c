@@ -1,3 +1,4 @@
+
 class ItemsController < ApplicationController
   protect_from_forgery 
   def index
