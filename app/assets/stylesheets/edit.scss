@@ -1,0 +1,44 @@
+.item-edit-content{
+  margin: 40px auto 0;
+  width: 1020px;
+  overflow:auto;
+  &__inner{
+    float: right;
+    width: 700px;
+  }
+}
+
+.edit-buttons{
+  margin: 24px 0 24px 0;
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  &__sd{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    margin: 16px 0 16px 0;
+  }
+  &__text{
+    text-align: center;
+  }
+  #edit-buttons__edit{
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+  }
+}
+
+
+// margin: 16px 0 16px 0;
+
+// =link_to "商品の編集", "/", class: "edit-buttons__edit"
+// %p.edit-buttons__text or
+// .edit-buttons__sd 出品を停止する
+// .edit-buttons__sd この商品を削除する

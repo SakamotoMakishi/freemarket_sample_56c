@@ -5,12 +5,14 @@ Rails.application.routes.draw do
   
   resources :categories, only: :show
   resources :brands, only: :show
-
-
+ 
   
   resources :items do
     collection  do
       get 'buy'
+    end
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
   
@@ -27,4 +29,5 @@ Rails.application.routes.draw do
       get 'identification'
     end
   end
+  get 'user-item/:id', to: 'items#show_user_item'
 end
