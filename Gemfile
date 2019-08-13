@@ -83,4 +83,5 @@ gem 'devise'
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'gretel'
+gem 'mini_magick'
 gem "aws-sdk-s3", require: false
