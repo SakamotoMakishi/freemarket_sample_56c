@@ -8,7 +8,7 @@ crumb :mypage do
 end
 
 crumb :identification do
-  link "本人情報の登録", identification_users_path
+  link "本人情報の登録",  edit_address_input_path
   parent :mypage
 end
 

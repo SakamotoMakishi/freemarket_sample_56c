@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       get 'complete_page'
       get 'signout'
       get 'profile'
-      get 'identification'
     end
   end
 
