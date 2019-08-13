@@ -16,13 +16,13 @@
                 =link_to "/" do
                   %i.fa.fa-list-ul
                 %span
-                  =link_to "カテゴリーから探す","/"
+                  = render 'layouts/drop-category'
             %li
               %h2
                 =link_to "/" do
                   %i.fa.fa-tag
                 %span
-                  =link_to "ブランドから探す","/"
+                  = render 'layouts/drop-brand'
       .header__inner__main__right
         - if user_signed_in?
           %nav.header__inner__main__right__nav
@@ -40,9 +40,7 @@
                   %i.fa.fa-check
                   %span やることリスト
               %li.header__inner__main__right__nav__user__mypage
-                =link_to user_path(current_user) do
-                  = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', alt: '', width: '32'
-                  %span マイページ
+                = render 'layouts/drop-mypage'
         - else
           .header__inner__main__btn
             .header__inner__main__btn__signup

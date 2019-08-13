@@ -1,0 +1,106 @@
+li {
+  line-height: 50px;
+  margin-left: 0px;
+  &:hover ul.drop-mypage-list{
+    display: block;
+}
+  ul.drop-mypage-list {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 1;
+    font-weight: 100;
+    font-size: 14px;
+    display: none;
+    background-color: #fff;
+    width: 200px;
+    height: 100px;
+    li {
+      margin-left: 0;
+      box-shadow: 1px 0 0 0 #eee inset;
+      &:hover {
+        background-color: #ea352d;
+        color: #fff;
+      }
+    }
+    .drop{
+      display: block;
+      padding: 0 0 0 10px;
+    }
+  }
+}
+  //   &__user-icon{
+  //     position: relative;
+  //     height: 100px;
+  //     padding: 20px;
+  //     background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?2094209);
+  //     text-align: center;
+  //     a{
+  //       display: block;
+  //       position: absolute;
+  //       top: 25%;
+  //       left: 0;
+  //       right: 0;
+  //       color: #333;
+  //       text-decoration: none;
+  //     }
+  //     &__image{
+  //       width: 60px;
+  //       height: 60px;
+  //       margin: 0 auto;
+  //       border-radius: 50%;
+  //     }
+  //     &__name{
+  //       margin: 8px 0 0;
+  //       font-size: 12px;
+  //       font-weight: 600;
+  //     }
+  //   }
+  //   &__bar{
+  //     float: left;
+  //     width: 100%;
+  //     margin: 0 40px 0 0;
+  //     &__lists{
+      
+  //       &__list{
+  //         position: relative;
+  //         height: 27px;
+  //         background: #fff;
+  //         padding: 10px 16px;
+  //         color: #333;
+  //         border-top: 1px solid #eee;
+  //         a{
+  //           display: block;
+  //           font-size: 14px;
+  //           color: #333;
+  //           text-decoration: none;
+  //           line-height: 27px;
+  //         }
+  //         .active{
+  //           background: #eee;
+  //           font-weight: 600;
+  //         }
+  //         .fa{
+  //           position: absolute;
+  //           top: 35%;
+  //           right: 16px;
+  //           color: #ccc;
+  //         }
+  //       }
+  //       &__list:hover{
+  //         background: rgba(255, 255, 255, 0.5);
+  //         .fa{
+  //           transform: translateX(5px);
+  //           color: #333;
+  //         }
+  //       }
+  //       .changed{
+  //         background: #eee;
+  //         font-weight: 600;
+  //       }
+  //       &__list:active ~ .changed{
+  //         display:none;
+  //       }
+  //     }
+  //   }
+  // }
