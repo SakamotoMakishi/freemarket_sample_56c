@@ -16,9 +16,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    @delivary = Delivary.create(delivary_params)
-    redirect_to item_path(@item)
+    @item = Item.new(item_params)
+    @delivary = Delivary.new(delivary_params)
+    if @item.save && @delivary.save
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
   
   def show
