@@ -1,0 +1,31 @@
+li {
+  line-height: 50px;
+  margin-left: 0px;
+  &:hover ul.brand-list{
+    display: block;
+}
+  ul.brand-list {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 1;
+    font-weight: 100;
+    font-size: 14px;
+    display: none;
+    background-color: #fff;
+    width: 200px;
+    height: 100px;
+    li {
+      margin-left: 0;
+      box-shadow: 1px 0 0 0 #eee inset;
+      &:hover {
+        background-color: #ea352d;
+        color: #fff;
+      }
+    }
+    .brand{
+      display: block;
+      padding: 0 0 0 10px;
+    }
+  }
+}
