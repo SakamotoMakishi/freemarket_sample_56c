@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   resources :categories, only: :show
   resources :brands, only: :show
- 
+
+  resources :address_inputs
+
   
   resources :items do
     collection  do
@@ -16,17 +18,25 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users do
+  resources :users, only: :show do
     collection  do
       get 'signup_page'
       get 'user_input'
       get 'sms_message'
       get 'delivary_input'
-      get 'card_input'
       get 'complete_page'
       get 'signout'
       get 'profile'
-      get 'identification'
+      get 'user_card'
+      get 'card_add_to'
+    end
+  end
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
     end
   end
   get 'user-item/:id', to: 'items#show_user_item'

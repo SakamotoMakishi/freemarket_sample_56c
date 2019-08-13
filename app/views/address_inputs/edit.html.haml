@@ -1,13 +1,15 @@
 =render 'layouts/header'
+- breadcrumb :identification
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
-    .mypage__nav__side-bar
-      = render 'layouts/mypage-sidebar'
+    = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .mypage__nav__main-contents__mypage-identification
         %h2.mypage__nav__main-contents__mypage-identification__head 本人情報の登録
         .mypage__nav__main-contents__mypage-identification__form
-          = form_with url: root_path do |form|
+          = form_with model: @address_inputs, local: true, url: address_input_path(current_user), method: :patch do |form|
+            = form.hidden_field :id ,value: "#{current_user.address_input.id}"
             .mypage__nav__main-contents__mypage-identification__form__texts
               %p
                 お客さまの本人情報をご登録ください。
@@ -20,10 +22,11 @@
             .mypage__nav__main-contents__mypage-identification__form__group
               %label お名前
               %p 
-                = current_user.nickname
+                = "#{current_user.address_input.first_name} #{current_user.address_input.last_name}"
             .mypage__nav__main-contents__mypage-identification__form__group
               %label お名前カナ
-              %p ホゲ
+              %p 
+                = "#{current_user.address_input.first_name_kana} #{current_user.address_input.last_name_kana}"
             .mypage__nav__main-contents__mypage-identification__form__group
               %label{for: "birthday"} 生年月日
               %p 2019/08/01
@@ -37,7 +40,7 @@
               %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
               .mypage__nav__main-contents__mypage-identification__form__group__select
                 
-                = form.select :prefecture, [["--", "0"], ["北海道", "1"],  ["米", "2"], ["英", "3"],["仏", "4"]]
+                = form.select :prefectures,[["北海道", "北海道"], ["中国", "中国"],["インド", "インド"],["埼玉", "埼玉"],["ブラジル", "ブラジル"]]
                 %i.fa.fa-angle-down.fa-2x
             .mypage__nav__main-contents__mypage-identification__form__group
               = form.label :"市区町村"
@@ -50,8 +53,8 @@
               %br
                 = form.text_field :address, name: "address", placeholder: "例) 例) 青山1−1−1", class: "mypage__nav__main-contents__mypage-identification__form__group__box"  
             .mypage__nav__main-contents__mypage-identification__form__group
-              = form.label :"市区町村"
-              %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 建物名
+              = form.label :"建物名"
+              %span.mypage__nav__main-contents__mypage-identification__form__group__form-arbitrary 任意
               %br
                 = form.text_field :building_name, name: "building_name", placeholder: "例) 例) 柳ビル103", class: "mypage__nav__main-contents__mypage-identification__form__group__box"   
             = form.submit "登録する", class: "mypage__nav__main-contents__mypage-identification__form__btn-red"
@@ -59,5 +62,6 @@
               = link_to '/' do
                 本人情報の登録について
                 %i.fa.fa-angle-right
-    
+= render "layouts/banner"
+= render "layouts/footer"
 

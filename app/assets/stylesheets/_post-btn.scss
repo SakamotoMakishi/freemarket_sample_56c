@@ -31,7 +31,7 @@
   text-decoration: none;
   animation: bg-color 10s infinite;
   -webkit-animation: bg-color 10s infinite;
-  transition: all 20s ease 0s;
+  transition: all 15s ease 0s;
   .post_text{
     padding-top:30px;
   }
@@ -42,18 +42,18 @@
   }
 }
 // .post_box:hover{
-//   transform: rotateZ(1000deg) scale(2.2, 2.2);
+//   transform: rotateZ(1500deg) scale(2.2, 2.2);
 //   bottom:500px;
 //   right: 500px;
 //   width: 500px;
 //   height: 500px;
 //   .post_text{
-//     transition: all 10s ease 0s;
+//     transition: all 7s ease 0s;
 //     padding-top:100px;
 //     font-size:100px;
 //   }
 //   .fas{
-//     transition: all 10s ease 0s;
+//     transition: all 7s ease 0s;
 //     padding-top:10px;
 //     font-size:100px;
 //     color: rgba(255, 255, 255, 0.952);

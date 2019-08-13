@@ -1,0 +1,6 @@
+.item-details__photo__main__dots
+  .item-details__photo__main__dots__dot
+    %span
+    .item-details__photo__main__dots__dot__inner
+      - @item.images.each.with_index(1) do |image,i|
+        = image_tag image ,class: "item-details-dot-image#{i}"
