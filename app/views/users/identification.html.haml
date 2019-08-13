@@ -1,8 +1,9 @@
 =render 'layouts/header'
+- breadcrumb :identification
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
-    .mypage__nav__side-bar
-      = render 'layouts/mypage-sidebar'
+    = render 'layouts/mypage-sidebar'
     .mypage__nav__main-contents
       .mypage__nav__main-contents__mypage-identification
         %h2.mypage__nav__main-contents__mypage-identification__head 本人情報の登録
@@ -59,5 +60,6 @@
               = link_to '/' do
                 本人情報の登録について
                 %i.fa.fa-angle-right
-    
+= render "layouts/banner"
+= render "layouts/footer"
 

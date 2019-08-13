@@ -15,7 +15,7 @@
             %p 最大10枚までアップロードできます
             .sell__form__box__image
             %label(for="file_photo")
-              = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+              = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;"
               .sell-drop-file
                 .sell__form__box__drop-box__text
                   ドラッグアンドドロップ

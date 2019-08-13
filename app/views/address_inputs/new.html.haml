@@ -7,7 +7,7 @@
     .main__conect
       .main__conect__lists
         %ul.main__conect__lists__list
-          = form_with url: root_path do |f|
+          = form_with model: @address_inputs, local: true do |f|
             %li.main__conect__lists__list__text
               お名前
             %li.main__conect__lists__list__required
@@ -29,16 +29,16 @@
             %li.main__conect__lists__list__required
               必須
             %li.main__conect__lists__list__text_erea
-              = f.select :prefectures ,[["北海道", ""], ["中国", ""],["インド", ""],["埼玉", ""],["ブラジル", ""]],{},class:"select_box"
-              %i.fas.fa-angle-down
-              .far
-                ■
+              = f.text_field :postal_code, placeholder:'例) 1234567',class: "text_field"
             %li.main__conect__lists__list__text
               都道府県
             %li.main__conect__lists__list__required
               必須
             %li.main__conect__lists__list__text_erea
-              = f.text_field :prefectures, placeholder:'例) 123-4567',class: "text_field"
+              = f.select :prefectures ,[["北海道", "北海道"], ["中国", "中国"],["インド", "インド"],["埼玉", "埼玉"],["ブラジル", "ブラジル"]],{},class:"select_box"
+              %i.fas.fa-angle-down
+              .far
+                ■
             %li.main__conect__lists__list__text
               市区町村
             %li.main__conect__lists__list__required
@@ -62,8 +62,7 @@
             %li.main__conect__lists__list__any
               任意
             %li.main__conect__lists__list__text_erea
-              = f.text_field :phone, placeholder:'例) 090-1234-5678',class: "text_field"
+              = f.text_field :phone_num, placeholder:'例) 09012345678',class: "text_field"
             %li.main__conect__lists__list__btn
               = f.button '次へ進む',class: "submit_btn"
-            = link_to '仮', new_card_path
   = render 'layouts/footer-registrations'

@@ -82,4 +82,5 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'devise'
 gem 'payjp'
 gem 'dotenv-rails'
+gem 'gretel'
 gem "aws-sdk-s3", require: false

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :categories, only: :show
   resources :brands, only: :show
+  resources :address_inputs
 
 
   
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :users do
+  resources :users, only: :show do
     collection  do
       get 'signup_page'
       get 'user_input'
