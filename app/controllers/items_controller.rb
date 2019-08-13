@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   protect_from_forgery 
+  befor_action :set_item, only: [:show, :show_user_item, :edit, :update]
+
   def index
     @women_items = Item.order("id DESC").limit(4)
     @men_items = Item.order("id DESC").limit(4)
@@ -21,23 +23,19 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     if @item.seller_id === current_user.id
       redirect_to action: 'show_user_item'
     end
   end
 
   def show_user_item
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
     @delivary = @item.delivary
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.images.detach
     @item.update(item_params)
     @delivary = Delivary.find_by(item_id:params[:id])
@@ -53,7 +51,6 @@ class ItemsController < ApplicationController
     @item.images.purge(params.require(:item).permit[:images])
   end
 
-
   def destroy
   end
 
@@ -64,6 +61,10 @@ class ItemsController < ApplicationController
 
   def delivary_params
     params.require(:item).require(:delivary).permit(:price, :area, :delivary_day).merge(item_id: @item.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 

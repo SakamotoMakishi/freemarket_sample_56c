@@ -38,7 +38,7 @@ $(function(){
         var imageSrc =  e.target.result;
         var buildHTML =`<li class="sell__form__box__image__ul__li">
         <div class="sell__form__box__image__ul__li__content">
-        <img class="sell-form-image" src="` + imageSrc + `">
+        <img class="sell-form-image" src="${ imageSrc }">
         <div class="sell__form__box__image__ul__li__content__upload">
         <a class="sell-form-update" href="/">編集</a>
         <a class="sell-form-update sell-form-delete" href="/">削除</a>
