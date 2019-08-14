@@ -33,6 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def show_user_item
+    @item = Item.with_attached_images.find(params[:id])
+    @user = Item.find(params[:id]).seller
+    @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def edit
