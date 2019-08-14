@@ -1,7 +1,7 @@
 
 class ItemsController < ApplicationController
   protect_from_forgery
-  before_action :set_item, only: [:show, :show_user_item, :edit, :update]
+  before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
 
   def index
     @women_items = Item.with_attached_images.order("id DESC").limit(4)
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.with_attached_images.find(params[:id])
     @user = Item.find(params[:id]).seller
     @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
@@ -57,6 +56,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy if @item.seller_id == current_user.id
+    redirect_to root_path
   end
 
   private
@@ -69,8 +70,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.with_attached_images.find(params[:id])
   end
-
-
 end

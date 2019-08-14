@@ -1,6 +1,19 @@
 .item-details-container
+  .js-modal.js-modal-close.delete-contnet
+    .delete-contnet__box
+      .delete-contnet__box__btn
+        %text 確認
+        %br/
+        削除すると2度と復活できません。
+        %br/
+        削除する代わりに停止することができます。
+        %br/
+        %br/
+        本当に削除しますか？
+      .js-modal-close.delete-contnet__box__cancel
+        キャンセル
+      = link_to '削除する',"#{@item.id}",class: "delete-contnet__box__delete",method: :delete
   =render 'layouts/header'
-
   .item-edit-content
     .item-edit-content__inner
       %section.item-details
@@ -41,7 +54,7 @@
               %tr
                 %th 出品者
                 %td
-                  =link_to @item.seller_name
+                  =link_to @item.seller
                   %div
                     .item-details__main__table__ratings
                       %i.fas.fa-laugh
@@ -100,12 +113,7 @@
         =link_to "商品の編集", edit_item_path(@item), class: "edit-buttons__sd", id: "edit-buttons__edit"
         %p.edit-buttons__text or
         .edit-buttons__sd 出品を停止する
-        .edit-buttons__sd この商品を削除する
-
-
-
-
-
+        .js-modal-open.edit-buttons__sd この商品を削除する
 .banner
   = render "layouts/banner"
 .footer
