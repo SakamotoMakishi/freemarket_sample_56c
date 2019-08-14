@@ -1,97 +1,8 @@
 .item-details-container
   =render 'layouts/header'
 
-  %section.item-details
+  =render 'item_details'
   
-    %h1.item-details__name 
-      = "#{@item.name}"
-    .item-details__main
-      .item-details__photo
-        .item-details__photo__main
-          .item-details__photo__main__outer
-            .item-details__photo__main__outer__stage{style: "left: 0px; width: 1500px;"}
-              .item-details__photo__main__outer__stage__item{style: "width: 300px;"}
-                .item-details__photo__main__outer__stage__item__inner
-                  = image_tag @item.images.first , class: 'item-details-outer-image'
-          = render 'layouts/show-image-hover'
-      %table.item-details__main__table
-        %tbody
-          %tr
-            %th 出品者
-            %td
-              =link_to @user.nickname
-              %div
-                .item-details__main__table__ratings
-                  %i.fas.fa-laugh
-                  %span 100
-                .item-details__main__table__ratings
-                  %i.fas.fa-meh
-                  %span 10
-                .item-details__main__table__ratings
-                  %i.fas.fa-frown-open
-                  %span 0
-          %tr
-            %th カテゴリー
-            %td
-              =link_to "/" do
-                %div category-name1
-              =link_to "/" do
-                %div.item-details__main__table__category__sub
-                  %i.fas.fa-angle-right category-name2
-              =link_to "/" do
-                %div.item-details__main__table__category__sub__sub
-                  %i.fas.fa-angle-right category-name3
-          %tr
-            %th ブランド
-            %td brand-id-name
-          %tr
-            %th 商品のサイズ
-            %td
-          %tr
-            %th 商品の状態
-            %td item-status
-          %tr
-            %th 配送料の負担
-            %td delivary-price
-          %tr
-            %th 配送の方法
-            %td
-          %tr
-            %th 配送元地域
-            %td
-              =link_to "delivary-area", "/"
-          %tr
-            %th 発送日の目安
-            %td derivary-day
-
-    .item-details__price-box
-      %span.item-details__price-box__price
-        = "¥#{@item.price}"
-      %span.item-details__price-box__tax (税込)
-      %span.item-details__price-box__fee 送料込み
-
-    =link_to "購入画面に進む", "/", id:"item-details-buy-btn"
-          
-    .item-details__description
-      %p.item-details__description__inner
-        = "#{@item.text}"
-    .item-details__buttons
-      .item-details__buttons__left
-        %button.item-details__buttons__left__like{type:"button"}
-          %i.far.fa-heart
-          %span いいね!
-          %span 0
-
-        =link_to "/",{id:"item-details-buttons-left-report"} do
-          %i.far.fa-flag
-          %span 不適切な商品の報告
-
-      .item-details__buttons__right
-        =link_to "/" do
-          %i.fas.fa-lock
-          %span あんしん・あんぜんへの取り組み
-  
-
   %ul.item-details-nav-link
     %li.item-details-nav-link__prev
       =link_to "/" do
@@ -101,7 +12,6 @@
       =link_to "/" do
         back
         %i.fas.fa-angle-right
-
 
   .item-details-media
     .item-details-media__text
