@@ -1,7 +1,7 @@
 
 class ItemsController < ApplicationController
   protect_from_forgery
-  befor_action :set_item, only: [:show, :show_user_item, :edit, :update]
+  before_action :set_item, only: [:show, :show_user_item, :edit, :update]
 
   def index
     @women_items = Item.with_attached_images.order("id DESC").limit(4)
