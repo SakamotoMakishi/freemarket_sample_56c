@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
   end
 
   def delivary_params
-    params.require(:item).require(:delivary).permit(:price, :area, :delivary_day).merge(item_id: @item.id)
+    params.require(:item).require(:delivary).permit(:price, :area, :delivary_day).merge(item_id: params[:id])
   end
 
   def set_item
