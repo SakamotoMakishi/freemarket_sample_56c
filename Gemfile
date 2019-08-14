@@ -85,3 +85,6 @@ gem 'dotenv-rails'
 gem 'gretel'
 gem 'mini_magick'
 gem "aws-sdk-s3", require: false
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'

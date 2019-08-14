@@ -1,36 +1,36 @@
-%li.family
+%li.drop-mypage
   =link_to user_path(current_user) do
     = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', alt: '', width: '32'
     %span
       マイページ
     %ul.drop-mypage-list
-      %li.drop シャネル
-      %li.drop ルイヴィトン
-      %li.drop ナイキ
--# %li
--#   = link_to "マイページ", '/'
--#   %ul.drop-list
--#   = link_to "/" do
--#     = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
--#     %h2.drop__contents__user-icon__name
--#       = current_user.nickname
--#   %li.drop__bar__lists__list
--#     = link_to"/" do 
--#       出品した商品 - 出品中
--#       %i.fa.fa-chevron-right
--#   %li.drop__bar__lists__list
--#     = link_to"/" do 
--#       出品した商品 - 取引中
--#       %i.fa.fa-chevron-right
--#   %li.drop__bar__lists__list
--#     = link_to"/" do 
--#       出品した商品 - 売却済み
--#       %i.fa.fa-chevron-right
--#   %li.drop__bar__lists__list
--#     = link_to"/" do 
--#       購入した商品 - 取引中
--#       %i.fa.fa-chevron-right
--#   %li.drop__bar__lists__list
--#     = link_to"/" do 
--#       購入した商品 - 過去の取引
--#       %i.fa.fa-chevron-right
+      %li.drop-icon
+        = link_to "/" do
+          = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', height: '60', width: '60', class: 'drop-icon'
+      %li.drop-name
+        = current_user.nickname
+        .drop-text
+          %p
+            評価: 0
+          %p
+            出品数: 0
+      %li.drop-list
+        = link_to"/" do 
+          出品した商品 - 出品中
+          %i.fa.fa-chevron-right
+      %li.drop-list
+        = link_to"/" do 
+          出品した商品 - 取引中
+          %i.fa.fa-chevron-right
+      %li.drop-list
+        = link_to"/" do 
+          出品した商品 - 売却済み
+          %i.fa.fa-chevron-right
+      %li.drop-list
+        = link_to"/" do 
+          購入した商品 - 取引中
+          %i.fa.fa-chevron-right
+      %li.drop-list
+        = link_to"/" do 
+          購入した商品 - 過去の取引
+          %i.fa.fa-chevron-right
