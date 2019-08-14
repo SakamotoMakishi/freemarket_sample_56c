@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   
   resources :categories, only: :show
   resources :brands, only: :show
-  resources :address_inputs
 
+  resources :address_inputs
 
   
   resources :items do
     collection  do
       get 'buy'
+    end
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
   
@@ -36,4 +39,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+  get 'user-item/:id', to: 'items#show_user_item'
 end

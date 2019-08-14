@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
   validates :name, :text, :status, :price, presence: true
-  # belongs_to :user
   belongs_to :seller, class_name: "User"
-  has_one :delivery
+  belongs_to :category, optional:true
+  belongs_to :brand, optional:true
+  has_one :delivary
 
   has_many_attached :images
 end
