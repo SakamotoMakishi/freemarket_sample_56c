@@ -24,32 +24,34 @@ $(function(){
   })
 
   $('#file_photo_field > input').on('change', function(e) {
-    var file = e.target.files[0],
-        reader = new FileReader(),
-        $preview = $(".sell__form__box__image__ul");
+    var files = e.target.files;
+    for (var i = 0, file; file = files[i]; i++) {
+      var reader = new FileReader(),
+          $preview = $(".sell__form__box__image__ul");
 
-    if(file.type.indexOf("image") < 0){
-      return false;
+      if(file.type.indexOf("image") < 0){
+        return false;
+      }
+
+      reader.onload = (function() {
+        return function(e) {
+
+          var imageSrc =  e.target.result;
+          var buildHTML =`<li class="sell__form__box__image__ul__li">
+          <div class="sell__form__box__image__ul__li__content">
+          <img class="sell-form-image" src="${ imageSrc }">
+          <div class="sell__form__box__image__ul__li__content__upload">
+          <a class="sell-form-update" href="/">編集</a>
+          <a class="sell-form-update sell-form-delete" href="/">削除</a>
+          </div>
+          </div>
+          </li>`
+          $preview.append(buildHTML);
+          updateAddItem();
+        };
+      })(file);
+      reader.readAsDataURL(file);
     }
-
-    reader.onload = (function() {
-      return function(e) {
-
-        var imageSrc =  e.target.result;
-        var buildHTML =`<li class="sell__form__box__image__ul__li">
-        <div class="sell__form__box__image__ul__li__content">
-        <img class="sell-form-image" src="${ imageSrc }">
-        <div class="sell__form__box__image__ul__li__content__upload">
-        <a class="sell-form-update" href="/">編集</a>
-        <a class="sell-form-update sell-form-delete" href="/">削除</a>
-        </div>
-        </div>
-        </li>`
-        $preview.append(buildHTML);
-        updateAddItem();
-      };
-    })(file);
-    reader.readAsDataURL(file);
   });
 
 });
