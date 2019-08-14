@@ -2,12 +2,12 @@
 class ItemsController < ApplicationController
   protect_from_forgery 
   def index
-    @women_items = Item.order("id DESC").limit(4)
-    @men_items = Item.order("id DESC").limit(4)
-    @child_items = Item.order("id DESC").limit(4)
-    @chanel_items = Item.order("id DESC").limit(4)
-    @vuitton_items = Item.order("id DESC").limit(4)
-    @nike_items = Item.order("id DESC").limit(4)
+    @women_items = Item.with_attached_images.order("id DESC").limit(4)
+    @men_items = Item.with_attached_images.order("id DESC").limit(4)
+    @child_items = Item.with_attached_images.order("id DESC").limit(4)
+    @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
+    @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
+    @nike_items = Item.with_attached_images.order("id DESC").limit(4)
     
   end
 
@@ -27,9 +27,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
+    @item = Item.with_attached_images.find(params[:id])
     @user = Item.find(params[:id]).seller
-    @user_item = Item.where(seller_id: @user.id).order("id DESC").limit(6)
+    @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def edit
