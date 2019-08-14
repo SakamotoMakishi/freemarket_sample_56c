@@ -1,106 +1,79 @@
-li {
+li.drop-mypage {
   line-height: 50px;
-  margin-left: 0px;
   &:hover ul.drop-mypage-list{
     display: block;
-}
-  ul.drop-mypage-list {
+  }
+  .drop-mypage-list {
     position: absolute;
-    top: 30px;
-    left: 0;
+    background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?2094209);
+    top: 44px;
+    right: 0;
     z-index: 1;
     font-weight: 100;
     font-size: 14px;
+    border-radius: 5px;
+    padding-right: 10px;
     display: none;
     background-color: #fff;
-    width: 200px;
+    width: 320px;
     height: 100px;
-    li {
-      margin-left: 0;
-      box-shadow: 1px 0 0 0 #eee inset;
-      &:hover {
-        background-color: #ea352d;
-        color: #fff;
+    text-align: center;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
+    transition: all 1s;
+    .drop-icon{
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+      line-height: 140px;
+      right: -10px;
+      top: 15px;
+      z-index: 1;
+    }
+    .drop-name{
+      font-weight: bold;
+      height: 100px;
+      width: 100%;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+      padding-left: 10px;
+    }
+    .drop-text{
+      display: flex;
+      width: 100%;
+      font-weight: 100;
+      background-color: #fff;
+      p{
+        text-align: center;
+        padding: 0 45px;
       }
     }
-    .drop{
-      display: block;
-      padding: 0 0 0 10px;
+    .drop-list{
+      text-align: left;
+      width: 100%;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+      padding-left:10px; 
+    .drop-list li{
+      padding-left: 10px;
+      }
+      .fa{
+        color:#CCCCCC;
+        position: absolute;
+        right: 10px;
+        top: 15px;
+      }
+      &:hover{
+        background-color: #eeeeee;
+        .fa{
+          transform: translateX(5px);
+          color: #333;
+        }
+      }
     }
   }
 }
-  //   &__user-icon{
-  //     position: relative;
-  //     height: 100px;
-  //     padding: 20px;
-  //     background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?2094209);
-  //     text-align: center;
-  //     a{
-  //       display: block;
-  //       position: absolute;
-  //       top: 25%;
-  //       left: 0;
-  //       right: 0;
-  //       color: #333;
-  //       text-decoration: none;
-  //     }
-  //     &__image{
-  //       width: 60px;
-  //       height: 60px;
-  //       margin: 0 auto;
-  //       border-radius: 50%;
-  //     }
-  //     &__name{
-  //       margin: 8px 0 0;
-  //       font-size: 12px;
-  //       font-weight: 600;
-  //     }
-  //   }
-  //   &__bar{
-  //     float: left;
-  //     width: 100%;
-  //     margin: 0 40px 0 0;
-  //     &__lists{
-      
-  //       &__list{
-  //         position: relative;
-  //         height: 27px;
-  //         background: #fff;
-  //         padding: 10px 16px;
-  //         color: #333;
-  //         border-top: 1px solid #eee;
-  //         a{
-  //           display: block;
-  //           font-size: 14px;
-  //           color: #333;
-  //           text-decoration: none;
-  //           line-height: 27px;
-  //         }
-  //         .active{
-  //           background: #eee;
-  //           font-weight: 600;
-  //         }
-  //         .fa{
-  //           position: absolute;
-  //           top: 35%;
-  //           right: 16px;
-  //           color: #ccc;
-  //         }
-  //       }
-  //       &__list:hover{
-  //         background: rgba(255, 255, 255, 0.5);
-  //         .fa{
-  //           transform: translateX(5px);
-  //           color: #333;
-  //         }
-  //       }
-  //       .changed{
-  //         background: #eee;
-  //         font-weight: 600;
-  //       }
-  //       &__list:active ~ .changed{
-  //         display:none;
-  //       }
-  //     }
-  //   }
-  // }
