@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @delivary = Delivary.new(delivary_params)
     if @item.save && @delivary.save
-      redirect_to item_path(@item)
+      render 'new-modal'
     else
       render :new
     end
