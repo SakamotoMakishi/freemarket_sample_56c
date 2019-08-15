@@ -41,5 +41,4 @@ Rails.application.routes.draw do
     end
   end
   get 'user-item/:id', to: 'items#show_user_item'
-  delete 'user-item/:id' => 'items#destroy'
 end

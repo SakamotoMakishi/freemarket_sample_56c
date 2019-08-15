@@ -12,7 +12,7 @@
         本当に削除しますか？
       .js-modal-close.delete-contnet__box__cancel
         キャンセル
-      = link_to '削除する',"#{@item.id}",class: "delete-contnet__box__delete",method: :delete
+      = link_to '削除する',item_path(@item.id),class: "delete-contnet__box__delete",method: :delete
   =render 'layouts/header'
   =render 'items/item_details'
   .item-edit-content

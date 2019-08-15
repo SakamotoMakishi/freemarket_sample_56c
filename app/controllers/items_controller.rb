@@ -63,11 +63,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      @item.seller_id == current_user.id
+    if @item.seller_id == current_user.id
+      @item.destroy
     else
       redirect_to action: 'show_user_item'
-    end
   end
 
   private
