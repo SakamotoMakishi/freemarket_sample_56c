@@ -1,0 +1,68 @@
+.new-item-modal{
+.delete-contnet{
+  width:100vw;
+  height: 100vh;
+  overflow: auto;
+  z-index: 300;
+  position: fixed;;
+  background-color: rgba(7, 7, 7, 0.616);
+  display: block;
+  &__box{
+    width: 600px;
+    margin:auto;
+    height: 300px;
+    background-color:white;
+    margin-top:30px;
+    &__message{
+      background-color:white;
+      width: 100%;
+      height: 55px;
+      text-align: center;
+      line-height: 1.5;
+      padding-top:30px;
+      font-size:14px;
+      border-bottom: 1px solid #ccc;
+      text{
+      font-weight: bold;
+      font-size:15px; 
+      }
+    }
+    &__text{
+      background-color:white;
+      width: 100%;
+      height: 55px;
+      text-align: center;
+      line-height: 1.5;
+      font-size:12px;
+      padding-top: 30px;
+    }
+    &__select{
+      margin:auto;
+      width:100%;
+      height: 30px;
+      text-align: center;
+      margin-top: 15px;
+      &__new{
+        background-color: #ea352d;
+        padding: 15px 158px;
+        color: white;
+        text-decoration: none;
+        font-family: monospace;
+      }
+    }
+    &__sheare{
+      padding-top:25px;
+      font-size:12px;
+      margin:auto;
+      width:100%;
+      height: 30px;
+      text-align: center; 
+      &__link{
+        text-align: center;
+        margin-top: 15px;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+}}

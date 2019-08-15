@@ -68,7 +68,7 @@
     %span.item-details__price-box__fee 送料込み
   -if user_signed_in?
     -if @item.seller_id != current_user.id
-      =link_to "購入画面に進む", "/", id:"item-details-buy-btn"
+      =link_to "購入画面に進む",buy_items_path, id:"item-details-buy-btn"
         
   .item-details__description
     %p.item-details__description__inner
