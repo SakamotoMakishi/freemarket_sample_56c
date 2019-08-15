@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
       @item.destroy
     else
       redirect_to action: 'show_user_item'
+    end
   end
 
   private
