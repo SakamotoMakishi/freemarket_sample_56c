@@ -63,7 +63,12 @@
                 .select-wrap
                   %i.fa.fa-angle-down
                   .serlect-default
-                    = form.select :category_id, [['---', ""],['レディース', 1],['メンズ', 2],['ベビー・キッズ', 3]],{class: ""},{selected: "#{@item.category_id}"}
+                    //= form.select :category_id, [['---', ""],['レディース', 1],['メンズ', 2],['ベビー・キッズ', 3]],{class: ""},{selected: "#{@item.category_id}"}
+                    %select{:name => "blood"}
+                      %option{:value => "A"} ---
+                      %option{:value => "B"} レディース
+                      %option{:value => "O"} メンズ
+                      %option{:value => "AB"} ベビー・キッズ
                 .select-wrap
                 %label
                   ブランド
