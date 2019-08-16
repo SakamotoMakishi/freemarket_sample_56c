@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    @delivary = Delivary.create(delivary_params)
+    @item = Item.new(item_params)
+    @delivary = Delivary.new(delivary_params)
     if @item.save && @delivary.save
       render 'new-modal'
     else
