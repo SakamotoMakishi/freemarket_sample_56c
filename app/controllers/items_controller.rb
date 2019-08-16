@@ -74,6 +74,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @items = Item.with_attached_images.order('created_at DESC').limit(24)
+    @item_search = Item.with_attached_images.order('created_at DESC').where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
+    @item_search_count = Item.with_attached_images.where('name LIKE(?)', "%#{params[:keyword]}%").count
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
