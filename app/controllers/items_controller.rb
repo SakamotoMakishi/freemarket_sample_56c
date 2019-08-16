@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @delivary = @item.delivary
   end
 
   def update
