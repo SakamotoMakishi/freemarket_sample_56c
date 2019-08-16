@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @delivary = Delivary.new(delivary_params)
+    @item = Item.create(item_params)
+    @delivary = Delivary.create(delivary_params)
     if @item.save && @delivary.save
       render 'new-modal'
     else
@@ -33,13 +33,9 @@ class ItemsController < ApplicationController
         redirect_to action: 'show_user_item'
       end
     end
-    @user = Item.find(params[:id]).seller
-    @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def show_user_item
-    @user = Item.find(params[:id]).seller
-    @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 
   def edit
@@ -86,14 +82,18 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :brand_id, :status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
   end
 
   def delivary_params
-    params.require(:item).require(:delivary).permit(:price, :area, :delivary_day).merge(item_id: @item.id)
+    params.require(:item).require(:delivary).permit(:price, :area, :delivary_day, :delivary_method).merge(item_id: @item.id)
   end
 
   def set_item
     @item = Item.with_attached_images.find(params[:id])
+    @user = Item.find(params[:id]).seller
+    @delivary = Delivary.find_by(item_id:params[:id])
+    @delivary = Delivary.find(params[:id])
+    @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 end
