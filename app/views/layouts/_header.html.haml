@@ -7,7 +7,7 @@
       %form.header__inner__top__form
         = form_tag('items/search', method: :get) do
           %input.search__query.header__inner__top__form__input{name:"keyword", value:"", placeholder:"何かお探しですか？"}
-          = link_to '/' do
+          = link_to search_items_path do
             %i.fa.fa-search
     .header__inner__main
       .header__inner__main__left
