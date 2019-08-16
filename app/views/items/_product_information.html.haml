@@ -64,7 +64,15 @@
                 %label
                   ブランド
                   %span.form-any 任意
-                  = form.text_area :brand_id, placeholder: "例) シャネル", class: "input-brand"
+                  = form.text_area :brand_name, placeholder: "例) シャネル", class: "input-brand"
+            .sell__group__box__sutetas
+              %label
+                商品のサイズ
+                %span.form-require 必須
+              .select-wrap
+                .serlect-default
+                  %i.fa.fa-angle-down
+                  = form.select :size, [['---', ""],['XSサイズ','XSサイズ'],['Sサイズ','Sサイズ'],['Mサイズ','Mサイズ'],['Lサイズ','Lサイズ'],['LLサイズ','LLサイズ'],['XLサイズ','XLサイズ']],{class: ""}
             .sell__group__box__sutetas
               %label
                 商品の状態
@@ -72,7 +80,7 @@
               .select-wrap
                 .serlect-default
                   %i.fa.fa-angle-down
-                  = form.select :status, [['  ---', ""],['新品、未使用', 1],['未使用に近い', 2],['目立った傷や汚れなし', 3],['やや傷や汚れあり', 4],['未使用に近い', 5],['全体的に状態が悪い', 6]],{class: ""}
+                  = form.select :status, [['---', ""],['新品、未使用','新品、未使用'],['未使用に近い','未使用に近い'],['目立った傷や汚れなし','目立った傷や汚れなし'],['やや傷や汚れあり','やや傷や汚れあり'],['未使用に近い','未使用に近い'],['全体的に状態が悪い','全体的に状態が悪い']],{class: ""}
         .sell__group.clearfix
           = form.fields_for :delivary do |delivary|
             %h3.sell__group__head 配送について
@@ -83,11 +91,18 @@
                 %label
                   配送料の負担
                   %span.form-require 必須
-
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :price, [['---', ""],['送料込み(出品者負担)', 1],['着払い(購入者負担)', 2]],{selected: @delivary.price}
+                    = delivary.select :price, [['---', ""],['送料込み(出品者負担)','送料込み(出品者負担)'],['着払い(購入者負担)','着払い(購入者負担)'],['奢るわ','奢ってもらえた']],{selected: @delivary.price}
+              .sell__group__box__sutetas
+                %label
+                  配送方法
+                  %span.form-require 必須
+                .select-wrap
+                  .serlect-default
+                    %i.fa.fa-angle-down
+                    = delivary.select :delivary_method, [['---', "---"], ['らくらくメルカリ便','らくらくメルカリ便'],['ゆうメール','ゆうメール'],['レターパック','レターパック'],['クロネコヤマト','クロネコヤマト'],['普通郵便','普通郵便']],{selected: @delivary.delivary_method}
               .sell__group__box__sutetas
                 %label
                   発送元の地域
@@ -95,7 +110,7 @@
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :area, [['---', ""],['ブラジル', 1],['ハワイ',2],['大阪',3]],{selected: @delivary.area}
+                    = delivary.select :area, [['---', ""],['ブラジル','ブラジル'],['ハワイ','ハワイ'],['大阪','大阪'],['コスタリカ','コスタリカ'],['スペイン','スペイン'],['日本','日本'],['土星','土星'],['北九州','北九州'],['さいたま','さいたま']],{selected: @delivary.area}
               .sell__group__box__sutetas
                 %label
                   発送までの日数
@@ -103,7 +118,7 @@
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :delivary_day, [['---', ""], ['1~2日で発送',1],['2~3日で発送', 2],['4~7日で発送', 3]],{selected: @delivary.delivary_day}
+                    = delivary.select :delivary_day, [['---', ""], ['気分で発送','気分で発送'],['1~2日で発送','1~2日で発送'],['2~3日で発送','2~3日で発送'],['4~7日で発送','4~7日で発送'],['気が向いたら発送','気が向いたら発送']],{selected: @delivary.delivary_day}
         .sell__group.clearfix
           = form.fields_for :item do |item|
             %h3.sell__group__head 販売価格(300〜9,999,999)
