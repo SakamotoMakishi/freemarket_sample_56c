@@ -92,7 +92,6 @@ class ItemsController < ApplicationController
     @item = Item.with_attached_images.find(params[:id])
     @user = Item.find(params[:id]).seller
     @delivary = Delivary.find_by(item_id:params[:id])
-    @delivary = Delivary.find(params[:id])
     @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
   end
 end
