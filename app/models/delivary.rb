@@ -10,11 +10,12 @@ class Delivary < ApplicationRecord
     if area.blank? || area.nil?
       errors[:area] << "入力してください"
     end
-    if delivary_day.blank? || delivary.nil?
+    if delivary_day.blank? || delivary_day.nil?
       errors[:delivary_day] << "選択してください"
     end
-        if delivary_method.blank? || delivary.nil?
+    if delivary_method.blank? || delivary_method.nil?
       errors[:delivary_method] << "選択してください"
     end
   end
 end
+
