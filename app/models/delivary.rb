@@ -1,5 +1,6 @@
 class Delivary < ApplicationRecord
-  has_one :item
+
+  belongs_to :item,optional: true
   validate :add_error_message
 
   def add_error_message
@@ -11,6 +12,9 @@ class Delivary < ApplicationRecord
     end
     if delivary_day.blank? || delivary.nil?
       errors[:delivary_day] << "選択してください"
+    end
+        if delivary_method.blank? || delivary.nil?
+      errors[:delivary_method] << "選択してください"
     end
   end
 end
