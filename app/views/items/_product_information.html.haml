@@ -22,24 +22,33 @@
                       .sell__form__box__image__ul__li__content__upload
                         =link_to "編集","/", class: "sell-form-update"
                         =link_to "削除","/", class: "sell-form-update sell-form-delete"
-            %label#file_photo_field(for="file_photo")
-              = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
-              .sell-drop-file
-                .sell__form__box__drop-box__text
-                  ドラッグアンドドロップ
-                  %br/
-                  またはクリックしてファイルをアップロード
+              %label#file_photo_field(for="file_photo")
+                = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+                .sell-drop-file
+                  .sell__form__box__drop-box__text
+                    ドラッグアンドドロップ
+                    %br/
+                    またはクリックしてファイルをアップロード
+            - if @item.errors.messages[:images].any?
+              .error-message-box-first
+                = @item.errors.messages[:images]
         .sell__content
           .sell__content__name
             商品名
             %span.form-require 必須
             %div
               = form.text_area :name, placeholder: "商品名（必須 40文字まで)", class: "input-default"
+            - if @item.errors.messages[:name].any?
+              .error-message-box
+                = @item.errors.messages[:name]
           .sell__content__form
             %label
               商品の説明
               %span.form-require 必須
               = form.text_area :text, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "textarea-default"
+            - if @item.errors.messages[:text].any?
+              .error-message-box
+                = @item.errors.messages[:text]
         .sell__group.clearfix
           %h3.sell__group__head 商品の詳細
           .sell__group__box
@@ -73,6 +82,9 @@
                 .serlect-default
                   %i.fa.fa-angle-down
                   = form.select :status, [['  ---', ""],['新品、未使用', 1],['未使用に近い', 2],['目立った傷や汚れなし', 3],['やや傷や汚れあり', 4],['未使用に近い', 5],['全体的に状態が悪い', 6]],{class: ""}
+              - if @item.errors.messages[:status].any?
+                .error-message-box
+                  = @item.errors.messages[:status]
         .sell__group.clearfix
           = form.fields_for :delivary do |delivary|
             %h3.sell__group__head 配送について
@@ -88,6 +100,9 @@
                   .serlect-default
                     %i.fa.fa-angle-down
                     = delivary.select :price, [['---', ""],['送料込み(出品者負担)', 1],['着払い(購入者負担)', 2]],{selected: @delivary.price}
+                  - if @delivary.errors.messages[:price].any?
+                    .error-message-box
+                      = @delivary.errors.messages[:price]
               .sell__group__box__sutetas
                 %label
                   発送元の地域
@@ -96,6 +111,9 @@
                   .serlect-default
                     %i.fa.fa-angle-down
                     = delivary.select :area, [['---', ""],['ブラジル', 1],['ハワイ',2],['大阪',3]],{selected: @delivary.area}
+                - if @delivary.errors.messages[:area].any?
+                  .error-message-box
+                    = @delivary.errors.messages[:area]
               .sell__group__box__sutetas
                 %label
                   発送までの日数
@@ -104,6 +122,9 @@
                   .serlect-default
                     %i.fa.fa-angle-down
                     = delivary.select :delivary_day, [['---', ""], ['1~2日で発送',1],['2~3日で発送', 2],['4~7日で発送', 3]],{selected: @delivary.delivary_day}
+                - if @delivary.errors.messages[:delivary_day].any?
+                  .error-message-box
+                    = @delivary.errors.messages[:delivary_day]
         .sell__group.clearfix
           = form.fields_for :item do |item|
             %h3.sell__group__head 販売価格(300〜9,999,999)
@@ -117,6 +138,9 @@
                   .sell__price__form__right
                     ¥
                     = item.text_field :price, placeholder:  "例）300", class: "input-price", value:@item.price
+                - if @item.errors.messages[:price].any?
+                  .error-message-box
+                    = @item.errors.messages[:price]
                 %li.sell__price__text
                   .li-left
                     販売手数料 (10%)
@@ -160,3 +184,4 @@
         = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826', alt: 'mercari', height: '65', width: '80', class: 'fotter-logo'
     %p
       %small © 2019 Mercari
+
