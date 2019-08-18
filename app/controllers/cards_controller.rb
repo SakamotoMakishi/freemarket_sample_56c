@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, :set_item
 
   def index
     @item = Item.with_attached_images.find(params[:id])
@@ -15,7 +15,7 @@ class CardsController < ApplicationController
   end
 
   def make
-    Payjp.api_key = "sk_test_db9ec38e76c4672981fd3ede"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.create(
       card: params['token'],
       )
@@ -32,9 +32,8 @@ class CardsController < ApplicationController
       redirect_to action: "new"
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      @item = Item.find(params[:id])
       card = current_user.card
-      Payjp.api_key = "sk_test_db9ec38e76c4672981fd3ede"
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(
       amount: @item.price,
       customer: card.customer_id,
@@ -51,7 +50,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    Payjp.api_key = "sk_test_db9ec38e76c4672981fd3ede"
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy
@@ -63,6 +62,11 @@ class CardsController < ApplicationController
 
 
   private
+
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
