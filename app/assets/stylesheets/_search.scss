@@ -3,9 +3,245 @@
   padding-top:50px;
   .search-container{
     margin: auto;
-    width:1020px;
+    width:1100px;
     height:1700px;
     &__left{
+      float: left;
+      width: 280px;
+      height: 1700px;
+      margin-top: 100px;
+      &__search-content{
+        font-size:14px;
+        font-weight: bold;
+        &__text{
+          margin-bottom:10px;
+          padding-left:10px;
+        }
+        &__keyword{
+          width:267px;
+          height: 48px;
+          padding-left:10px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          margin-bottom:20px; 
+        }
+        &__content{
+          background: #fff;
+          padding:15px 10px 130px;
+          .fas{
+            color: rgb(148, 147, 147);
+          }
+          text{
+            font-size:17px;
+          }
+          &__search-box{
+            input{
+              width: 260px;
+              height: 48px;
+              margin:20px 0 20px;
+            }
+            .select-wrap{
+              position: absolute;
+              top:170px;
+              margin-left:-10px;
+              #q_sorts{
+                padding-left:10px;
+                background: #fff;
+                width:280px;
+                height: 48px;
+                font-size:15px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-right:0.3em;
+                list-style-type:none;
+                cursor: pointer;
+              }
+              .fas{
+                pointer-events: none;
+                position: relative;
+                right: 30px;
+                top:4px;
+                font-size:25px;
+                color: #888;
+              }
+            }
+            .search-brand{
+              width: 260px;
+              height: 48px;
+              margin: 50px 0 70px;
+              .brand_field{
+                max-height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                width:260px;
+                margin: 8px 0 20px;
+              }
+            }
+            .search-size{
+              width:280px;
+              height: 48px;
+              margin-top: 40px;
+              margin-bottom:80px;
+              #q_size_eq{
+                margin-top:10px;
+                padding-left:10px;
+                background: #fff;
+                width:260px;
+                height: 48px;
+                font-size:15px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-right:0.3em;
+                list-style-type:none;
+                cursor: pointer;
+              }
+              .fas1{
+                pointer-events: none;
+                position: relative;
+                left: 230px;
+                top: -36px;
+                font-size: 25px;
+                color: #888;
+              }
+            }
+            .search-text{
+              width: 260px;
+              height: 48px;
+              margin: 40px 0 70px;
+              .text_field{
+                max-height: 48px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                width:260px;
+                margin: 8px 0 20px;
+              }
+            }
+            .search-price{
+              width: 260px;
+              .price_text{
+                float: left;
+              }
+              .fas{
+                float: left;
+              }
+              .min{
+                max-height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                width:100px;
+                float: left;
+                position: relative;
+                right:33px;
+              }
+              .max{
+                max-height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+                width:100px;
+                float: right;
+                position: relative;
+                right:23px;
+                bottom:15px;
+              }
+              h2{
+                position: relative;
+                left:-19px;
+                top:35px;
+                pointer-events: none;
+              }
+            }
+            .search-status{
+              margin-top:100px;
+              li{
+                width: 175px;
+                height: 40px;
+                .search-label{
+                  width: 50px;
+                  height: 30px;
+                  position: relative;
+                  font-size: 12px;
+                  top: -8px;
+                  left: -17px;
+                  margin-left:10px; 
+                  font-weight: 400;
+                  word-wrap: break-word;
+                }
+                .check_box{
+                  width: 30px;
+                  height: 30px;
+                  cursor: pointer;
+                }
+              }
+            }
+            .search-delivary{
+              margin-top:50px;
+              li{
+                width: 175px;
+                height: 40px;
+                .search-label{
+                  width: 50px;
+                  height: 30px;
+                  position: relative;
+                  font-size: 12px;
+                  top: -8px;
+                  left: -17px;
+                  margin-left:10px; 
+                  font-weight: 400;
+                  word-wrap: break-word;
+                }
+                .check_box{
+                  width: 30px;
+                  height: 30px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .submit-btn{
+          width: 120px;
+          height: 50px;
+          float: right;
+          background-color:#ea352d;; 
+          position: relative;
+          top: 35px;
+          color: white;
+          font-size:15px;
+          cursor: pointer;
+        }
+        .request-btn{
+          width: 120px;
+          height: 10px;
+          padding-top: 17px;
+          padding-bottom: 24px;
+          float: left;
+          background: #aaa;
+          color:white;
+          text-decoration: none;
+          text-align: center;
+          position: relative;
+          top: 55px;
+        }
+      }
     }
     &__right{
     float: right;

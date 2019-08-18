@@ -1,103 +1,102 @@
-=render 'layouts/header'
-
-%section.slideshow 
-  .slideshow__outer
-    .slideshow__outer__stage{left:"-4320px", width:"8640px"}
-      .slideshow__outer__stage__item{width:"100%"}
-        =link_to "/", class:"slideshow-pull" do
-          .slideshow-inner
-      .slideshow__outer__stage__item{width:"1440px"}
-        .slideshow-vi
-          .slideshow-visual
-            .slideshow-visual__content
-              %h2
-                スマホでかんたん
-                %br フリマアプリ
-              %p
-                メルカリはスマホカメラからすぐに出品できる
-                %br 購入時も安心な独自システムのアプリです
-              .slideshow-visual__content__store
-                =link_to "/", target:"_blank", class:"slideshow-pull" do
-                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983', alt: ''
-                =link_to "/", target:"_blank", class:"slideshow-pull" do
-                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983', alt: ''
-            =image_tag '//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?863303983', alt:'', height:'390px'
-      .slideshow__outer__stage__item{width:"1440px"}
-        =link_to "/", class:"slideshow-pull" do
-          .slideshow-inner
-
-  .slideshow-nav
-    .slideshow-nav__prev prev
-    .slideshow-nav__next next
-  .slideshow-dots
-    .slideshow-dot
-      %span
-    .slideshow-dot
-      %span
-
-.main-contents
-  .pickup
-    %h2.pickup__head ピックアップカテゴリー
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          レディース 新着アイテム
-      =render 'picup_content',{ items: @women_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          メンズ 新着アイテム
-      =render 'picup_content',{ items: @men_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          ベビー・キッズ 新着アイテム
-      =render 'picup_content',{ items: @child_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-
-.main-contents
-  .pickup
-    %h2.pickup__head ピックアップブランドアイテム
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          シャネル 新着アイテム
-      =render 'picup_content',{ items: @chanel_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          ルイ ヴィトン 新着アイテム
-      =render 'picup_content',{ items: @vuitton_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-
-    .pickup__content.clearfix
-      %h3.pickup__text
-        = link_to "/" do
-          ナイキ 新着アイテム
-      =render 'picup_content',{ items: @nike_items }
-      .pickup__view-all
-        = link_to "/" do
-          すべての商品を見る
-= render "layouts/banner"
-= render "layouts/footer"
-= render 'layouts/post-btn'
-
-
+= render 'layouts/header'
+.search-container-page
+  .search-container
+    .search-container__left
+      .search-container__left__search-content
+        .search-container__left__search-content__text
+          %i.fas.fa-search キーワードで検索
+        %input.search-container__left__search-content__keyword.search__query{name:"keyword", placeholder:"キーワード検索"}
+        .search-container__left__search-content__content
+          %text 詳細検索
+          %ul.search-container__left__search-content__content__search-box
+            = search_form_for @q,url: '/items/index' ,html: { method: :get }do |f|
+              %li.select-wrap
+                = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q]}, { onchange: 'this.form.submit()'} )
+                %i.fas.fa-angle-down
+              %li.search-size
+                %i.fas.fa-list-ul
+                = f.label :size_eq,"カテゴリーを選択する"
+                = f.select :size_eq, [['すべて', ""]]
+                %i.fas.fas1.fa-angle-down
+              %li.search-brand
+                %i.fas.fa-tags
+                = f.label :brand_name_cont, "ブランド名から探す"
+                = f.search_field :brand_name_cont,class:"brand_field",placeholder:"例）シャネル"
+              %li.search-size
+                %i.fas.fa-tshirt
+                = f.label :size_eq,"サイズを指定する"
+                = f.select :size_eq, [['すべて', ""],['XSサイズ','XSサイズ'],['Sサイズ','Sサイズ'],['Mサイズ','Mサイズ'],['Lサイズ','Lサイズ'],['LLサイズ','LLサイズ'],['XLサイズ','XLサイズ']]
+                %i.fas.fas1.fa-angle-down
+              %li.search-text
+                %i.fas.fa-comment-alt
+                = f.label :text_cont, "商品説明から探す"
+                = f.search_field :text_cont,class:"text_field",placeholder:"例）値下げ"
+              %li.search-price
+                %i.fas.fa-dollar-sign
+                = f.label :price, "価格",class:"price_text"
+                = f.search_field :price_gt,placeholder:"$Min",class:"min"
+                %h2 ~
+                = f.search_field :price_lt,placeholder:"$Max",class:"max"
+              %ul.search-status
+                %i.fas.fa-star
+                = f.label :status,"商品の状態"
+                %br/
+                %li
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "新品、未使用", ''
+                  = f.label :status_eq_any, "新品、未使用",class:"search-label"
+                %li
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "未使用に近い", ''
+                  = f.label :status_eq_any, "未使用に近い",class:"search-label"
+                %li  
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "目立った傷や汚れなし", ''
+                  = f.label :status_eq_any, "目立った傷や汚れなし",class:"search-label"
+                %li
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "やや傷や汚れあり", ''
+                  = f.label :status_eq_any, "やや傷や汚れあり",class:"search-label"
+                %li
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "全体的に状態が悪い", ''
+                  = f.label :status_eq_any, "傷や汚れあり",class:"search-label"
+                %li
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "全体的に状態が悪い", ''
+                  = f.label :status_eq_any, "全体的に状態が悪い",class:"search-label"
+                %ul.search-delivary
+                  %i.fas.fa-truck
+                  = f.label :delivary_price,'配送方法'
+                  %br/
+                  %li
+                    = f.check_box :delivary_price_eq_any, {class:"check_box",multiple: true}, "送料込み(出品者負担)", ''
+                    = f.label :delivary_price_eq, "送料込み(出品者負担)",class:"search-label"
+                  %li
+                    = f.check_box :delivary_price_eq_any, {class:"check_box",multiple: true}, "着払い(購入者負担)", ''
+                    = f.label :delivary_price_eq, "着払い(購入者負担)",class:"search-label"
+              = f.submit '完了',class:"submit-btn"
+              = link_to 'クリア',request.path,class:"request-btn"
+    .search-container__right
+      .search-container__right__contents
+        .search-container__right__contents__title
+          検索結果
+          .search-container__right__contents__title__count
+            = "1-#{@items.count}件の検索結果"
+        .search-container__right__contents__title__box.js-lazy-load-images
+        .search-container__right__contents__title__box
+          -if @items.any?
+            - @items.each do |i|
+              .search-container__right__contents__title__box__item
+                = link_to item_path(i) do
+                  .search-container__right__contents__title__box__item__image
+                    = image_tag url_for(i.images.first),class: 'item-image'
+                  .search-container__right__contents__title__box__item__text
+                    .search-container__right__contents__title__box__item__text__name
+                      = i.name
+                    .search-container__right__contents__title__box__item__text__price
+                      = "$#{i.price}"
+                    .search-container__right__contents__title__box__item__text__icon
+                      %i.far.fa-heart
+                        %span 3
+          -if @items.nil?
+            .search-container__right__contents__title__box__item
+              .search-container__right__contents__title__box__item__image
+              .search-container__right__contents__title__box__item__text
+                一致する商品はありません
+= render 'layouts/banner'
+= render 'layouts/footer'

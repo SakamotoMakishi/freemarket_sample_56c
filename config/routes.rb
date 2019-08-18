@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'items#index'
+  root 'items#root'
   
   resources :categories, only: :show
   resources :brands, only: :show
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection  do
       get 'buy'
       get 'search'
+      match 'index' => 'items#index', via: [:get, :post]
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
