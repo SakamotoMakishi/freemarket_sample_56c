@@ -3,13 +3,19 @@ class ItemsController < ApplicationController
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
 
-  def index
+  def root
     @women_items = Item.with_attached_images.order("id DESC").limit(4)
     @men_items = Item.with_attached_images.order("id DESC").limit(4)
     @child_items = Item.with_attached_images.order("id DESC").limit(4)
     @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
     @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
     @nike_items = Item.with_attached_images.order("id DESC").limit(4)
+  end
+
+  def index
+    @q = Item.with_attached_images.ransack(params[:q])
+    @q.sorts = 'id desc' if @q.sorts.empty?
+    @items = @q.result.includes(:delivary).limit(24)
   end
 
   def new
@@ -70,9 +76,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.with_attached_images.order('created_at DESC').limit(24)
-    @item_search = Item.with_attached_images.order('created_at DESC').where('name LIKE(?)', "%#{params[:keyword]}%").limit(24)
-    @item_search_count = Item.with_attached_images.where('name LIKE(?)', "%#{params[:keyword]}%").count
+    @item_search = Item.with_attached_images.order('created_at DESC').where('name LIKE(?)',"%#{params[:keyword]}%").limit(24)
     respond_to do |format|
       format.html
       format.json
