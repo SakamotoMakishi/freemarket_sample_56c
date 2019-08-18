@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       post 'pay', to: 'items#pay'
+    end
     collection  do
       get 'buy'
       get 'search'
