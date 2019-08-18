@@ -1,6 +1,12 @@
 class Item < ApplicationRecord
   validate :add_error_message
   belongs_to :seller, class_name: "User"
+
+  belongs_to :buyer, class_name: "User"
+  belongs_to :category, optional:true
+  belongs_to :brand, optional:true
+  has_one :delivary
+
   has_many_attached :images
   has_one :delivary, foreign_key: :item_id, dependent: :destroy
   validate :check_file_presence

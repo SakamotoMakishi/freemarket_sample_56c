@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   
   resources :items do
+    member do
+      post 'pay', to: 'items#pay'
     collection  do
       get 'buy'
       get 'search'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
       resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
-  
+
   resources :users, only: :show do
     collection  do
       get 'signup_page'
@@ -35,8 +37,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:new, :show] do
-    collection do
+  resources :cards do
+    member do
+      post 'make', to: 'cards#make'
+      get 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
