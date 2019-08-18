@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   resources :items do
     member do
       post 'pay', to: 'items#pay'
+    collection  do
+      get 'buy'
+      get 'search'
+    end
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
 
@@ -26,6 +32,7 @@ Rails.application.routes.draw do
       get 'profile'
       get 'user_card'
       get 'card_add_to'
+      get 'plivacy_policy'
     end
   end
 

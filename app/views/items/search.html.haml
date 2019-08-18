@@ -1,0 +1,28 @@
+= render 'layouts/header'
+.search-container-page
+  .search-container
+    .search-container__left
+    .search-container__right
+      .search-container__right__contents
+        .search-container__right__contents__title
+          検索結果
+          .search-container__right__contents__title__count.js-lazy-load-count
+            = "1-#{@item_search_count}件の検索結果"
+          .search-container__right__contents__title__text
+            新着順
+        .search-container__right__contents__title__box.js-lazy-load-images
+          - @item_search.each do |i|
+            .search-container__right__contents__title__box__item
+              = link_to item_path(i) do
+                .search-container__right__contents__title__box__item__image
+                  = image_tag url_for(i.images.first),class: 'item-image'
+                .search-container__right__contents__title__box__item__text
+                  .search-container__right__contents__title__box__item__text__name
+                    = i.name
+                  .search-container__right__contents__title__box__item__text__price
+                    = "$#{i.price}"
+                  .search-container__right__contents__title__box__item__text__icon
+                    %i.far.fa-heart
+                      %span 3
+= render 'layouts/banner'
+= render 'layouts/footer'
