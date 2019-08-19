@@ -53,27 +53,23 @@
           %h3.sell__group__head 商品の詳細
           .sell__group__box
             .sell__group__box-category
-              %label
-                カテゴリー
-                %span.form-require 必須
-              %div
-                .select-wrap
-                  %i.fa.fa-angle-down
-                  .serlect-default
-                    = form.select :category_id, [['---', ""],['レディース', 1],['メンズ', 2],['ベビー・キッズ', 3]],{class: ""},{selected: "#{@item.category_id}"}
-                -# .select-wrap
-                -#   %i.fa.fa-angle-down
-                -#   .serlect-default
-                -#     = form.select :category_id, [['---', ""],['トップス', 4],['ジャケット/アウター', 5],['パンツ', 6]],{class: ""},{selected: "#{@item.category_id}"}
-                -# .select-wrap
-                -#   %i.fa.fa-angle-down
-                -#   .serlect-default
-                -#     = form.select :category_id, [['---', ""],['Tシャツ', 7],['パーカー', 8],['ニット', 9]],{class: ""},{selected: "#{@item.category_id}"}
-                .select-wrap
+              .sell__group__box-category-category
                 %label
-                  ブランド
-                  %span.form-any 任意
-                  = form.text_area :brand_name, placeholder: "例) シャネル", class: "input-brand"
+                  カテゴリー
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    %i.fa.fa-angle-down
+                    .serlect-default
+                      = form.select :category_id1, @categories.map{|o| [o.name, o.id]},include_blank: "---",class: "" ,selected: "#{@category1.id}"
+                  - if @item.errors.messages[:category_id].any?
+                    .error-message-box
+                      = @item.errors.messages[:category_id]
+                  .select-wrap
+              %label
+                ブランド
+                %span.form-any 任意
+                = form.text_area :brand_name, placeholder: "例) シャネル", class: "input-brand"
             .sell__group__box__sutetas
               %label
                 商品のサイズ
