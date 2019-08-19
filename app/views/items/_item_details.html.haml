@@ -40,26 +40,32 @@
                 %i.fas.fa-angle-right category-name3
         %tr
           %th ブランド
-          %td 
+          %td
+            = "#{@item.brand_name}"
         %tr
           %th 商品のサイズ
           %td
+            = "#{@item.size}"
         %tr
           %th 商品の状態
-          %td item-status
+          %td 
+            = "#{@item.status}"
         %tr
           %th 配送料の負担
-          %td delivary-price
+          %td
+            = "#{@delivary.price}"
         %tr
           %th 配送の方法
           %td
+            = "#{@delivary.delivary_method}"
         %tr
           %th 配送元地域
           %td
-            =link_to "delivary-area", "/"
+            =link_to "#{@delivary.area}", "/"
         %tr
           %th 発送日の目安
-          %td derivary-day
+          %td
+            = "#{@delivary.delivary_day}"
 
   .item-details__price-box
     %span.item-details__price-box__price
@@ -68,7 +74,7 @@
     %span.item-details__price-box__fee 送料込み
   -if user_signed_in?
     -if @item.seller_id != current_user.id
-      =link_to "購入画面に進む", "/", id:"item-details-buy-btn"
+      =link_to "購入画面に進む", card_path(@item), id:"item-details-buy-btn"
         
   .item-details__description
     %p.item-details__description__inner

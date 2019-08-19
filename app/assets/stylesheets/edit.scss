@@ -1,10 +1,10 @@
 .item-edit-content{
-  margin: 40px auto 0;
+  margin: 0px auto 0;
   width: 1020px;
   overflow:auto;
   &__inner{
-    float: right;
     width: 700px;
+    margin:auto;
   }
 }
 

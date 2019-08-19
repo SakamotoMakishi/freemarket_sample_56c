@@ -1,0 +1,103 @@
+=render 'layouts/header'
+
+%section.slideshow 
+  .slideshow__outer
+    .slideshow__outer__stage{left:"-4320px", width:"8640px"}
+      .slideshow__outer__stage__item{width:"100%"}
+        =link_to "/", class:"slideshow-pull" do
+          .slideshow-inner
+      .slideshow__outer__stage__item{width:"1440px"}
+        .slideshow-vi
+          .slideshow-visual
+            .slideshow-visual__content
+              %h2
+                スマホでかんたん
+                %br フリマアプリ
+              %p
+                メルカリはスマホカメラからすぐに出品できる
+                %br 購入時も安心な独自システムのアプリです
+              .slideshow-visual__content__store
+                =link_to "/", target:"_blank", class:"slideshow-pull" do
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983', alt: ''
+                =link_to "/", target:"_blank", class:"slideshow-pull" do
+                  = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983', alt: ''
+            =image_tag '//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?863303983', alt:'', height:'390px'
+      .slideshow__outer__stage__item{width:"1440px"}
+        =link_to "/", class:"slideshow-pull" do
+          .slideshow-inner
+
+  .slideshow-nav
+    .slideshow-nav__prev prev
+    .slideshow-nav__next next
+  .slideshow-dots
+    .slideshow-dot
+      %span
+    .slideshow-dot
+      %span
+
+.main-contents
+  .pickup
+    %h2.pickup__head ピックアップカテゴリー
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          レディース 新着アイテム
+      =render 'picup_content',{ items: @women_items }
+      .pickup__view-all
+        = link_to "/" do
+          すべての商品を見る
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          メンズ 新着アイテム
+      =render 'picup_content',{ items: @men_items }
+      .pickup__view-all
+        = link_to "/" do
+          すべての商品を見る
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          ベビー・キッズ 新着アイテム
+      =render 'picup_content',{ items: @child_items }
+      .pickup__view-all
+        = link_to "/" 
+        すべての商品を見る
+
+.main-contents
+  .pickup
+    %h2.pickup__head ピックアップブランドアイテム
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          シャネル 新着アイテム
+      =render 'picup_content',{ items: @chanel_items }
+      .pickup__view-all
+        = link_to "/" do
+          すべての商品を見る
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          ルイ ヴィトン 新着アイテム
+      =render 'picup_content',{ items: @vuitton_items }
+      .pickup__view-all
+        = link_to "/" do
+          すべての商品を見る
+
+    .pickup__content.clearfix
+      %h3.pickup__text
+        = link_to "/" do
+          ナイキ 新着アイテム
+      =render 'picup_content',{ items: @nike_items }
+      .pickup__view-all
+        = link_to "/" do
+          すべての商品を見る
+= render "layouts/banner"
+= render "layouts/footer"
+= render 'layouts/post-btn'
+
+
