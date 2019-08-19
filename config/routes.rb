@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     collection  do
       get 'buy'
       get 'search'
+      get 'category_search2'
+      get 'category_search3'
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }

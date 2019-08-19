@@ -3,13 +3,17 @@ class ItemsController < ApplicationController
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
 
+
   def root
-    @women_items = Item.with_attached_images.order("id DESC").limit(4)
-    @men_items = Item.with_attached_images.order("id DESC").limit(4)
-    @child_items = Item.with_attached_images.order("id DESC").limit(4)
+    @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids)).with_attached_images.order("id DESC").limit(4)
+    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids)).with_attached_images.order("id DESC").limit(4)
+    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids)).with_attached_images.order("id DESC").limit(4)
     @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
     @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
     @nike_items = Item.with_attached_images.order("id DESC").limit(4)
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 
   def index
@@ -21,6 +25,8 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @delivary = Delivary.new
+    @category = Category.where(parrent_id: 0)
+    @category1 = Category.new
   end
 
   def create
@@ -29,6 +35,8 @@ class ItemsController < ApplicationController
     if @item.save && @delivary.save
       render 'new-modal'
     else
+      @category = Category.where(parrent_id: 0)
+      @category1 = Category.new
       render :new
     end
   end
@@ -55,14 +63,6 @@ class ItemsController < ApplicationController
     redirect_to action: 'show_user_item'
   end
 
-  def image_add
-    @item.images.attach(params.require(:item).permit[:images])
-  end
-
-  def image_del
-    @item.images.purge(params.require(:item).permit[:images])
-  end
-
   def destroy
     if @item.seller_id == current_user.id
       if @item.destroy
@@ -83,6 +83,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def category_search2
+    @category2 = Category.where(parrent_id:params[:selected_num])
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
@@ -97,5 +104,9 @@ class ItemsController < ApplicationController
     @user = Item.find(params[:id]).seller
     @delivary = Delivary.find_by(item_id:params[:id])
     @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
+    @categories = Category.where(parrent_id: 0)
+    @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
+    @category2 = Category.find(@item.category.parrent_id)
+    @category3 = @item.category
   end
 end
