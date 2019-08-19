@@ -2,6 +2,10 @@ class Item < ApplicationRecord
   validate :add_error_message
   validate :check_file_presence
   belongs_to :seller, class_name: "User"
+  
+  belongs_to :category, optional:true
+  has_one :delivary
+
   has_many_attached :images
   has_one :delivary, foreign_key: :item_id, dependent: :destroy
   belongs_to :category, optional: true
