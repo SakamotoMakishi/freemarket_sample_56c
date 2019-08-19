@@ -1,6 +1,5 @@
 module ApplicationHelper
   def item_count(user)
-    user = current_user
-    Item.where(seller_id: current_user.id).count
+    Item.where(seller_id: user.id).count
   end
 end
