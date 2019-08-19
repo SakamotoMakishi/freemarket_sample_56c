@@ -1,6 +1,8 @@
 $(function(){
 
-  updateAddItem();
+  $(".single").ready(function(){
+    updateAddItem();
+  });
   
   function updateAddItem(){
     var $newButton = $("#file_photo_field");
@@ -54,5 +56,77 @@ $(function(){
     }
   });
 
+
+  function buildCategory2(categories){
+    var loophtml = []
+    $.each(categories,function(index,category){
+      loophtml.push(`<option value=${category.id}>${category.name}</option>`);
+    });
+    var html = `<div class="select-wrap">
+                <i class="fa fa-angle-down"></i>
+                <div class="serlect-default">
+                <select name="item[category_id2]" id="item_category_id2"><option value="">---</option>
+                ${loophtml}
+                </select>
+                </div>
+                </div>`
+    return html;
+  }
+
+  function buildCategory3(categories){
+    var loophtml = []
+    $.each(categories,function(index,category){
+      loophtml.push(`<option value=${category.id}>${category.name}</option>`);
+    });
+    var html = `<div class="select-wrap">
+                <i class="fa fa-angle-down"></i>
+                <div class="serlect-default">
+                <select name="item[category_id]" id="item_category_id"><option value="">---</option>
+                ${loophtml}
+                </select>
+                </div>
+                </div>`
+    return html;
+  }
+
+  $("#item_category_id1").on("change",function(){
+    var data = {selected_num: $(this).val()};
+    $.ajax({
+      url: "/items/category_search2",
+      type: "GET",
+      data: data,
+      dataType: 'json',
+    })
+    .done(function(data){
+      if($("#item_category_id2").size){
+      $("#item_category_id2").parent().parent().remove();
+      };
+      var html = buildCategory2(data);
+      $('.sell__group__box-category-category').append(html)
+    })
+    .fail(function(){
+      alert('error');
+    })
+  })
+
+  $(document).on("change","#item_category_id2",function(){
+    var data = {selected_num: $("#item_category_id2").val()};
+    $.ajax({
+      url: "/items/category_search2",
+      type: "GET",
+      data: data,
+      dataType: 'json',
+    })
+    .done(function(data){
+      if($("#item_category_id").size){
+        $("#item_category_id").parent().parent().remove();
+        };
+      var html = buildCategory3(data);
+      $('.sell__group__box-category-category').append(html)
+    })
+    .fail(function(){
+      alert('error');
+    })
+  })
 });
 
