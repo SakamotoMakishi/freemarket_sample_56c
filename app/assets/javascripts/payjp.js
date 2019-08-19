@@ -1,7 +1,8 @@
-$(document).on('turbolinks:load', function() {
-  Payjp.setPublicKey('pk_test_27b237ae87812703d62d535e');
+document.addEventListener(
+  "DOMContentLoaded", (e) => {
+  Payjp.setPublicKey('pk_test_1a7ddd0604bfefd35eaac84a');
 
-  $("#charge-form").on("click", "#card_token", function(e) {
+  $("#charge-form").on("click", function(e) {
     e.preventDefault();
     var card = {
         number: parseInt($("#card_number").val()),
@@ -20,11 +21,13 @@ $(document).on('turbolinks:load', function() {
         $("#exp_year").removeAttr("name"); 
 
         var token = response.id;
-        $("#charge-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
-        $("#charge-form").get(0).submit();
-      }
+        $("#charge-form").append(
+        $('<input type="hidden" name="token" class="payjp-token" />').val(token));
+        document.inputForm.submit();
+        }
     });
   });
-});
+},false);
+
 
 

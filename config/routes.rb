@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     get '/users/sns/sign_up', to: 'users/registrations#sns', as: :new_user_registration_sns
   end
 
-  root 'items#index'
-
+  root 'items#root'
+  
   resources :categories, only: :show
   resources :brands, only: :show
 
@@ -16,12 +16,15 @@ Rails.application.routes.draw do
   resources :items do
     collection  do
       get 'buy'
+      get 'search'
+      get 'category_search2'
+      get 'category_search3'
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
-  
+
   resources :users, only: :show do
     collection  do
       get 'signup_page'
@@ -37,8 +40,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:new, :show] do
-    collection do
+  resources :cards do
+    member do
+      post 'make', to: 'cards#make'
+      get 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'

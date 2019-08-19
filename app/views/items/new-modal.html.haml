@@ -1,3 +1,15 @@
+.new-item-modal
+  .delete-contnet
+    .delete-contnet__box
+      .delete-contnet__box__message
+        %text 出品が完了しました
+        %br/
+      .delete-contnet__box__text
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます
+      .delete-contnet__box__select
+        = link_to '続けて出品する',new_item_path,class: "delete-contnet__box__select__new"
+      .delete-contnet__box__sheare
+        = link_to '商品ページへ行ってシェアする',item_path(@item),class: "delete-contnet__box__sheare__link"
 .single
   .single__header
     %h1
@@ -22,62 +34,41 @@
                       .sell__form__box__image__ul__li__content__upload
                         =link_to "編集","/", class: "sell-form-update"
                         =link_to "削除","/", class: "sell-form-update sell-form-delete"
-              %label#file_photo_field(for="file_photo")
-                = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
-                .sell-drop-file
-                  .sell__form__box__drop-box__text
-                    ドラッグアンドドロップ
-                    %br/
-                    またはクリックしてファイルをアップロード
-            - if @item.errors.messages[:images].any?
-              .error-message-box-first
-                = @item.errors.messages[:images]
+            %label#file_photo_field(for="file_photo")
+              = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
+              .sell-drop-file
+                .sell__form__box__drop-box__text
+                  ドラッグアンドドロップ
+                  %br/
+                  またはクリックしてファイルをアップロード
         .sell__content
           .sell__content__name
             商品名
             %span.form-require 必須
             %div
               = form.text_area :name, placeholder: "商品名（必須 40文字まで)", class: "input-default"
-            - if @item.errors.messages[:name].any?
-              .error-message-box
-                = @item.errors.messages[:name]
           .sell__content__form
             %label
               商品の説明
               %span.form-require 必須
               = form.text_area :text, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "textarea-default"
-            - if @item.errors.messages[:text].any?
-              .error-message-box
-                = @item.errors.messages[:text]
         .sell__group.clearfix
           %h3.sell__group__head 商品の詳細
           .sell__group__box
             .sell__group__box-category
-              .sell__group__box-category-category
-                %label
-                  カテゴリー
-                  %span.form-require 必須
-                %div
-                  .select-wrap
-                    %i.fa.fa-angle-down
-                    .serlect-default
-                      = form.select :category_id1, @categories.map{|o| [o.name, o.id]},include_blank: "---",class: "" ,selected: "#{@category1.id}"
-                  - if @item.errors.messages[:category_id].any?
-                    .error-message-box
-                      = @item.errors.messages[:category_id]
-                  .select-wrap
               %label
-                ブランド
-                %span.form-any 任意
-                = form.text_area :brand_name, placeholder: "例) シャネル", class: "input-brand"
-            .sell__group__box__sutetas
-              %label
-                商品のサイズ
-                %span.form-any 任意
-              .select-wrap
-                .serlect-default
+                カテゴリー
+                %span.form-require 必須
+              %div
+                .select-wrap
                   %i.fa.fa-angle-down
-                  = form.select :size, [['---', ""],['XSサイズ','XSサイズ'],['Sサイズ','Sサイズ'],['Mサイズ','Mサイズ'],['Lサイズ','Lサイズ'],['LLサイズ','LLサイズ'],['XLサイズ','XLサイズ']],{class: ""}
+                  .serlect-default
+                    = form.select :category_id, [['---', ""],['レディース', 1],['メンズ', 2],['ベビー・キッズ', 3]],{class: ""},{selected: "#{@item.category_id}"}
+                .select-wrap
+                %label
+                  ブランド
+                  %span.form-any 任意
+                  = form.text_area :brand_id, placeholder: "例) シャネル", class: "input-brand"
             .sell__group__box__sutetas
               %label
                 商品の状態
@@ -85,10 +76,7 @@
               .select-wrap
                 .serlect-default
                   %i.fa.fa-angle-down
-                  = form.select :status, [['---', ""],['新品、未使用','新品、未使用'],['未使用に近い','未使用に近い'],['目立った傷や汚れなし','目立った傷や汚れなし'],['やや傷や汚れあり','やや傷や汚れあり'],['全体的に状態が悪い','全体的に状態が悪い']],{class: ""}
-              - if @item.errors.messages[:status].any?
-                .error-message-box
-                  = @item.errors.messages[:status]
+                  = form.select :status, [['  ---', ""],['新品、未使用', 1],['未使用に近い', 2],['目立った傷や汚れなし', 3],['やや傷や汚れあり', 4],['未使用に近い', 5],['全体的に状態が悪い', 6]],{class: ""}
         .sell__group.clearfix
           = form.fields_for :delivary do |delivary|
             %h3.sell__group__head 配送について
@@ -99,24 +87,11 @@
                 %label
                   配送料の負担
                   %span.form-require 必須
+
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :price, [['---', ""],['送料込み(出品者負担)','送料込み(出品者負担)'],['着払い(購入者負担)','着払い(購入者負担)'],['奢るわ','奢ってもらえた']],{selected: @delivary.price}
-                  - if @delivary.errors.messages[:price].any?
-                    .error-message-box
-                      = @delivary.errors.messages[:price]          
-              .sell__group__box__sutetas
-                %label
-                  配送方法
-                  %span.form-require 必須
-                .select-wrap
-                  .serlect-default
-                    %i.fa.fa-angle-down
-                    = delivary.select :delivary_method, [['---', ""], ['らくらくメルカリ便','らくらくメルカリ便'],['ゆうメール','ゆうメール'],['レターパック','レターパック'],['クロネコヤマト','クロネコヤマト'],['普通郵便','普通郵便']],{selected: @delivary.delivary_method}
-                  - if @delivary.errors.messages[:delivary_method].any?
-                    .error-message-box
-                      = @delivary.errors.messages[:delivary_method]
+                    = delivary.select :price, [['---', ""],['送料込み(出品者負担)', 1],['着払い(購入者負担)', 2]],{selected: @delivary.price}
               .sell__group__box__sutetas
                 %label
                   発送元の地域
@@ -124,10 +99,7 @@
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :area, [['---', ""],['ブラジル','ブラジル'],['ハワイ','ハワイ'],['大阪','大阪'],['コスタリカ','コスタリカ'],['スペイン','スペイン'],['日本','日本'],['土星','土星'],['北九州','北九州'],['さいたま','さいたま']],{selected: @delivary.area}
-                - if @delivary.errors.messages[:area].any?
-                  .error-message-box
-                    = @delivary.errors.messages[:area]
+                    = delivary.select :area, [['---', ""],['ブラジル', 1],['ハワイ',2],['大阪',3]],{selected: @delivary.area}
               .sell__group__box__sutetas
                 %label
                   発送までの日数
@@ -135,10 +107,7 @@
                 .select-wrap
                   .serlect-default
                     %i.fa.fa-angle-down
-                    = delivary.select :delivary_day, [['---', ""], ['気分で発送','気分で発送'],['1~2日で発送','1~2日で発送'],['2~3日で発送','2~3日で発送'],['4~7日で発送','4~7日で発送'],['気が向いたら発送','気が向いたら発送']],{selected: @delivary.delivary_day}
-                - if @delivary.errors.messages[:delivary_day].any?
-                  .error-message-box
-                    = @delivary.errors.messages[:delivary_day]
+                    = delivary.select :delivary_day, [['---', ""], ['1~2日で発送',1],['2~3日で発送', 2],['4~7日で発送', 3]],{selected: @delivary.delivary_day}
         .sell__group.clearfix
           = form.fields_for :item do |item|
             %h3.sell__group__head 販売価格(300〜9,999,999)
@@ -152,9 +121,6 @@
                   .sell__price__form__right
                     ¥
                     = item.text_field :price, placeholder:  "例）300", class: "input-price", value:@item.price
-                - if @item.errors.messages[:price].any?
-                  .error-message-box
-                    = @item.errors.messages[:price]
                 %li.sell__price__text
                   .li-left
                     販売手数料 (10%)
@@ -180,8 +146,8 @@
               = link_to '加盟店規約', '/'
               %nobr に同意したことになります。
             %label(for="data-submit")
-              = form.submit class: "sell__btn__box__default btn-red", id: 'data-submit',type: "submit", style: "display:none;"
-              .submit-text
+              = form.submit class: "js-modal-open,sell__btn__box__default btn-red", id: 'data-submit',type: "submit", style: "display:none;"
+              .js-modal-open-error.submit-text
                 出品する
             %a
               =link_to 'もどる', '/', {class: "sell__btn__box__default__gray"}
@@ -198,5 +164,3 @@
         = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826', alt: 'mercari', height: '65', width: '80', class: 'fotter-logo'
     %p
       %small © 2019 Mercari
-
-
