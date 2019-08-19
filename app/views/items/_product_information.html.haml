@@ -61,7 +61,7 @@
                   .select-wrap
                     %i.fa.fa-angle-down
                     .serlect-default
-                      = form.select :category_id1, @category.map{|o| [o.name, o.id]},include_blank: "---",class: "" ,selected: "#{@category1.id}"
+                      = form.select :category_id1, @categories.map{|o| [o.name, o.id]},include_blank: "---",class: "" ,selected: "#{@category1.id}"
                   - if @item.errors.messages[:category_id].any?
                     .error-message-box
                       = @item.errors.messages[:category_id]

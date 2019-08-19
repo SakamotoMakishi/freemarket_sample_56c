@@ -10,9 +10,9 @@ class ItemsController < ApplicationController
     @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
     @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
     @nike_items = Item.with_attached_images.order("id DESC").limit(4)
-    @category1 = Category.where(parrent_id: 0)
-    @category2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
-    @category3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 
   def new
@@ -85,13 +85,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def category_search3
-    @category3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids)
-    respond_to do |format|
-      format.json
-    end
-  end
-
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
@@ -106,7 +99,7 @@ class ItemsController < ApplicationController
     @user = Item.find(params[:id]).seller
     @delivary = Delivary.find_by(item_id:params[:id])
     @user_item = Item.with_attached_images.where(seller_id: @user.id).order("id DESC").limit(6)
-    @category = Category.where(parrent_id: 0)
+    @categories = Category.where(parrent_id: 0)
     @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
     @category2 = Category.find(@item.category.parrent_id)
     @category3 = @item.category

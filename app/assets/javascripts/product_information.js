@@ -57,23 +57,13 @@ $(function(){
   });
 
 
-  function buildCategory2(categories){
-    var loophtml = []
-    $.each(categories,function(index,category){
-      loophtml.push(`<option value=${category.id}>${category.name}</option>`);
-    });
-    var html = `<div class="select-wrap">
-                <i class="fa fa-angle-down"></i>
-                <div class="serlect-default">
-                <select name="item[category_id2]" id="item_category_id2"><option value="">---</option>
-                ${loophtml}
-                </select>
-                </div>
-                </div>`
-    return html;
-  }
 
-  function buildCategory3(categories){
+  function buildCategory(categories){
+    if (categories[0].id < 13){
+      num = "2";
+    }else{
+      num = "";
+    }
     var loophtml = []
     $.each(categories,function(index,category){
       loophtml.push(`<option value=${category.id}>${category.name}</option>`);
@@ -81,7 +71,7 @@ $(function(){
     var html = `<div class="select-wrap">
                 <i class="fa fa-angle-down"></i>
                 <div class="serlect-default">
-                <select name="item[category_id]" id="item_category_id"><option value="">---</option>
+                <select name="item[category_id${num}]" id="item_category_id${num}"><option value="">---</option>
                 ${loophtml}
                 </select>
                 </div>
@@ -101,7 +91,7 @@ $(function(){
       if($("#item_category_id2").size){
       $("#item_category_id2").parent().parent().remove();
       };
-      var html = buildCategory2(data);
+      var html = buildCategory(data);
       $('.sell__group__box-category-category').append(html)
     })
     .fail(function(){
@@ -121,7 +111,7 @@ $(function(){
       if($("#item_category_id").size){
         $("#item_category_id").parent().parent().remove();
         };
-      var html = buildCategory3(data);
+      var html = buildCategory(data);
       $('.sell__group__box-category-category').append(html)
     })
     .fail(function(){
