@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @delivary = Delivary.new
-    @category = Category.where(parrent_id: 0)
+    @categories = Category.where(parrent_id: 0)
     @category1 = Category.new
   end
 
