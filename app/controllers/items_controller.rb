@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   def index
     @q = Item.with_attached_images.ransack(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @items = @q.result.includes(:delivary).limit(24)
+    @items_search = @q.result.includes(:delivary).limit(24)
   end
 
   def new

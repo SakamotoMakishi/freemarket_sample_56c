@@ -4,12 +4,12 @@
     .search-container__left
       .search-container__left__search-content
         .search-container__left__search-content__text
-          %i.fas.fa-search キーワードで検索
-        %input.search-container__left__search-content__keyword.search__query{name:"keyword", placeholder:"キーワード検索"}
+          %i.fas.fa-search キーワードで並び替え
+        %input.search-container__left__search-content__keyword.search__query{name:"keyword", placeholder:"#{@items_search.name}"}
         .search-container__left__search-content__content
           %text 詳細検索
           %ul.search-container__left__search-content__content__search-box
-            = search_form_for @q,url: '/items/index' ,html: { method: :get }do |f|
+            = search_form_for @q,url: items_path do |f|
               %li.select-wrap
                 = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q]}, { onchange: 'this.form.submit()'} )
                 %i.fas.fa-angle-down
@@ -76,11 +76,11 @@
         .search-container__right__contents__title
           検索結果
           .search-container__right__contents__title__count
-            = "1-#{@items.count}件の検索結果"
+            = "1-#{@items_search.count}件の検索結果"
         .search-container__right__contents__title__box.js-lazy-load-images
         .search-container__right__contents__title__box
-          -if @items.any?
-            - @items.each do |i|
+          -if @items_search.any?
+            - @items_search.each do |i|
               .search-container__right__contents__title__box__item
                 = link_to item_path(i) do
                   .search-container__right__contents__title__box__item__image
@@ -93,7 +93,7 @@
                     .search-container__right__contents__title__box__item__text__icon
                       %i.far.fa-heart
                         %span 3
-          -if @items.nil?
+          -if @items_search.nil?
             .search-container__right__contents__title__box__item
               .search-container__right__contents__title__box__item__image
               .search-container__right__contents__title__box__item__text
