@@ -22,3 +22,26 @@
 @import './header';
 @import './footer';
 @import './slideshow';
+nav.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: #696969;
+}
+
+nav.pagination li {display: inline;}
+
+nav.pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+nav.pagination li a.active {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;
+}
+nav.pagination li a:hover:not(.active) {background-color: #ddd;}
