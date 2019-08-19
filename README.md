@@ -39,8 +39,24 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
+- has_many :authorizations
 - has_one :card
 - has_one :address
+
+
+
+
+## authorizationsテーブル
+
+|Column           |Type    |Options                         |
+|-----------------|--------|--------------------------------|
+|provider         |string  |null: false                     |
+|uid              |string  |null: false ,unique: true       |
+|user_id          |integer |null: false                     |
+
+### Association
+- belongs_to :user
+
 
 
 
