@@ -86,6 +86,7 @@ gem 'gretel'
 gem 'mini_magick'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
+gem 'gon'
 # gem 'omniauth'
 # gem 'omniauth-facebook'
 # gem 'omniauth-twitter'

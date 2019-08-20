@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
   def update
     @item.images.detach
     @item.update(item_params)
+    @item.update(buyed_params)
     @delivary = Delivary.find_by(item_id:params[:id])
     @delivary.update(delivary_params)
     redirect_to action: 'show_user_item'
@@ -86,6 +87,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
+  end
+
+  def buyed_params
+    params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(buyer_id: current_user.id)
   end
 
   def delivary_params
