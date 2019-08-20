@@ -1,6 +1,7 @@
 .search-container-page{
   background: #f5f5f5;
   padding-top:50px;
+  overflow: hidden;
   .search-container{
     margin: auto;
     width:1100px;
@@ -83,6 +84,34 @@
                 font-size: 16px;
                 width:260px;
                 margin: 8px 0 20px;
+              }
+            }
+            .search-category{
+              width:280px;
+              height: 48px;
+              margin-top: 40px;
+              margin-bottom:80px;
+              #q_category_id_eq{
+                margin-top:10px;
+                padding-left:10px;
+                background: #fff;
+                width:260px;
+                height: 48px;
+                font-size:15px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-right:0.3em;
+                list-style-type:none;
+                cursor: pointer;
+              }
+              .fas1{
+                pointer-events: none;
+                position: relative;
+                left: 230px;
+                top: -36px;
+                font-size: 25px;
+                color: #888;
               }
             }
             .search-size{
@@ -248,6 +277,15 @@
       &__contents{
         height: 100%;
         width: 750px;
+        &__count{
+          float: left;
+          font-weight: bold;
+          width: 100%;
+          position: relative;
+          width: 100%;
+          bottom: 40px;
+          padding-left: 10px;
+        }
         &__title{
           float: left;
           font-size:25px;
@@ -258,6 +296,9 @@
             font-size:14px;
             margin-top:30px;
             font-weight:initial;
+            position: relative;
+            bottom: 50px;
+            left: 140px;
           }
           &__text{
             font-size:14px;
@@ -322,7 +363,35 @@
                 }
               }
             } 
-          } 
+          }
+          &__page{
+            border: none;
+            color: #696969;
+            text-align: center;
+            margin-top:30px;
+            margin-bottom: 30px;
+            a{
+              text-decoration: none;
+              font-size:10px; 
+              width: 15px;
+              height: 15px;
+              padding:15px;
+              background: #aaa;
+              color:white;
+              border-radius: 10px;
+            }
+            .current{
+              text-decoration: none;
+              font-size:15px; 
+              width: 15px;
+              height: 15px;
+              padding:15px;
+              margin-right:5px;
+              background:#ea352d;
+              color:white;
+              border-radius: 10px;
+            }
+          }
         }
       }
     }

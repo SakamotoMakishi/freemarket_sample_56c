@@ -13,12 +13,12 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         %ul.main__conect__lists
           %li.main__conect__lists__facebook
-            = link_to '/' do
+            = link_to root_path do
               .main__conect__lists__facebook__btn
                 Facebookでログイン
-              %i.fab.fa-facebook-square
+                %i.fab.fa-facebook-square
           %li.main__conect__lists__google
-            = link_to '/' do
+            = link_to root_path do
               .main__conect__lists__google__btn
                 Googleでログイン
               .main__conect__lists__google__icon

@@ -13,10 +13,10 @@
               %li.select-wrap
                 = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q]}, { onchange: 'this.form.submit()'} )
                 %i.fas.fa-angle-down
-              %li.search-size
+              %li.search-category
                 %i.fas.fa-list-ul
-                = f.label :size_eq,"カテゴリーを選択する"
-                = f.select :size_eq, [['すべて', ""]]
+                = f.label :category_id,"カテゴリーを選択する"
+                = f.select :category_id_eq, @categories3.map{|o| [o.name, o.id]},include_blank: "---"
                 %i.fas.fas1.fa-angle-down
               %li.search-brand
                 %i.fas.fa-tags
@@ -74,9 +74,11 @@
     .search-container__right
       .search-container__right__contents
         .search-container__right__contents__title
-          検索結果
+          %i.fas.fa-search 検索結果
           .search-container__right__contents__title__count
-            = "1-#{@items_search.count}件の検索結果"
+            = "#{@items_count}件の検索結果"
+        .search-container__right__contents__count
+          = "1-#{@items_search.count}件表示"
         .search-container__right__contents__title__box.js-lazy-load-images
         .search-container__right__contents__title__box
           -if @items_search.any?
@@ -97,6 +99,8 @@
             .search-container__right__contents__title__box__item
               .search-container__right__contents__title__box__item__image
               .search-container__right__contents__title__box__item__text
-                一致する商品はありません
+                
+        .search-container__right__contents__title__page
+          = paginate(@items_search)
 = render 'layouts/banner'
 = render 'layouts/footer'
