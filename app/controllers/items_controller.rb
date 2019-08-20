@@ -1,4 +1,3 @@
-
 class ItemsController < ApplicationController
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
@@ -16,8 +15,7 @@ class ItemsController < ApplicationController
 
   def index
     @categories1 = Category.where(parrent_id: 0)
-    @categories2 = Category.where(parrent_id: [1..3])
-    @categories3 = Category.where(parrent_id: [4..12])
+    @categories33 = Category.where(parrent_id: [4..12])
     @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids))
     @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids))
     @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids))
