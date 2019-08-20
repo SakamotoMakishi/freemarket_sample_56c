@@ -21,16 +21,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    if params[:user][:password] == nil
-      params[:user][:password] = session[:password]
-      params[:user][:password_confirmation] = session[:password]
+    # if params[:user][:password] == nil
+    #   params[:user][:password] = session[:password]
+    #   params[:user][:password_confirmation] = session[:password]
+    #   super
+    #   @user.uid = session[:uid]
+    #   @user.provider = session[:provider]
+    #   @user.save
+    # else
       super
-      @user.uid = session[:uid]
-      @user.provider = session[:provider]
-      @user.save
-    else
-      super
-    end
+    # end
   end
 
   # GET /resource/edit

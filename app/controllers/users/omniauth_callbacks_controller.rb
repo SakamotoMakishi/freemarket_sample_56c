@@ -28,33 +28,33 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super(scope)
   # end
 
-  def facebook
-    callback_from :facebook
-  end
+  # def facebook
+  #   callback_from :facebook
+  # end
 
-  def google_oauth2
-    callback_from :google
-  end
+  # def google_oauth2
+  #   callback_from :google
+  # end
 
 
-  private
+  # private
 
-  def callback_from(provider)
-    provider = provider.to_s
+  # def callback_from(provider)
+  #   provider = provider.to_s
 
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
+  #   @user = User.find_for_oauth(request.env['omniauth.auth'])
 
-    if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
-    else
-      @user = User.find_for_oauth(request.env['omniauth.auth'])
-      session[:password] = @user.password
-      session[:provider] = @user.provider
-      session[:uid] = @user.uid
-      @check_provider = request.env['omniauth.auth']['provider']
-      render template: "devise/registrations/new"
-    end
-    @user
-  end
+  #   if @user.persisted?
+  #     flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+  #     sign_in_and_redirect @user, event: :authentication
+  #   else
+  #     @user = User.find_for_oauth(request.env['omniauth.auth'])
+  #     session[:password] = @user.password
+  #     session[:provider] = @user.provider
+  #     session[:uid] = @user.uid
+  #     @check_provider = request.env['omniauth.auth']['provider']
+  #     render template: "devise/registrations/new"
+  #   end
+  #   @user
+  # end
 end
