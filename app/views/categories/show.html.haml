@@ -8,7 +8,7 @@
         .search-container__right__contents__title__box
           - @items.each do |i|
             .search-container__right__contents__title__box__item
-              = link_to "/" do
+              = link_to item_path(i.id) do
                 .search-container__right__contents__title__box__item__image
                   = image_tag i.images.first,class: 'item-image'
                 .search-container__right__contents__title__box__item__text
