@@ -152,6 +152,12 @@
           font-size: 16px;
           margin-top: 8px;
         }
+        &__description{
+          font-size: 14px;
+          margin-top: 8px;
+          font-weight: lighter;
+          line-height: 1.5;
+        }
         &__reCAPTCHA{
           background-image:url(https://i.gyazo.com/655e123782dd5cec89127e1a914e64c8.png);
           background-size:cover;
@@ -168,6 +174,7 @@
           margin-top: 33px;
           font-weight:solid;
           letter-spacing: 1px;
+          line-height: 1.5;
         }
       }
       .actions{
@@ -242,3 +249,6 @@
     }
   }
 } 
+.hide{
+  display: none;
+}

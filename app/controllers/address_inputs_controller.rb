@@ -1,4 +1,6 @@
 class AddressInputsController < ApplicationController
+  before_action :move_to_index, only: :edit
+
   def new
     @address_inputs = AddressInput.new
   end
@@ -31,5 +33,9 @@ class AddressInputsController < ApplicationController
 
   def edit_address_input_params
     params.permit(:postal_code, :prefectures, :city, :address, :building_name).merge(user_id: current_user.id, first_name: current_user.address_input.first_name, last_name: current_user.address_input.last_name, first_name_kana: current_user.address_input.first_name_kana, last_name_kana: current_user.address_input.first_name_kana, phone_num: current_user.address_input.phone_num)
+  end
+
+  def move_to_index
+    redirect_to user_path(current_user) unless current_user.address_input.presence
   end
 end

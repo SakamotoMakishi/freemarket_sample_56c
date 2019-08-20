@@ -13,4 +13,4 @@ class CreateItems < ActiveRecord::Migration[5.2]
     end
     add_index :items, :name
   end
-end
+end_mtt
