@@ -10,6 +10,9 @@
             .item-details__photo__main__outer__stage__item{style: "width: 300px;"}
               .item-details__photo__main__outer__stage__item__inner
                 = image_tag @item.images.first , class: 'item-details-outer-image'
+                - if @item.buyer_id.presence
+                  .sold
+                    %p SOLD
         = render 'layouts/show-image-hover'
     %table.item-details__main__table
       %tbody
@@ -73,12 +76,16 @@
     %span.item-details__price-box__tax (税込)
     %span.item-details__price-box__fee 送料込み
   -if user_signed_in?
-    -if @item.seller_id != current_user.id
+    -if @item.seller_id != current_user.id && @item.buyer_id.nil?
       =link_to "購入画面に進む", card_path(@item), id:"item-details-buy-btn"
-        
+    -elsif @item.buyer_id.presence
+      %p.item-details-buy-btn-gray
+        売り切れました
   .item-details__description
     %p.item-details__description__inner
       = "#{@item.text}"
+
+
 
   -if user_signed_in?
     -if @item.seller_id != current_user.id

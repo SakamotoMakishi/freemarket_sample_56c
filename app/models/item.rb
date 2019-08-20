@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
   validate :add_error_message
+  belongs_to :user, optional: true
   validate :check_file_presence
   belongs_to :seller, class_name: "User"
-  
-  belongs_to :category, optional:true
+  belongs_to :buyer, class_name: "User", optional: true
   has_one :delivary
 
   has_many_attached :images

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     member do
       post 'make', to: 'cards#make'
       get 'index', to: 'cards#index'
-      post 'show', to: 'cards#show'
+      get 'regist', to: 'cards#regist'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
