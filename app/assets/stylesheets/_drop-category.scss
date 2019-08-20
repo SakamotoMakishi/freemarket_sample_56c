@@ -1,85 +1,106 @@
-li {
-  line-height: 50px;
+.family {
+  line-height: 33px;
   margin-left: 0px;
-  &:hover ul.parent-list{
+  padding:0;
+  &:hover .parent-list{
     display: block;
+  }
 }
-  ul.parent-list {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    z-index: 1;
-    font-weight: 100;
-    font-size: 14px;
-    display: none;
-    background-color: #fff;
-    width: 200px;
-    height: 100px;
-    &:hover ul.child-list{
+.parent-list{
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 1;
+  font-weight: 100;
+  font-size: 14px;
+  display: none;
+  background-color: #fff;
+  width: 200px;
+  height: 100px;
+  padding:0;
+  li {
+    margin-left: 0;
+    box-shadow: 1px 0 0 0 #eee inset;
+    width:200px;
+    &:hover {
+      background-color: #ea352d;
+      color: #fff;
       display: block;
-    }
-    li {
-      margin-left: 0;
-      box-shadow: 1px 0 0 0 #eee inset;
-      &:hover {
-        background-color: #ea352d;
-        color: #fff;
-      }
-    }
-    .parent{
-      display: block;
-      padding: 0 0 0 10px;
     }
   }
+}
 
-  ul.child-list {
-    position: absolute;
-    top: 0px;
-    left: 200px;
-    z-index: 1;
-    font-weight: 100;
-    font-size: 14px;
-    display: none;
-    background-color: #fff;
-    width: 200px;
-    height: 100px;
+.child-list {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  z-index: 1;
+  font-weight: 100;
+  font-size: 14px;
+  display: none;
+  background-color: #fff;
+  width: 200px;
+  height: 100px;
+  li {
+  margin-left: 0;
+  padding:0;
+  }
+}
+
+.grandchild-list {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  z-index: 1;
+  font-weight: 100;
+  font-size: 14px;
+  display: none;
+  background-color: #fff;
+  width: 200px;
+  height: 100px;
+  li {
+    margin-left: 0;
+    padding:0;
+  }
+  .grandchild{
+    display: block;
+  }
+}
+
+@for $i from 0 through 2 {
+  .parent#{$i}{
+    &:hover ul{
+      display: block;
+      top: $i*-33px;
+      ul{
+        display: none;
+      }
+      li {
+        &:hover {
+          background-color: #ea352d;
+          color: #fff;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 0 through 8 {
+  .child#{$i}{
     &:hover ul.grandchild-list{
       display: block;
-    }
-    li {
-      margin-left: 0;
-      &:hover {
-        background-color: rgba($color: #ece9e9, $alpha: 1.0);
-        color: #333;
+      top: $i%3*-33px;
+      padding:0;
+      margin:0;
+      li {
+        &:hover {
+          background-color: #ea352d;
+          color: #fff;
+          display: block;
+          padding:0;
+        }
       }
-    }
-    .child{
-      display: block;
-      padding: 0 0 0 10px;
-    }
-  }
-
-  ul.grandchild-list {
-    position: absolute;
-    top: 0px;
-    left: 200px;
-    z-index: 1;
-    font-weight: 100;
-    font-size: 14px;
-    display: none;
-    background-color: #fff;
-    width: 200px;
-    height: 100px;
-    li {
-      margin-left: 0;
-      &:hover {
-        background-color: rgba($color: #ece9e9, $alpha: 1.0);
-        color: #333;
-      }
-    }
-    .grandchild{
-      display: block;
-      padding: 0 0 0 10px;
     }
   }
 }
