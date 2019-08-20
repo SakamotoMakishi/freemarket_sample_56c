@@ -8,7 +8,6 @@ class CardsController < ApplicationController
   end
 
   def new
-    gon.payjp_key = ENV["PAYJP_KEY"]
     card = Card.where(user_id: current_user.id)
   end
 
@@ -19,7 +18,6 @@ class CardsController < ApplicationController
   end
 
   def make
-    gon.payjp_key = ENV["PAYJP_KEY"]
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.create(
       card: params['token'],
