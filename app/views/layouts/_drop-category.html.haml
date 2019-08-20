@@ -4,12 +4,12 @@
   %ul.parent-list
     -@categories1.each_with_index() do |ca1,i|
       %li{class:"parent#{i}"}
-        =link_to "#{ca1.name}","/categories/#{i+1}"
+        =link_to "#{ca1.name}",category_path("#{i+1}")
         %ul.child-list
           - for j in 0..2
             %li{class:"child#{i*3+j}"}
-              =link_to "#{@categories2[i+1][j].name}","/categories/#{(i+1)*3+j+1}"
+              =link_to "#{@categories2[i+1][j].name}",category_path("#{(i+1)*3+j+1}")
               %ul.grandchild-list
                 - for k in 0..2
                   %li{class:"groundchild#{i*9+j*3+k}"}
-                    =link_to "#{@categories3[i*3+j+4][k].name}","/categories/#{(i+1)*9+(j+1)*3+k+1}"
+                    =link_to "#{@categories3[i*3+j+4][k].name}",category_path("#{(i+1)*9+(j+1)*3+k+1}")

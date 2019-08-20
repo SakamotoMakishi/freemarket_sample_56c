@@ -41,29 +41,29 @@
 
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/categories/1" do
+        = link_to category_path(1) do
           レディース 新着アイテム
       =render 'picup_content',{ items: @women_items }
       .pickup__view-all
-        = link_to "/categories/1" do
+        = link_to category_path(1) do
           すべての商品を見る
 
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/categories/2" do
+        = link_to category_path(2) do
           メンズ 新着アイテム
       =render 'picup_content',{ items: @men_items }
       .pickup__view-all
-        = link_to "/categories/2" do
+        = link_to category_path(2) do
           すべての商品を見る
 
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/categories/3" do
+        = link_to category_path(3) do
           ベビー・キッズ 新着アイテム
       =render 'picup_content',{ items: @child_items }
       .pickup__view-all
-        = link_to "/categories/3" 
+        = link_to category_path(3) 
         すべての商品を見る
 
 .main-contents
