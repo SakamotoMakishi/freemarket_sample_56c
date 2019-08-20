@@ -31,13 +31,15 @@
           %th カテゴリー
           %td
             =link_to "/" do
-              %div category-name1
+              = @category1.name
             =link_to "/" do
               %div.item-details__main__table__category__sub
-                %i.fas.fa-angle-right category-name2
+                %i.fas.fa-angle-right
+                  = @category2.name
             =link_to "/" do
               %div.item-details__main__table__category__sub__sub
-                %i.fas.fa-angle-right category-name3
+                %i.fas.fa-angle-right
+                  = @category3.name
         %tr
           %th ブランド
           %td
