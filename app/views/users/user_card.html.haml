@@ -10,7 +10,7 @@
           .main__conect
             .main__conect__lists
               %ul.main__conect__lists__list
-                = form_with url: make_card_path(current_user),method: :post, local: true, html: {name: 'inputForm' } do |f|
+                = form_with url: make_card_path(current_user),method: :post, html: {name: 'inputForm' } do |f|
                   %li.main__conect__lists__list__text
                     カード番号
                   %li.main__conect__lists__list__required

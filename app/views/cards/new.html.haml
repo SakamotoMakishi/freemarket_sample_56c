@@ -7,7 +7,7 @@
     .main__conect
       .main__conect__lists
         %ul.main__conect__lists__list
-          = form_with url: pay_cards_path, method: :post, local: true, id: "charge-form" do |f|
+          = form_with url: pay_cards_path, method: :post, id: "charge-form" do |f|
             %li.main__conect__lists__list__text
               カード番号
             %li.main__conect__lists__list__required
