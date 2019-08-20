@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  # controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    get '/users/sns/sign_up', to: 'users/registrations#sns', as: :new_user_registration_sns
+  end
+
   root 'items#root'
   
   resources :categories, only: :show
@@ -13,6 +18,8 @@ Rails.application.routes.draw do
     collection  do
       get 'buy'
       get 'search'
+      get 'category_search2'
+      get 'category_search3'
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }

@@ -74,9 +74,11 @@
     .search-container__right
       .search-container__right__contents
         .search-container__right__contents__title
-          検索結果
+          %i.fas.fa-search 検索結果
           .search-container__right__contents__title__count
-            = "1-#{@items_search.count}件の検索結果"
+            = "#{@items_count}件の検索結果"
+        .search-container__right__contents__count
+          = "1-#{@items_search.count}件表示"
         .search-container__right__contents__title__box.js-lazy-load-images
         .search-container__right__contents__title__box
           -if @items_search.any?
@@ -97,6 +99,8 @@
             .search-container__right__contents__title__box__item
               .search-container__right__contents__title__box__item__image
               .search-container__right__contents__title__box__item__text
-                一致する商品はありません
+                
+        .search-container__right__contents__title__page
+          = paginate(@items_search)
 = render 'layouts/banner'
 = render 'layouts/footer'

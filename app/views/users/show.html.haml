@@ -16,7 +16,8 @@
               %span.mypage__nav__main-contents__user-icon__number__bold 20
             %div
               出品数
-              %span.mypage__nav__main-contents__user-icon__number__bold 22
+              %span.mypage__nav__main-contents__user-icon__number__bold
+                = item_count(current_user)
       .mypage__nav__main-contents__tab-container
         %ul.mypage__nav__main-contents__tab-container__tabs
           %li.mypage__nav__main-contents__tab-container__tabs__tab.active 

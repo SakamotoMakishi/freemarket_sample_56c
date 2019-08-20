@@ -18,18 +18,28 @@
             必須
           %br/
           = f.email_field :email, autocomplete: "email", class:'input_box',placeholder:'PC・携帯どちらでも可'
-        .main__conect__lists
-          パスワード
-          .main__conect__lists__text
-            必須
-          %br/
-          = f.password_field :password, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
-        .main__conect__lists
-          パスワード確認
-          .main__conect__lists__text
-            必須
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
+        - if @check_provider.presence
+          .main__conect__lists
+            本人確認
+            .main__conect__lists__description
+              安心・安全にご利用いただくために、お客さまの本人
+              %br/
+              情報の登録にご協力ください。他のお客さまに公開さ
+              %br/
+              れることはありません。
+        - else
+          .main__conect__lists
+            パスワード
+            .main__conect__lists__text
+              必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
+          .main__conect__lists
+            パスワード確認
+            .main__conect__lists__text
+              必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
         .main__conect__lists
           .main__conect__lists__reCAPTCHA
         .main__conect__lists__next
@@ -38,5 +48,5 @@
           .actions__btn
             = f.submit "次へ進む", class: "submit_btn"
           .actions__link
-            = link_to '本人情報の登録について', 'sms_message', class:'next_link'
+            = link_to '本人情報の登録について', 'sms_message', class:'next_link'    
   = render 'layouts/footer-registrations'
