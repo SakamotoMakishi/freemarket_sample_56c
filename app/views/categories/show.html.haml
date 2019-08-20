@@ -1,6 +1,6 @@
-.search-container-page
+= render 'layouts/header'
+.category-search
   .search-container
-    .search-container__left
     .search-container__right
       .search-container__right__contents
         .search-container__right__contents__title
@@ -19,3 +19,6 @@
                   .search-container__right__contents__title__box__item__text__icon
                     %i.far.fa-heart
                       %span 3
+= render "layouts/banner"
+= render "layouts/footer"
+= render 'layouts/post-btn'
