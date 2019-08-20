@@ -15,7 +15,7 @@
                 %i.fas.fa-angle-down
               %li.search-category
                 %i.fas.fa-list-ul
-                = f.label :category_id,"カテゴリーを選択する"
+                = f.label :category_id,"アイテムから探す"
                 = f.select :category_id_eq, @categories3.map{|o| [o.name, o.id]},include_blank: "---"
                 %i.fas.fas1.fa-angle-down
               %li.search-brand
