@@ -1,5 +1,8 @@
 class AddressInputsController < ApplicationController
+
   before_action :set_header
+  before_action :move_to_index, only: :edit
+
 
   def new
     @address_inputs = AddressInput.new
@@ -39,5 +42,8 @@ class AddressInputsController < ApplicationController
     @categories1 = Category.where(parrent_id: 0)
     @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
     @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
+
+  def move_to_index
+    redirect_to user_path(current_user) unless current_user.address_input.presence
   end
 end

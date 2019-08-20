@@ -4,6 +4,9 @@
       = link_to item_path(item) do
         .pickup__photo
           = image_tag url_for(item.images.first), class: "img-width"
+          - if item.buyer_id.presence
+            .sold
+              %p SOLD
         .pickup__body
           %h3.items-name 
             = item.name

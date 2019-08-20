@@ -14,6 +14,9 @@ class CardsController < ApplicationController
   def show
   end
 
+  def regist
+  end
+
   def make
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.create(
@@ -21,7 +24,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id)
         if @card.save
-          redirect_to root_path
+          redirect_to regist_card_path
         else
           redirect_to action: "new"
         end
@@ -29,7 +32,7 @@ class CardsController < ApplicationController
 
   def pay
     if current_user.card.blank?
-      redirect_to action: "new"
+      redirect_to card_add_to_users_path(current_user)
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
       @item = Item.find(params[:id])
@@ -42,10 +45,10 @@ class CardsController < ApplicationController
       )
       if @item.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
-        redirect_to root_path
+        redirect_to item_path
       else
         flash[:alert] = '購入に失敗しました。'
-        redirect_to root_path
+        redirect_to regist_card_path
       end
     end
   end

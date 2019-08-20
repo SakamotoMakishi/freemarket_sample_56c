@@ -15,9 +15,17 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: [1..3])
+    @categories3 = Category.where(parrent_id: [4..12])
+    @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids))
+    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids))
+    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids))
     @q = Item.with_attached_images.ransack(params[:q])
+    @test = Item.ransack(id_eq_all: @men_items.ids).result.to_sql
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @items_search = @q.result.includes(:delivary).limit(24)
+    @items_count = @q.result.includes(:delivary).count
+    @items_search = @q.result.includes(:delivary).page(params[:page]).per(24)
   end
 
   def new
@@ -56,6 +64,7 @@ class ItemsController < ApplicationController
   def update
     @item.images.detach
     @item.update(item_params)
+    @item.update(buyed_params)
     @delivary = Delivary.find_by(item_id:params[:id])
     @delivary.update(delivary_params)
     redirect_to action: 'show_user_item'
@@ -91,6 +100,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
+  end
+
+  def buyed_params
+    params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(buyer_id: current_user.id)
   end
 
   def delivary_params

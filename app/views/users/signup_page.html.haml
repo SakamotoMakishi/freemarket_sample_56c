@@ -12,12 +12,12 @@
               メールアドレスで登録する
             %i.far.fa-envelope
         %li.main__conect__lists__facebook
-          = link_to 'sign_in' do
+          = link_to root_path do
             .main__conect__lists__facebook__btn
               Facebookで登録する
-            %i.fab.fa-facebook-square
+              %i.fab.fa-facebook-square
         %li.main__conect__lists__google
-          = link_to '/' do
+          = link_to root_path, method: :post do
             .main__conect__lists__google__btn
               Googleで登録する
             .main__conect__lists__google__icon
@@ -26,3 +26,5 @@
     = current_user.nickname
     = link_to "Logout", destroy_user_session_path, method: :delete
   - else
+-# = link_to user_facebook_omniauth_authorize_path, method: :post do
+-# = link_to user_google_oauth2_omniauth_authorize_path, method: :post do

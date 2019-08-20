@@ -36,11 +36,15 @@ Things you may want to cover:
 |nickname         |string  |null: false                     |
 |email            |string  |null: false ,unique: true       |
 |password         |string  |null: false                     |
+|provider         |string  |null: false                     |
+|uid              |string  |null: false ,unique: true       |
 
 ### Association
 - has_many :items
+- has_many :authorizations
 - has_one :card
 - has_one :address
+
 
 
 
