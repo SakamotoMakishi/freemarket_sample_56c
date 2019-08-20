@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     gon.payjp_key = ENV["PAYJP_KEY"]
   end
 
-
   private
 
   def set_header
