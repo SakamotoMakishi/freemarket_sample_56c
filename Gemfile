@@ -87,6 +87,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
+gem 'gon'
 # gem 'omniauth'
 # gem 'omniauth-facebook'
 # gem 'omniauth-twitter'

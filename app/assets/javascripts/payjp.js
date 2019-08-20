@@ -1,7 +1,8 @@
+const PAYJP_KEY = gon.payjp_key;
+
 document.addEventListener(
   "DOMContentLoaded", (e) => {
-  Payjp.setPublicKey('pk_test_1a7ddd0604bfefd35eaac84a');
-
+  Payjp.setPublicKey(PAYJP_KEY);
   $("#charge-form").on("click", function(e) {
     e.preventDefault();
     var card = {
@@ -10,6 +11,7 @@ document.addEventListener(
         exp_month: parseInt($("#exp_month").val()),
         exp_year: parseInt($("#exp_year").val())
     };
+    console.log(PAYJP_KEY)
     Payjp.createToken(card, function(s, response) {
       if (response.error) {
         alert("カード情報が正しくありません。"); 

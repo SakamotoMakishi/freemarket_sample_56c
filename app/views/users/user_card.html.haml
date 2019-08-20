@@ -10,7 +10,7 @@
           .main__conect
             .main__conect__lists
               %ul.main__conect__lists__list
-                = form_with url: make_card_path(current_user), html: {name: 'inputForm' } do |f|
+                = form_with url: make_card_path(current_user),method: :post, local: true, html: {name: 'inputForm' } do |f|
                   %li.main__conect__lists__list__text
                     カード番号
                   %li.main__conect__lists__list__required
@@ -24,12 +24,12 @@
                     %li.main__conect__lists__list__expiration__required
                       必須
                     %li.main__conect__lists__list__expiration__select_box
-                      = f.select :month ,[["1月", "1"], ["2月", "2"], ["3月", "3"], ["4月", "4"], ["5月", "5"], ["6月", "6"], ["7月", "7"], ["8月", "8"], ["9月", "9"],["10月", "10"],["11月", "11"],["12月", "12"]],{},class:"select_box", id: "exp_month"
+                      = f.select :exp_month ,[["1月", "1"], ["2月", "2"], ["3月", "3"], ["4月", "4"], ["5月", "5"], ["6月", "6"], ["7月", "7"], ["8月", "8"], ["9月", "9"],["10月", "10"],["11月", "11"],["12月", "12"]],{},class:"select_box", id: "exp_month"
                       %i.fas.fa-angle-down
                       .far
                         ■
                     %li.main__conect__lists__list__expiration__select_box
-                      = f.select :year ,[["2019", "2019"], ["2020", "2020"],["2021", "2021"],["2022", "2022"],["2023", "2023"],["2024", "2024"], ["2025", "2025"],["2026", "2026"],["2027", "2027"],["2028", "2028"]],{},class:"select_box", id: "exp_year"
+                      = f.select :exp_year ,[["2019", "2019"], ["2020", "2020"],["2021", "2021"],["2022", "2022"],["2023", "2023"],["2024", "2024"], ["2025", "2025"],["2026", "2026"],["2027", "2027"],["2028", "2028"]],{},class:"select_box", id: "exp_year"
                       %i.fas.fa-angle-down
                       .far
                         ■
@@ -42,7 +42,7 @@
                   %li.main__conect__lists__list__required
                     必須
                   %li.main__conect__lists__list__text_area
-                    = f.text_field :number, placeholder:'カード背面4桁もしくは3桁の番号',class: "text_field", id: "cvc"
+                    = f.text_field :cvc, placeholder:'カード背面4桁もしくは3桁の番号',class: "text_field", id: "cvc"
                   %li.main__conect__lists__list__link
                     = link_to 'カード裏面の番号とは？','complete_page'
                   %li
