@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def user_card
     gon.payjp_key = ENV["PAYJP_KEY"]
   end
-end
+
 
   private
 
