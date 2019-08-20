@@ -10,11 +10,11 @@ class AddressInputsController < ApplicationController
 
   def create
     @address_inputs = AddressInput.new(address_input_params)
-      if @address_inputs.save
-        redirect_to new_card_path
-      else
-        render :new
-      end
+    if @address_inputs.save
+      redirect_to new_card_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -42,6 +42,7 @@ class AddressInputsController < ApplicationController
     @categories1 = Category.where(parrent_id: 0)
     @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
     @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
+  end
 
   def move_to_index
     redirect_to user_path(current_user) unless current_user.address_input.presence
