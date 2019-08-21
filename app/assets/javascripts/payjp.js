@@ -11,7 +11,6 @@ document.addEventListener(
         exp_month: parseInt($("#exp_month").val()),
         exp_year: parseInt($("#exp_year").val())
     };
-    console.log(PAYJP_KEY)
     Payjp.createToken(card, function(s, response) {
       if (response.error) {
         alert("カード情報が正しくありません。"); 
