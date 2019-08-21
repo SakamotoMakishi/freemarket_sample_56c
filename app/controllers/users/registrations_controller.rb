@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  
 
   # GET /resource/sign_up
   def new
@@ -21,6 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+  
+    if verify_recaptcha   
     # if params[:user][:password] == nil
     #   params[:user][:password] = session[:password]
     #   params[:user][:password_confirmation] = session[:password]
@@ -31,6 +34,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # else
       super
     # end
+    else
+      self.resource = resource_class.new
+      respond_with_navigational(resource) { render :new }
+    end
   end
 
   # GET /resource/edit
@@ -56,6 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+
 
   protected
 
