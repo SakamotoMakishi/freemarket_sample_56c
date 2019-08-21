@@ -42,10 +42,14 @@ Rails.application.routes.draw do
   end
 
   resources :cards do
+    collection  do
+      get 'regist', to: 'cards#regist'
+    end
     member do
+      get 'new', to: 'cards#new'
+      get 'show', to: 'cards#show'
       post 'make', to: 'cards#make'
       get 'index', to: 'cards#index'
-      get 'regist', to: 'cards#regist'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
