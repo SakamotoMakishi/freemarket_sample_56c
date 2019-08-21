@@ -11,7 +11,7 @@
         %p.main__buy-content__inner__buy-item-name.bold
           = "#{@item.name}"
         .main__buy-content__inner__buy-form
-          = form_with url: pay_card_path do |f|
+          = form_with url: pay_card_path, method: :post, local: true do |f|
             %p.main__buy-content__inner__buy-form__buy-price.bold
               = "¥ #{@item.price}"
               %span.main__buy-content__inner__buy-form__buy-price__item-shipping-fee 送料込み

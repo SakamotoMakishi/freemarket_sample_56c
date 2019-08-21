@@ -1,7 +1,7 @@
-
 class ItemsController < ApplicationController
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
+  before_action :set_header
 
 
   def root
@@ -11,13 +11,16 @@ class ItemsController < ApplicationController
     @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
     @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
     @nike_items = Item.with_attached_images.order("id DESC").limit(4)
-    @categories1 = Category.where(parrent_id: 0)
-    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
-    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 
   def index
+    @categories1 = Category.where(parrent_id: 0)
+    @categories33 = Category.where(parrent_id: [4..12])
+    @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids))
+    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids))
+    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids))
     @q = Item.with_attached_images.ransack(params[:q])
+    @test = Item.ransack(id_eq_all: @men_items.ids).result.to_sql
     @q.sorts = 'id desc' if @q.sorts.empty?
     @items_count = @q.result.includes(:delivary).count
     @items_search = @q.result.includes(:delivary).page(params[:page]).per(24)
@@ -36,7 +39,7 @@ class ItemsController < ApplicationController
     if @item.save && @delivary.save
       render 'new-modal'
     else
-      @category = Category.where(parrent_id: 0)
+      @categories = Category.where(parrent_id: 0)
       @category1 = Category.new
       render :new
     end
@@ -109,5 +112,11 @@ class ItemsController < ApplicationController
     @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
     @category2 = Category.find(@item.category.parrent_id)
     @category3 = @item.category
+  end
+
+  def set_header
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 end

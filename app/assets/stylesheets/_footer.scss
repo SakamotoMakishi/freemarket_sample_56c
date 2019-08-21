@@ -183,8 +183,11 @@
       width: 745px;
     }
   }
+  input{
+    background: #212121;
+    border:none;
+  }
 }
-
 .footer a:hover{
   text-decoration: underline;
 }

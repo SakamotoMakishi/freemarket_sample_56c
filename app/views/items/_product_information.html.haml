@@ -53,7 +53,7 @@
           %h3.sell__group__head 商品の詳細
           .sell__group__box
             .sell__group__box-category
-              .sell__group__box-category-category
+              .sell__group__box-category-category{style:"margin-bottom:30px;"}
                 %label
                   カテゴリー
                   %span.form-require 必須
@@ -66,7 +66,7 @@
                     .error-message-box
                       = @item.errors.messages[:category_id]
                   .select-wrap
-              %label
+              %label.brand_name{style:"margin-top:30px;"}
                 ブランド
                 %span.form-any 任意
                 = form.text_area :brand_name, placeholder: "例) シャネル", class: "input-brand"
