@@ -87,5 +87,10 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
-
+gem 'recaptcha', require: "recaptcha/rails"
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+# gem 'omniauth-google-oauth2'
+# gem "omniauth-rails_csrf_protection"
 
