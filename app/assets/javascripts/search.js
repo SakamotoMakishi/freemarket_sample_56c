@@ -46,16 +46,19 @@ $(function(){
   function buildHTML(comment){
     var comment_text = comment.text ? `${comment.text}` : "";
     var html = `
+    <div class="comment__message__mycome">
     <div class="comment__message__mycome__user-avatar1">
     <img class="comment__message__mycome__user-avatar1" src="${comment.user_avatar}">
     </div>
     <div class="comment__message__mycome__name">
+    ${comment.user_name}
     <div class="comment__message__mycome__name__san">
     ◤
     </div>
-    ${comment.user_name}</div>
+    </div>
     <div class="comment__message__mycome__text">
     ${comment_text}
+    </div>
     </div>`
     return html;
   }

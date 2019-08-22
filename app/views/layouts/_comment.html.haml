@@ -11,11 +11,8 @@
                     = image_tag c.user.avatar,class:"comment__message__mycome__user-avatar1"
                   .comment__message__mycome__name
                     = c.user.nickname
-                      .comment__message__mycome__name__san
-                        &#9700;
-                      -if c.user_id == @user.id && c.user_id == current_user.id
-                      .comment__message__mycome__name__seller
-                        出品者
+                    .comment__message__mycome__name__san
+                      &#9700;
                   .comment__message__mycome__text
                     = c.text
               -else
