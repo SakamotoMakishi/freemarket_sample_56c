@@ -1,0 +1,164 @@
+.comment_contents{
+  width: 640px;
+  height: 100%;
+  background: white;
+  margin: 15px auto;
+  padding: 10px 30px 130px 30px;
+  .contnets-main{
+    margin: auto;
+    .comment{
+      &__message{
+        &__mycome{
+          margin: 20px auto;
+          &__user-avatar1{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            position: relative;
+            top: 0px;
+            clear: both;
+            float: right;
+          }
+          &__text{
+            font-size:13px;
+            margin-bottom: 40px;
+            float: left;
+            width: 540px;
+            background: #fbf0e6;
+            padding:20px;
+            border-radius:15px; 
+          }
+          &__name{
+            float:right;
+            margin: 0 10px 10px;
+            font-size:14px;
+            color:#ea352d;
+            &__san{
+              display: inline;
+              font-size: 15px;
+              color: #fbf0e6;
+              position: relative;
+              top: 33px;
+              left: 96px;
+            }
+            &__seller{
+              font-weight: 100;
+              position: relative;
+              font-size: 12px;
+              color: black;
+              background: #fbf0e6;
+              width: 37px;
+              padding: 5px;
+              border-radius: 10px;
+              left: 96px;
+              top: 57px;
+            }
+          }
+        }
+        &__other{
+          margin: 30px auto;
+          &__user-avatar2{
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            float: left;
+            clear: both;
+          }
+          &__text{
+            font-size:13px;
+            margin-bottom: 40px;
+            float: right;
+            width: 540px;
+            background: #eef0f4;
+            padding:20px;
+            border-radius:15px;
+            &__triangle1{
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 18px 18px 0;
+              border-color: transparent #eeba89 transparent transparent;
+            }
+          }
+          &__name{
+            float:left;
+            height: 15px;
+            margin: 0 0 10px 10px;
+            font-size:13px;
+            font-weight: bold;
+            &__san1{
+              display: inline;
+              font-size: 15px;
+              color: #eef0f4;
+              position: relative;
+              top: 33px;
+              left: -76px;
+            }
+            &__seller{
+              font-weight:100;
+              position: relative;
+              font-size: 12px;
+              bottom: -40px;
+              color: black;
+              background: #eef0f4;
+              width: 37px;
+              padding: 5px;
+              border-radius: 10px;
+              left: -56px;
+            }
+          }
+        }
+      }
+      &__from-m{
+        clear: both;
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;
+      }
+      &__form{
+        clear: both;
+        height:85px;
+        font-weight: 100;
+        .textbox{
+          margin-top: 8px;
+          padding: 10px;
+          width: 615px;
+          height: 80px;
+        }
+        .submit{
+        width: 100%;
+        margin: 8px 0 0;
+        font-size: 0;
+        text-align: center;
+        padding: 0 30px;
+        height: 50px;
+        line-height: 30px;
+        font-size:14px;
+        color:white;
+        background: #aaa;
+        cursor: pointer;
+        transition: 0.7s;
+        }
+        .submit:hover{
+          background-color:#aaa;
+          transition: 0.7s;
+          opacity: 0.8;
+          -webkit-box-shadow:inset 0px 0px 3px #fff;
+          -moz-box-shadow:inset 0px 0px 3px #fff;
+          box-shadow:inset 0px 0px 3px #fff;
+        }
+        .submit:active{
+          padding-top:6px;
+          padding-bottom:4px;
+          border:3px solid #6c6d6e;
+          background-color:#6c6d6e;
+          color:#e0ebf5;
+          -webkit-box-shadow:inset 0px 0px 8px #334c66;
+          -moz-box-shadow:inset 0px 0px 2px #484949;
+          box-shadow:inset 0px 0px 2px #3f3f3f;
+        }
+      }
+    }
+  }
+}

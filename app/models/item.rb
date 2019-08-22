@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
   has_many_attached :images
+  has_many :comments,foreign_key: :item_id, dependent: :destroy
   has_one :delivary, foreign_key: :item_id, dependent: :destroy
   belongs_to :category, optional: true
 
