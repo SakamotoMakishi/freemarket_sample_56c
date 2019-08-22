@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comments = @item.comments.includes(:user)
     if user_signed_in?
       if @item.seller_id === current_user.id
         redirect_to action: 'show_user_item'
@@ -54,6 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def show_user_item
+    @comments = @item.comments.includes(:user)
   end
 
   def edit

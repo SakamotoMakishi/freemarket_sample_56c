@@ -88,6 +88,7 @@ gem 'kaminari'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
 gem 'gon'
+gem 'nokogiri', ">= 1.10.4"
 gem 'recaptcha', require: "recaptcha/rails"
 # gem 'omniauth'
 # gem 'omniauth-facebook'

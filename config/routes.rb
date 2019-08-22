@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :address_inputs
   
   resources :items do
+    resources :comments, only: [:create]
     collection  do
       get 'buy'
       get 'search'
