@@ -2,17 +2,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations'}
   # controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations'  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  devise_scope :user do
-    get '/users/sns/sign_up', to: 'users/registrations#sns', as: :new_user_registration_sns
-  end
 
   root 'items#root'
+  post   '/like/:item_id', to: 'likes#create' , as: 'like'
+  delete '/like/:item_id', to: 'likes#destroy', as: 'unlike'
   
   resources :categories, only: :show
   resources :brands, only: :show
-
   resources :address_inputs
-
   
   resources :items do
     collection  do

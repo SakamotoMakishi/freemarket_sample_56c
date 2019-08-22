@@ -42,7 +42,7 @@
             = f.password_field :password_confirmation, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
         .main__conect__lists
           .main__conect__lists__reCAPTCHA
-            = recaptcha_tags callback: 'successRecaptchaVerified',id: "cmdSubmit"
+            = recaptcha_tags callback: 'successRecaptchaVerified',id: "cmdSubmit",sitekey: ENV['RECAPTCHA_SITE_KEY']
         .main__conect__lists__next
           「次へ進む」のボタンを押すことにより利用規約に同意したものとみなします
         .actions

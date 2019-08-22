@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_one :address_input
   has_one :card
 
+  has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
