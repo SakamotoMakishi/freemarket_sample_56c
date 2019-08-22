@@ -40,11 +40,15 @@ Rails.application.routes.draw do
 
   resources :cards do
     member do
+      get 'new', to: 'cards#new'
+      get 'show', to: 'cards#show'
       post 'make', to: 'cards#make'
-      get 'index', to: 'cards#index'
-      get 'regist', to: 'cards#regist'
+      get 'index', to: 'cards#index', as: "card_buy"
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+    end
+    collection  do
+      get 'regist', to: 'cards#regist'
     end
   end
   get 'user-item/:id', to: 'items#show_user_item'

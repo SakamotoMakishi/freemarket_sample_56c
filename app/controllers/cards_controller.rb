@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    card = Card.where(user_id: current_user.id)
+    gon.payjp_key = ENV["PAYJP_KEY"]
   end
 
   def show
@@ -24,9 +24,9 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id)
         if @card.save
-          redirect_to regist_card_path
+          redirect_to regist_cards_path
         else
-          redirect_to action: "new"
+          render :new
         end
   end
 
