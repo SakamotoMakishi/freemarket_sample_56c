@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:root, :index, :show]
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
   before_action :set_header
@@ -67,6 +68,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if Item.find(params[:id]).seller_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update

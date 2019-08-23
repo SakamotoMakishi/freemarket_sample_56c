@@ -3,8 +3,12 @@ class CardsController < ApplicationController
   before_action :set_card
 
   def index
-    @item = Item.with_attached_images.find(params[:id])
-    @user = Item.find(params[:id]).seller
+    if Item.find(params[:id]).seller_id == current_user.id
+      redirect_to root_path
+    else
+      @item = Item.with_attached_images.find(params[:id])
+      @user = Item.find(params[:id]).seller
+    end
   end
 
   def new
