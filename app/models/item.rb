@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   validate :add_error_message
+  validates :price, inclusion: 300..1000000
   belongs_to :user, optional: true
   validate :check_file_presence
   belongs_to :seller, class_name: "User"
