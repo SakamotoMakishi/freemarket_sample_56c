@@ -1,0 +1,51 @@
+.mercari_sign_up_container
+  = render 'layouts/header-logo'
+  .main
+    .main__section
+      .main__section__top
+        購入が完了しました
+    .main__buy-content
+      .main__buy-content__inner
+        %h3.main__buy-content__inner__buyed-image
+          = image_tag (@item.images.first), class: "main__buy-content__inner__buyed-image"
+        %p.main__buy-content__inner__buyed-name.bold
+          = @item.name
+        .main__buy-content__inner__buyed-form
+          %p.main__buy-content__inner__buyed-form__buyed-price.bold
+            = "¥ #{@item.price}"
+            %span.main__buy-content__inner__buyed-form__buyed-text 送料込み
+      .main__buy-content__buy-content
+        .main__buy-content__buy-content__user-inner
+          %h3 配送先
+          %address.main__buy-content__buy-content__user-inner__buy-user-text
+            〒111-1111
+            %br/
+            大阪府 大阪市西区
+            新町1-1-1
+            hogehogeマンション101
+            %br/
+            = current_user.nickname
+          %p.main__buy-content__buy-content__user-inner__buy-user-text
+          = link_to'/', class: 'main__buy-content__buy-content__user-inner__buy-user-fix' do
+            %span 変更する
+            %i.fa.fa-chevron-right
+      %section.main__buy-content__buy-content{"data-buy" => "pay-method"}
+        .main__buy-content__buy-content__buy-inner
+          %h3 支払い方法
+          %p.main__buy-content__buy-content__buy-inner__buy-user-card-text
+            ************1111
+            %br/
+            04 / 22
+          %figure
+            = image_tag 'http://logo-sozai.com/data/img/h0002.png'
+            
+          %p
+          = link_to'/', class: 'main__buy-content__buy-content__buy-inner__buy-user-fix' do
+            %span 変更する
+            %i.fa.fa-chevron-right
+      .main__buy-content__buy-content
+        .main__buy-content__buy-content__buyed-mypage
+          &#8811;
+          =link_to "マイページに戻る", user_path(current_user), class: "main__buy-content__buy-content__buy-inner__buyed-mypage"
+          &#8810;
+  = render 'layouts/footer-registrations'
