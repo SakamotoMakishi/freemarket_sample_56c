@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    member do
+      get 'card_add_to'
+    end
     collection  do
       get 'signup_page'
       get 'user_input'
@@ -36,7 +39,6 @@ Rails.application.routes.draw do
       get 'signout'
       get 'profile'
       get 'user_card'
-      get 'card_add_to'
       get 'plivacy_policy'
     end
   end
@@ -44,7 +46,7 @@ Rails.application.routes.draw do
   resources :cards do
     member do
       get 'new', to: 'cards#new'
-      get 'show', to: 'cards#show'
+      get 'show', to: 'cards#show', as: "card_delete"
       post 'make', to: 'cards#make'
       get 'index', to: 'cards#index', as: "card_buy"
       post 'pay', to: 'cards#pay'
