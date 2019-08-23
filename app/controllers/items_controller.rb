@@ -68,6 +68,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if Item.find(params[:id]).seller_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
