@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :set_header
 
   def show
-    @item = Item.with_attached_images.find(params[:id])
-    @user = Item.find(params[:id]).seller
+    # @item = Item.with_attached_images.find(params[:id])
+    # @user = Item.find(params[:id]).seller
   end
 
   def user_card
