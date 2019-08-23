@@ -13,17 +13,22 @@ Rails.application.routes.draw do
 
   resources :address_inputs
 
-  
+
   resources :items do
     collection  do
       get 'buy'
       get 'search'
       get 'category_search2'
       get 'category_search3'
+      get 'new_modal'
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end
+  end
+
+  namespace :api do
+    resources :items, only: [:new, :edit, :destroy, :create, :update],defaults:{ format: 'json' }
   end
 
   resources :users, only: :show do
