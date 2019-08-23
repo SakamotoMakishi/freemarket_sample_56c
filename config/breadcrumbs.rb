@@ -18,7 +18,7 @@ crumb :logout do
 end
 
 crumb :card do
-  link "支払い方法",  card_add_to_users_path
+  link "支払い方法",  card_add_to_user_path(current_user)
   parent :mypage
 end
 
