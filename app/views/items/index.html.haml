@@ -18,6 +18,8 @@
                 = f.label :category_id,"アイテムから探す"
                 = f.select :category_id_eq, @categories33.map{|o| [o.name, o.id]},include_blank: "---"
                 %i.fas.fas1.fa-angle-down
+                = f.collection_select :category_id_eq_any ,Category.all,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
+                = f.collection_select :category_id_eq_any ,@men_items,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
               %li.search-brand
                 %i.fas.fa-tags
                 = f.label :brand_name_cont, "ブランド名から探す"
@@ -54,7 +56,7 @@
                   = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "やや傷や汚れあり", ''
                   = f.label :status_eq_any, "やや傷や汚れあり",class:"search-label"
                 %li
-                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "全体的に状態が悪い", ''
+                  = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "傷や汚れあり", ''
                   = f.label :status_eq_any, "傷や汚れあり",class:"search-label"
                 %li
                   = f.check_box :status_eq_any, { class:"check_box",multiple: true }, "全体的に状態が悪い", ''
@@ -95,11 +97,9 @@
                     .search-container__right__contents__title__box__item__text__icon
                       %i.far.fa-heart
                         %span 3
-          -if @items_search.nil?
+          -elsif @items_search.count == 0
             .search-container__right__contents__title__box__item
-              .search-container__right__contents__title__box__item__image
-              .search-container__right__contents__title__box__item__text
-                
+              一致する商品はありません
         .search-container__right__contents__title__page
           = paginate(@items_search)
 = render 'layouts/banner'

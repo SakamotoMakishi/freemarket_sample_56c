@@ -88,18 +88,18 @@
             font-size:13px;
             font-weight: bold;
             &__san1{
-              display: inline;
+              z-index: 10;
               font-size: 15px;
               color: #eef0f4;
               position: relative;
-              top: 33px;
-              left: -76px;
+              top: 24px;
+              left: -7px;
             }
             &__seller{
               font-weight:100;
               position: relative;
               font-size: 12px;
-              bottom: -40px;
+              bottom: -35px;
               color: black;
               background: #eef0f4;
               width: 37px;
