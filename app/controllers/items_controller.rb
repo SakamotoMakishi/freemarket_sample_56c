@@ -34,15 +34,23 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
+    @item = Item.create((item_params).merge(images: params[:files]))
     @delivary = Delivary.create(delivary_params)
     if @item.save && @delivary.save
-      render 'new-modal'
+      respond_to do |format|
+        format.json
+        format.html{render 'new_modal'}
+      end
     else
       @categories = Category.where(parrent_id: 0)
       @category1 = Category.new
       render :new
     end
+  end
+
+  def new_modal
+    @item = Item.last
+    @delivary = Delivary.last
   end
 
   def show
@@ -62,7 +70,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.images.detach
     @item.update(item_params)
     @delivary = Delivary.find_by(item_id:params[:id])
     @delivary.update(delivary_params)
@@ -98,7 +105,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status, images: []).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :text, :brand_name, :size, :category_id,:status).merge(params.require(:item).require(:item).permit(:price)).merge(seller_id: current_user.id)
   end
 
   def delivary_params

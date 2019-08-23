@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :brands, only: :show
   resources :address_inputs
-  
+
   resources :items do
     resources :comments, only: [:create]
     collection  do
@@ -18,10 +18,15 @@ Rails.application.routes.draw do
       get 'search'
       get 'category_search2'
       get 'category_search3'
+      get 'new_modal'
     end
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end
+  end
+
+  namespace :api do
+    resources :items, only: [:new, :edit, :destroy, :create, :update],defaults:{ format: 'json' }
   end
 
   resources :users, only: :show do
