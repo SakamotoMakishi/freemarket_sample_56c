@@ -71,10 +71,16 @@
       box-sizing:border-box;
       .items-box{
         margin: 8px 0 0;
+        
       }
       .items-price{
         font-size: 16px;
         font-weight: bold;
+        float: left;
+      }
+      .fas{
+        font-weight: lighter;
+        float: right;
       }
       .items-name{
         overflow: hidden;

@@ -79,7 +79,7 @@
     %span.item-details__price-box__fee 送料込み
   -if user_signed_in?
     -if @item.seller_id != current_user.id && @item.buyer_id.nil?
-      =link_to "購入画面に進む", card_path(@item), id:"item-details-buy-btn"
+      =link_to "購入画面に進む", card_buy_card_path(@item), id:"item-details-buy-btn"
     -elsif @item.buyer_id.presence
       %p.item-details-buy-btn-gray
         売り切れました
@@ -93,15 +93,21 @@
     -if @item.seller_id != current_user.id
       .item-details__buttons
         .item-details__buttons__left
-          %button.item-details__buttons__left__like{type:"button"}
-            %i.far.fa-heart
-            %span いいね!
-            %span 0
+          - if current_user.likes.find_by(item_id: @item.id)
+            = link_to unlike_path(@item.id), method: :delete, remote: true, class: "item-details__buttons__left__likes", id: "like-link-#{@item.id}"  do
+              %i.fas.fa-heart.heart-like
+              %p いいね!
+              %P 
+                = "#{@item.likes.count}"
+          - else
+            = link_to like_path(@item.id), method: :post, remote: true, class: "item-details__buttons__left__unlikes", id: "like-link-#{@item.id}"  do
+              %i.fas.fa-heart.heart-unlike
+                いいね!
+                = "#{@item.likes.count}"
           =link_to "/",{id:"item-details-buttons-left-report"} do
             %i.far.fa-flag
             %span 不適切な商品の報告
-
         .item-details__buttons__right
           =link_to "/" do
             %i.fas.fa-lock
-            %span あんしん・あんぜんへの取り組み
+            %span あんしん・あんぜんへの取り組み  

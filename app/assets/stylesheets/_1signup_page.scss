@@ -131,6 +131,7 @@
         font-weight:bold;
         label{
           font-size:14px;
+          z-index: 10;
         }
         &__text{
           display:inline-block;
@@ -140,6 +141,7 @@
           font-size:12px;
           border-radius: 2px;
           padding: 4px 4px;
+          z-index: 10;
         }
         .input_box{
           width: 343px;
@@ -152,6 +154,51 @@
           font-size: 16px;
           margin-top: 8px;
         }
+        &__ava{
+          #img_field {
+            font-size: 15px;
+            margin-top: 10px;
+            padding: 5px 8px;
+            border: solid 1px #ea352d;
+            color: #666;
+            position: relative;
+            padding: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 100px;
+            height:100px;
+            background-image:url(//static.mercdn.net/images/member_photo_noimage_thumb.png);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-color: #fff;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: 0.3s ease-out;
+            z-index: 10;
+            .avatar_preview{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .image_input{
+            position: relative;
+            bottom: 61px;
+            left: 13px;
+            letter-spacing: 10p;
+            font-size: 15px;
+          }
+          #img_field:hover {
+            background-color: rgb(252, 251, 248);
+            transition: 0.3s ease-out;
+            opacity: 0.5;
+          }
+          #img_field:hover i {
+            transition: 0.3s ease-out;
+            display: block;
+            color: #fff;
+          }
+        }
         &__description{
           font-size: 14px;
           margin-top: 8px;
@@ -159,11 +206,10 @@
           line-height: 1.5;
         }
         &__reCAPTCHA{
-          background-image:url(https://i.gyazo.com/655e123782dd5cec89127e1a914e64c8.png);
-          background-size:cover;
           width: 343px;
           height: 90px;
-          margin-left:5px;
+          margin-left:25px;
+          margin-top: 50px;
         }
         &__next{
           word-wrap: normal;

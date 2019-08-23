@@ -28,6 +28,7 @@
             = f.password_field :password, autocomplete: "new-password", class:'input_box2',placeholder:'パスワード'
           %li.main__conect__lists
             .main__conect__lists__reCAPTCHA
+              = recaptcha_tags callback: 'successRecaptchaVerified',id: "cmdSubmit"
           .actions
             .actions__btn
               = f.submit 'ログイン', class: "submit_btn"

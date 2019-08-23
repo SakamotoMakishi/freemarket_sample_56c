@@ -8,10 +8,12 @@ class CardsController < ApplicationController
   end
 
   def new
-    card = Card.where(user_id: current_user.id)
+    gon.payjp_key = ENV["PAYJP_KEY"]
   end
 
   def show
+    @item = Item.with_attached_images.find(params[:id])
+    @user = Item.find(params[:id]).seller
   end
 
   def regist
@@ -24,15 +26,15 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id)
         if @card.save
-          redirect_to regist_card_path
+          redirect_to regist_cards_path
         else
-          redirect_to action: "new"
-        end
+          render :new
+      end
   end
 
   def pay
     if current_user.card.blank?
-      redirect_to card_add_to_users_path(current_user)
+      redirect_to card_add_to_user_path(current_user)
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
       @item = Item.find(params[:id])
@@ -45,10 +47,10 @@ class CardsController < ApplicationController
       )
       if @item.update(buyer_id: current_user.id)
         flash[:notice] = '購入しました。'
-        redirect_to item_path
+        redirect_to action: 'show'
       else
         flash[:alert] = '購入に失敗しました。'
-        redirect_to regist_card_path
+        redirect_to action: 'show'
       end
     end
   end
@@ -58,9 +60,9 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy
-      redirect_to action: "index", notice: "削除しました"
+      redirect_to card_add_to_user_path(current_user), notice: "削除しました"
     else
-      redirect_to action: "index", alert: "削除できませんでした"
+      redirect_to card_add_to_user_path(current_user), alert: "削除できませんでした"
     end
   end
 

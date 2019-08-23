@@ -11,7 +11,15 @@
           .main__conect__lists__text
             必須
           %br/
-          = f.text_field :nickname,class:'input_box',placeholder:'例）ジェイソンスティサム'
+          = f.text_field :nickname,class:'input_box',placeholder:'例）とろろ'
+        .main__conect__lists
+          アバター画像
+          .main__conect__lists__text
+            必須
+          %br/
+          .main__conect__lists__ava
+            #img_field{onclick: "$('#file').click()"}
+            = f.file_field :avatar,class: "image_input", id:"file",accept: '.jpeg, .jpg, .gif, .png, .bmp'
         .main__conect__lists
           メールアドレス
           .main__conect__lists__text
@@ -42,6 +50,7 @@
             = f.password_field :password_confirmation, autocomplete: "new-password", class:'input_box',placeholder:'７文字以上'
         .main__conect__lists
           .main__conect__lists__reCAPTCHA
+            = recaptcha_tags callback: 'successRecaptchaVerified',id: "cmdSubmit",sitekey: ENV['RECAPTCHA_SITE_KEY']
         .main__conect__lists__next
           「次へ進む」のボタンを押すことにより利用規約に同意したものとみなします
         .actions

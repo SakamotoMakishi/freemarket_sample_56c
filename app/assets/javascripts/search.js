@@ -42,3 +42,49 @@ $(function() {
     })
   });
 });
+$(function(){
+  function buildHTML(comment){
+    var comment_text = comment.text ? `${comment.text}` : "";
+    var html = `
+    <div class="comment__message__mycome">
+    <div class="comment__message__mycome__user-avatar1">
+    <img class="comment__message__mycome__user-avatar1" src="${comment.user_avatar}">
+    </div>
+    <div class="comment__message__mycome__name">
+    ${comment.user_name}
+    <div class="comment__message__mycome__name__san">
+    ◤
+    </div>
+    </div>
+    <div class="comment__message__mycome__text">
+    ${comment_text}
+    </div>
+    </div>`
+    return html;
+  }
+  $('#new_comment').on('submit',function(e){
+    e.preventDefault();
+    var comment = new FormData(this);
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: comment,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.comment__message').append(html)
+      $('#new_comment')[0].reset(); 
+      return false
+    })
+    .fail(function(){
+      alert('コメントを入力してください');
+    })
+    .always(function(){
+      $('.submit').prop('disabled', false);
+    })
+  });
+});

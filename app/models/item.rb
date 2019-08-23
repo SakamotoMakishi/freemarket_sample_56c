@@ -5,8 +5,16 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
   has_many_attached :images
+  has_many :comments,foreign_key: :item_id, dependent: :destroy
   has_one :delivary, foreign_key: :item_id, dependent: :destroy
   belongs_to :category, optional: true
+
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
+
+  def like?(user) 
+    likes.where(user_id: user.id).exists?
+  end
 
   def check_file_presence
     errors.add(:images, "画像がありません") unless images.attached?

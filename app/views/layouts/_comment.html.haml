@@ -1,0 +1,37 @@
+- if user_signed_in?
+  .comment_contents
+    .contnets-main
+      .comment
+        .comment__message
+          - if @comments
+            - @comments.each do |c|
+              -if c.user_id == current_user.id
+                .comment__message__mycome
+                  .comment__message__mycome__user-avatar1
+                    = image_tag c.user.avatar,class:"comment__message__mycome__user-avatar1"
+                  .comment__message__mycome__name
+                    = c.user.nickname
+                    .comment__message__mycome__name__san
+                      &#9700;
+                  .comment__message__mycome__text
+                    = c.text
+              -else
+                .comment__message__other
+                  .comment__message__other__user-avatar2
+                    = image_tag c.user.avatar,class:"comment__message__other__user-avatar2"
+                  .comment__message__other__name
+                    = c.user.nickname
+                    .comment__message__other__name__san1
+                      &#9701;
+                    -if c.user_id == @user.id
+                      .comment__message__other__name__seller
+                        出品者
+                  .comment__message__other__text
+                    = c.text
+                    .comment__message__mycome__text__triangle1
+        .comment__from-m
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .comment__form
+          = form_with url: item_comments_path(@item.id), method: :post, local: true, id: "new_comment" do |f|
+            = f.text_area :text, class: "textbox"
+            = f.submit 'コメントする', class: "submit"
