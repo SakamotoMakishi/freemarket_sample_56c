@@ -18,8 +18,8 @@
                 = f.label :category_id,"アイテムから探す"
                 = f.select :category_id_eq, @categories33.map{|o| [o.name, o.id]},include_blank: "---"
                 %i.fas.fas1.fa-angle-down
-                = f.collection_select :category_id_eq_any ,Category.all,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
-                = f.collection_select :category_id_eq_any ,@men_items,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
+                -# = f.collection_select :id_eq_any ,Category.all,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
+                -# = f.collection_select :id_eq_any ,@men_items,:id,:id, {include_blank: '選択してください'},{id: "q[live_prefecture_cont_any][]"}
               %li.search-brand
                 %i.fas.fa-tags
                 = f.label :brand_name_cont, "ブランド名から探す"
