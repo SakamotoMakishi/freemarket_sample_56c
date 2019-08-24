@@ -32,6 +32,11 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     member do
       get 'card_add_to'
+      get 'listing'
+      get 'trading'
+      get 'completed'
+      get 'purchase'
+      get 'purchased'
     end
     collection  do
       get 'signup_page'

@@ -14,6 +14,21 @@ class UsersController < ApplicationController
     @card = Card.where(params[:user_id])
   end
 
+  def listing
+  end
+
+  def trading
+  end
+
+  def completed
+  end
+
+  def purchase
+  end
+
+  def purchased
+  end
+
   private
   
   def set_header
