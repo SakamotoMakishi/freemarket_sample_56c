@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   post   '/like/:item_id', to: 'likes#create' , as: 'like'
   delete '/like/:item_id', to: 'likes#destroy', as: 'unlike'
   
+  resources :likes, only: :index
   resources :categories, only: :show
   resources :brands, only: :show
   resources :address_inputs
-
+  
   resources :items do
     resources :comments, only: [:create]
     collection  do

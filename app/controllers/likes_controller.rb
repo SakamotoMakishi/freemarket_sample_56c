@@ -1,5 +1,10 @@
 class LikesController < ApplicationController
-  before_action :set_variables
+  before_action :set_variables , only: [:create, :destroy]
+  before_action :set_header , only: :index
+
+  def index
+    @item =  Item.where(id: current_user.likes.map{|hash| hash[:item_id]}).limit(15)
+  end
 
   def create
     like = current_user.likes.new(item_id: @item.id)
@@ -24,5 +29,11 @@ class LikesController < ApplicationController
   def set_variables
     @item = Item.find(params[:item_id])
     @id_name = "#like-link-#{@item.id}"
+  end
+
+  def set_header
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 end
