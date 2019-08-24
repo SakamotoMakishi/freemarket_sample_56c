@@ -1,0 +1,85 @@
+.like-lists{
+  background-color: #fff;
+  
+  &__list{
+    min-height: 48px;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    
+    &__link{
+      position: absolute;
+      top: 16;
+      right: 16;
+      bottom: 16;
+      left: 16;
+      z-index: 1;
+      width: 95%;
+      height: 60%;
+      
+      &__img{
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+        .sold{
+          position: absolute;
+          z-index: 10;
+          top: 0;
+          left: 0;
+          color: white;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 40px 40px 0 0;
+          border-color: #EA352E transparent transparent transparent;
+          p{
+            position: absolute;
+            top: -29px;
+            left: -4px;
+            font-size:10px;
+            transform: scale(0.1);
+            font-weight: bold;
+            transform: rotate(-45deg);
+            letter-spacing: 2px;
+          }
+        }
+      }
+    
+      &__body{
+
+        margin: 0 40px 0 68px;
+        &__text{
+          color: #333;
+          font-size: 14px;
+          font-weight: lighter;
+          overflow: hidden;
+          display: block;
+          text-overflow: ellipsis;
+          line-height: 1.5;
+          float: left;
+          &__price{
+            font-size: 14px;
+            font-weight: lighter;
+            overflow: hidden;
+            display: block;
+            text-overflow: ellipsis;
+            line-height: 1.5;
+          }
+        }
+        &__fa{
+          color: #333;
+          float: right;
+          padding-top: 15px;
+        }
+      }
+    }
+  } 
+}
+.like-lists__list:hover {
+  background-color: rgba(238, 238, 238, 0.3);
+}

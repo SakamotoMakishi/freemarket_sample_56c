@@ -45,6 +45,6 @@ class AddressInputsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to user_path(current_user) unless current_user.address_input.presence
+    redirect_to new_address_input_path(current_user) unless current_user.address_input.presence
   end
 end
