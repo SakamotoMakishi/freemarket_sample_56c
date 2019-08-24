@@ -1,0 +1,21 @@
+=render 'layouts/header'
+- breadcrumb :purchased
+= render "layouts/breadcrumbs"
+.mypage
+  .mypage__nav
+    = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .mypage__nav__main-contents__listings
+        %h3.mypage__nav__main-contents__listings__tab-head 購入した商品
+        %ul.mypage__nav__main-contents__listings__tabs
+          %li.mypage__nav__main-contents__listings__tabs__tab.trad
+            = link_to purchase_user_path(current_user) do
+              %p 取引中
+          %li.mypage__nav__main-contents__listings__tabs__tab.active.trad
+            %p 過去の取引
+        .mypage__nav__main-contents__bottom-tabcontents
+          %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
+            %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
+              過去に取引した商品がありません
+= render "layouts/banner"
+= render "layouts/footer"
