@@ -18,7 +18,7 @@ $(function(){
     tagFeeOutput.empty(); 
     tagPrifitOutput.empty(); 
     var str = $(this).val();
-    var num = Number(str.replace(/[^0-9]/g, '')); 
+    var num = Number(str.replace(/[^0-9]|[^\x01-\x7E\xA1-\xDF]/g, '')); 
 
 		if(num == 0) {
       num = '';
