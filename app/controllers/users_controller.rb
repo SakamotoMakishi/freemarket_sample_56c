@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_header
+  before_action :set_item, only: [:listing, :trading, :completed, :purchase, :purchased]
+  before_action :set_card, only: [:card_add_to]
 
   def show
-    # @item = Item.with_attached_images.find(params[:id])
-    # @user = Item.find(params[:id]).seller
   end
 
   def user_card
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def card_add_to
-    @card = Card.where(params[:user_id])
   end
 
   def listing
@@ -30,7 +29,16 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
+  def set_item
+    @item_seller = Item.with_attached_images.where(seller_id: current_user.id).order("id DESC").limit(10)
+    @item_buyer = Item.with_attached_images.where(buyer_id: current_user.id).order("id DESC").limit(10)
+  end
+
+  def set_card
+    @card = Card.where(params[:user_id])
+  end
+
   def set_header
     @categories1 = Category.where(parrent_id: 0)
     @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)

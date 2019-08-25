@@ -17,8 +17,19 @@
             = link_to completed_user_path(current_user) do
               %p 売却済み
         .mypage__nav__main-contents__bottom-tabcontents
+        -if @item_seller.empty?
           %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
             %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
-              取引中の商品がありません
+              出品中の商品がありません
+        -else
+          %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
+          - @item_seller.each do |item|
+            %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
+              = image_tag url_for(item.images.first), heigth: '50', width: '50'
+              .item-name
+                = "「#{item.name}」"
+              %span.item-stutas
+                出品中
+              %i.fas.fa-angle-right
 = render "layouts/banner"
 = render "layouts/footer"
