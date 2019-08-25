@@ -4,10 +4,11 @@ class LikesController < ApplicationController
 
   def index
     @item =  Item.where(id: current_user.likes.map{|hash| hash[:item_id]}).limit(15)
+    current_user.likes.update_all(watch: 1)
   end
 
   def create
-    like = current_user.likes.new(item_id: @item.id)
+    like = current_user.likes.new(item_id: @item.id, watch: 0)
     unless like.save
       render :create
     else
