@@ -62,6 +62,34 @@
       cursor: auto;
     }
   }
+  img{
+    float: left;
+  }
+  .item-name{
+    display: block;
+  }
+  .item-stutas{
+    display: inline-block;
+  }
+  span.item-stutas{
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    background: #0099E8;
+    position: absolute;
+    top: 55px;
+    left: 100px;
+  }
+  i.fas.fa-angle-right{
+  font-size: 25px;
+  color: grey;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
+  }
 &__bottom-tabcontents{
   background-color: #fff;
   }

@@ -39,10 +39,6 @@
         %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
           %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
             取引中の商品がありません
-          -# - current_user.buyed_items.each do |item|
-          -#   = image_tag item.images.first, heigth: '50', width: '50'
-          -#   = "商品名 : #{item.name}"
-          -#   = "¥ #{item.price}"
           %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list 過去の取引はありません
 = render "layouts/banner"
 = render "layouts/footer"
