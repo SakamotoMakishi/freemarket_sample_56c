@@ -7,11 +7,11 @@ class NotificationsController < ApplicationController
   end
 
   def set_header
-    @categories1 = Category.where(parrent_id: 0)
-    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
-    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
     #@categories1が親
     #@categories2が子
     #@categories3が孫
+    @categories1 = Category.where(parrent_id: 0)
+    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 end
