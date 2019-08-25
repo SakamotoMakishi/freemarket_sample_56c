@@ -1,0 +1,9 @@
+= link_to item_path(notification.item.id) do
+  = image_tag notification.visiter.avatar
+  = image_tag notification.item.images.first
+  .time
+    %i.far.fa-clock
+    = " #{time_ago_in_words(notification.created_at)}前"
+  %i.fa.fa-chevron-right
+  .text
+    = notification_form(notification,current_user)

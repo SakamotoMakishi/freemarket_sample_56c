@@ -104,7 +104,7 @@
               %i.fas.fa-heart.heart-unlike
                 いいね!
                 = "#{@item.likes.count}"
-          =link_to "/",{id:"item-details-buttons-left-report"} do
+          =link_to notifications_path,{id:"item-details-buttons-left-report"} do
             %i.far.fa-flag
             %span 不適切な商品の報告
         .item-details__buttons__right

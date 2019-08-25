@@ -13,15 +13,17 @@ class LikesController < ApplicationController
       render :create
     else
       like.save
+      @item.create_notification_by(current_user)
     end
   end
 
   def destroy
-    like = current_user.likes.find_by(item_id: @item.id)
+    like = current_user.likes.find_by(item_id:@item.id)
     unless like.destroy
       render :destroy
     else
       like.destroy
+      @item.delete_notification_by(current_user)
     end
   end
 

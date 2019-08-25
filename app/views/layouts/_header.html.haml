@@ -36,9 +36,12 @@
                     .nav-count
                       = like_count
               %li.header__inner__main__right__nav__user__notification
-                =link_to "/" do
+                =link_to notifications_path do
                   %i.fa.fa-bell
                   %span お知らせ
+                  -if unchecked_notifications.any?
+                    .nav-count
+                      = unchecked_notifications.count
               %li.header__inner__main__right__nav__user__todo
                 =link_to "/" do
                   %i.fa.fa-check

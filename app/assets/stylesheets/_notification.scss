@@ -1,0 +1,51 @@
+.notification{
+  display: inline-grid;
+  float: left;
+  position: relative;
+  bottom: 145px;
+  color: black;
+  width: 100%;
+  background: #fff;
+  font-size:13px; 
+  a{
+    float: inherit;
+    text-align: start;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding: 20px 100px 0px 20px;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+    img{
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .fa{
+      color: #ccc;
+      font-size:18px;
+      position: relative;
+      float: right;
+      top: -42px;
+      right: -48px;
+    }
+    .time{
+      width: 200px;
+      position: relative;
+      top: -5px;
+      color: gray;
+      left: 130px;
+    }
+    .text{
+      position: relative;
+      word-wrap: break-word;
+      bottom: 60px;
+      left: 130px;
+      width: 460px;
+    }
+  }
+  a:hover{
+    background:#f5f5f5;
+    transition: 0.2s;
+  }
+}

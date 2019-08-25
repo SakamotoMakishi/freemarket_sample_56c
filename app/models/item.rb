@@ -13,8 +13,37 @@ class Item < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
 
+  has_many :notifications,dependent: :destroy
+
   def like?(user) 
     likes.where(user_id: user.id).exists?
+  end
+
+  def buy_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"buy"
+    )
+    notification.save if notification.valid?
+  end
+
+  def create_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"like"
+    )
+    notification.save if notification.valid?
+  end
+
+  def delete_notification_by(current_user)
+    notification=current_user.active_notifications.find_by(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"like"
+    )
+    notification.destroy if !notification.nil?
   end
 
   def check_file_presence
