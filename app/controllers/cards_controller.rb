@@ -50,6 +50,7 @@ class CardsController < ApplicationController
       currency: 'jpy',
       )
       if @item.update(buyer_id: current_user.id)
+        @item.buy_notification_by(current_user)
         flash[:notice] = '購入しました。'
         redirect_to action: 'show'
       else

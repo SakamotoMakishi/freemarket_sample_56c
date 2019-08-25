@@ -1,0 +1,44 @@
+=render 'layouts/header'
+- breadcrumb :mypage
+= render "layouts/breadcrumbs"
+.mypage
+  .mypage__nav
+    = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .mypage__nav__main-contents__user-icon
+        = link_to "/" do
+          = image_tag  url_for(current_user.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+          %h2.mypage__nav__main-contents__user-icon__name 
+            = current_user.nickname
+          .mypage__nav__main-contents__user-icon__number
+            %div
+              評価
+              %span.mypage__nav__main-contents__user-icon__number__bold 20
+            %div
+              出品数
+              %span.mypage__nav__main-contents__user-icon__number__bold
+                = item_count(current_user)
+      .mypage__nav__main-contents__tab-container
+        %ul.mypage__nav__main-contents__tab-container__tabs
+          %li.mypage__nav__main-contents__tab-container__tabs__tab.active 
+            %p 未読のお知らせ
+          %li.mypage__nav__main-contents__tab-container__tabs__tab
+            %p 過去のお知らせ
+      .mypage__nav__main-contents__tab-contents
+        %ul.mypage__nav__main-contents__tab-contents__item-lists
+          %li.mypage__nav__main-contents__tab-contents__item-lists__list.show
+            .notification
+              -if @notifications.exists?
+                = render @notifications
+              -else
+                通知はまだありません
+          %li.mypage__nav__main-contents__tab-contents__item-lists__list
+            .notification
+              -if @notifications_true.exists?
+                = render @notifications_true
+              -else
+                通知はまだありません
+      .mypage__nav__main-contents__bottom-container
+              
+= render "layouts/banner"
+= render "layouts/footer"

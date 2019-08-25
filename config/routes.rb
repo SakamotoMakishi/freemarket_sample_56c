@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :brands, only: :show
   resources :address_inputs
+  resources :notifications, only: :index
 
   resources :items do
     resources :comments, only: [:create]

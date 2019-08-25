@@ -15,12 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @categories1 = Category.where(parrent_id: 0)
-    @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids))
-    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids))
-    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids))
     @categories33 = Category.where(parrent_id: [4..12])
-    @test = Item.ransack(id_eq_all: @men_items.ids).result.to_sql
     @q = Item.with_attached_images.ransack(params[:q])
     @q.sorts = 'id desc' if @q.sorts.empty?
     @items_count = @q.result.includes(:delivary).count
@@ -65,6 +60,8 @@ class ItemsController < ApplicationController
 
   def show_user_item
     @comments = @item.comments.includes(:user)
+    notifications=current_user.passive_notifications.includes(:visiter,:item)
+    notifications.find_by(checked: false).update_attributes(checked: true)
   end
 
   def edit
@@ -106,6 +103,7 @@ class ItemsController < ApplicationController
       format.json
     end
   end
+  
 
   private
   def item_params

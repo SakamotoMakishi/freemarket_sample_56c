@@ -12,9 +12,11 @@ class User < ApplicationRecord
   has_many :sold_items, -> {where("buyer_id is not NULL")}, foreign_key: "saler_id", class_name: "Item"
   has_one :address_input
   has_one :card
-
   has_many :likes, dependent: :destroy
   has_many :like_items, through: :likes, source: :item
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
