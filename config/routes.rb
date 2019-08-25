@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   post   '/like/:item_id', to: 'likes#create' , as: 'like'
   delete '/like/:item_id', to: 'likes#destroy', as: 'unlike'
   
+  resources :likes, only: :index
   resources :categories, only: :show
   resources :brands, only: :show
   resources :address_inputs
   resources :notifications, only: :index
-
   resources :items do
     resources :comments, only: [:create]
     collection  do
@@ -33,6 +33,11 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     member do
       get 'card_add_to'
+      get 'listing'
+      get 'trading'
+      get 'completed'
+      get 'purchase'
+      get 'purchased'
     end
     collection  do
       get 'signup_page'
@@ -55,6 +60,7 @@ Rails.application.routes.draw do
       get 'index', to: 'cards#index', as: "card_buy"
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+      post 'rating', to: 'cards#rating'
     end
     collection  do
       get 'regist', to: 'cards#regist'

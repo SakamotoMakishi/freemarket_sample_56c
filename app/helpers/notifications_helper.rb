@@ -1,7 +1,9 @@
 module NotificationsHelper
+
   def unchecked_notifications
     @notifications=current_user.passive_notifications.where(checked: false)
   end
+
   def notification_form(notification,current_user)
     @user = current_user
     visiter=notification.visiter
@@ -24,6 +26,6 @@ module NotificationsHelper
         else
           "エラーです。"
       end
-      end
+    end
   end
 end

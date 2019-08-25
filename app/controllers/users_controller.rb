@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :card_add_to]
   before_action :set_header
 
   def show
@@ -12,6 +13,21 @@ class UsersController < ApplicationController
 
   def card_add_to
     @card = Card.where(params[:user_id])
+  end
+
+  def listing
+  end
+
+  def trading
+  end
+
+  def completed
+  end
+
+  def purchase
+  end
+
+  def purchased
   end
 
   private

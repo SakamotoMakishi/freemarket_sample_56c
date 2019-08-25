@@ -1,0 +1,24 @@
+=render 'layouts/header'
+- breadcrumb :trading
+= render "layouts/breadcrumbs"
+.mypage
+  .mypage__nav
+    = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .mypage__nav__main-contents__listings
+        %h3.mypage__nav__main-contents__listings__tab-head 出品した商品
+        %ul.mypage__nav__main-contents__listings__tabs
+          %li.mypage__nav__main-contents__listings__tabs__tab
+            = link_to listing_user_path(current_user) do
+              %p 出品中
+          %li.mypage__nav__main-contents__listings__tabs__tab.active
+            %p 取引中
+          %li.mypage__nav__main-contents__listings__tabs__tab
+            = link_to completed_user_path(current_user) do
+              %p 売却済み
+        .mypage__nav__main-contents__bottom-tabcontents
+          %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
+            %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
+              取引中の商品がありません
+= render "layouts/banner"
+= render "layouts/footer"

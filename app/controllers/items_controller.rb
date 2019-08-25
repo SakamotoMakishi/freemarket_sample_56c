@@ -60,7 +60,10 @@ class ItemsController < ApplicationController
 
   def show_user_item
     @comments = @item.comments.includes(:user)
-    notifications=current_user.passive_notifications.includes(:visiter,:item)
+    @rating_good = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:1).count
+    @rating_nomal = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:2).count
+    @rating_bad = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:3).count
+    notifications = current_user.passive_notifications.includes(:visiter,:item)
     notifications.find_by(checked: false).update_attributes(checked: true)
   end
 

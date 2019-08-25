@@ -186,6 +186,12 @@
         }
         .li-right{
           float: right;
+          .li-right-fee {
+            font-size: 14px;
+          }
+          .li-right-profit{
+            font-size: 14px;
+          }
         }
       }
       &__price__bold{

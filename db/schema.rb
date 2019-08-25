@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_054430) do
+
+ActiveRecord::Schema.define(version: 2019_08_25_031820) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_08_24_054430) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone_num"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,11 +83,12 @@ ActiveRecord::Schema.define(version: 2019_08_24_054430) do
   create_table "delivaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "area", null: false
     t.string "delivary_day", null: false
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
     t.string "price", null: false
     t.string "delivary_method"
-    t.integer "item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_24_054430) do
     t.string "brand_name"
     t.string "size"
     t.integer "likes_count"
+    t.integer "rating"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
@@ -112,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_08_24_054430) do
     t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "watch"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -146,3 +149,4 @@ ActiveRecord::Schema.define(version: 2019_08_24_054430) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
 end
+
