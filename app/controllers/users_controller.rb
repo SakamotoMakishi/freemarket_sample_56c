@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :card_add_to]
   before_action :set_header
 
   def show
