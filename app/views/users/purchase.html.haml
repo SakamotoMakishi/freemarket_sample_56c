@@ -21,12 +21,13 @@
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
           - @item_buyer.each do |item|
-            %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
-              = image_tag url_for(item.images.first), heigth: '50', width: '50'
-              .item-name
-                = "「#{item.name}」を購入しました"
-              %span.item-stutas
-                取引中
-              %i.fas.fa-angle-right
+            = link_to item_path(item) do
+              %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
+                = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
+                .item-name
+                  = "「#{item.name}」を購入しました"
+                %span.item-stutas
+                  取引中
+                %i.fas.fa-angle-right
 = render "layouts/banner"
 = render "layouts/footer"
