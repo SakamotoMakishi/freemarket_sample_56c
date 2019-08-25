@@ -59,6 +59,11 @@ class CardsController < ApplicationController
     end
   end
 
+  def rating
+    Item.find(params[:id]).update_attributes(rating: params[:rating])
+    redirect_to root_path
+  end
+
   def destroy
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
