@@ -51,6 +51,9 @@ class ItemsController < ApplicationController
 
   def show
     @comments = @item.comments.includes(:user)
+    @rating_good = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:1).count
+    @rating_nomal = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:2).count
+    @rating_bad = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:3).count
     if user_signed_in?
       if @item.seller_id === current_user.id
         redirect_to action: 'show_user_item'
