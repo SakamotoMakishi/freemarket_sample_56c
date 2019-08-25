@@ -43,9 +43,21 @@
           = link_to'/', class: 'main__buy-content__buy-content__buy-inner__buy-user-fix' do
             %span 変更する
             %i.fa.fa-chevron-right
-      .main__buy-content__buy-content
+    .main__buy-content__buy-content
+      =form_with url: rating_card_path(@item),local: true, method: :post do |form|
+        .main__buy-content__buy-content__ratings
+          .main__buy-content__buy-content__ratings__text この商品の評価をしてください
+          %label
+            =form.radio_button :rating, "1", class:"item-details__main__table__ratings" 
+            %i.fas.fa-laugh 良い
+          %label
+            =form.radio_button :rating, "2", class:"item-details__main__table__ratings"
+            %i.fas.fa-meh 普通
+          %label
+            =form.radio_button :rating, "3", class:"item-details__main__table__ratings"
+            %i.fas.fa-frown-open 惡い
         .main__buy-content__buy-content__buyed-mypage
           &#8811;
-          =link_to "マイページに戻る", user_path(current_user), class: "main__buy-content__buy-content__buy-inner__buyed-mypage"
+          =form.submit "評価を送る", class: "main__buy-content__buy-content__buyed-mypage__buy-inner"
           &#8810;
   = render 'layouts/footer-registrations'

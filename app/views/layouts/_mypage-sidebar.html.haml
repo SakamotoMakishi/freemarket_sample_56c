@@ -13,7 +13,7 @@
         やることリスト
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to likes_path do 
         いいね！一覧
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
@@ -21,23 +21,23 @@
         出品する
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to listing_user_path(current_user) do
         出品した商品 - 出品中
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to trading_user_path(current_user) do
         出品した商品 - 取引中
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to completed_user_path(current_user) do
         出品した商品 - 売却済み
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to purchase_user_path(current_user) do
         購入した商品 - 取引中
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to"/" do 
+      = link_to purchased_user_path(current_user) do
         購入した商品 - 過去の取引
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
@@ -85,7 +85,7 @@
         メール/パスワード
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
-      = link_to edit_address_input_path(current_user) do 
+      = link_to edit_address_input_path(current_user) do
         本人情報
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list

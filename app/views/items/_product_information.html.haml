@@ -151,17 +151,20 @@
                   %span.form-require 必須
                   .sell__price__form__right
                     ¥
-                    = item.text_field :price, placeholder:  "例）300", class: "input-price", value:@item.price
+                    = item.text_field :price, placeholder:  "例）300", class: "input-price", id: "input", value:@item.price
                 - if @item.errors.messages[:price].any?
                   .error-message-box
                     = @item.errors.messages[:price]
                 %li.sell__price__text
                   .li-left
-                    販売手数料 (10%)
-                  .li-right -
+                    販売手数料 (80%)
+                  .li-right
+                    %p.li-right-fee 
                 %li.sell__price__bold
-                  .li-left 販売利益
-                  .li-right -
+                  .li-left 
+                    販売利益
+                  .li-right
+                    %p.li-right-profit 
         .modal
           .modal-inner
           .sell__btn__box
