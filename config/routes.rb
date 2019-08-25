@@ -54,6 +54,7 @@ Rails.application.routes.draw do
       get 'index', to: 'cards#index', as: "card_buy"
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+      post 'rating', to: 'cards#rating'
     end
     collection  do
       get 'regist', to: 'cards#regist'

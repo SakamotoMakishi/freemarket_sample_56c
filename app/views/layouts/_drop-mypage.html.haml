@@ -11,7 +11,8 @@
         = current_user.nickname
         .drop-text
           %p
-            評価: 0
+            評価:
+            = rating_count(current_user)
           %p
             出品数: 
             = item_count(current_user)
