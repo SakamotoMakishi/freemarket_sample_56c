@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get 'completed'
       get 'purchase'
       get 'purchased'
+      get 'things'
     end
     collection  do
       get 'signup_page'
