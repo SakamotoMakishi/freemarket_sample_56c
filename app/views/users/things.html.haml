@@ -1,0 +1,32 @@
+=render 'layouts/header'
+- breadcrumb :purchased
+= render "layouts/breadcrumbs"
+.mypage
+  .mypage__nav
+    = render 'layouts/mypage-sidebar'
+    .mypage__nav__main-contents
+      .mypage__nav__main-contents__listings
+        %ul.mypage__nav__main-contents__listings__tabs
+          %li.mypage__nav__main-contents__listings__tabs__tab.trad
+            = link_to notifications_path do
+              %p お知らせ
+          %li.mypage__nav__main-contents__listings__tabs__tab.active.trad
+            %p やることリスト
+        .mypage__nav__main-contents__bottom-tabcontents
+        -if @completed.empty?
+          %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
+            %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
+              やることがありません
+        -else
+          %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
+          - @completed.zip(@user).each do |item, user|
+            = link_to item_path(item) do
+              %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
+                = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
+                .item-name
+                  = "#{user.nickname}さんが「#{item.name}」を購入しました。内容を確認の上、発送をお願いします。"
+                %span.item-stutas
+                  出荷よー٩( 'ω' )و
+                %i.fas.fa-angle-right
+= render "layouts/banner"
+= render "layouts/footer"
