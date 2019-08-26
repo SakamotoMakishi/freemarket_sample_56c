@@ -22,6 +22,7 @@
 @import './header';
 @import './footer';
 @import './slideshow';
+
 nav.pagination {
   display: inline-block;
   padding: 0;
@@ -44,7 +45,9 @@ nav.pagination li a.active {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;
 }
+
 nav.pagination li a:hover:not(.active) {background-color: #ddd;}
+
 .nav-count{
   position: absolute;
   top: -2px;
@@ -57,4 +60,17 @@ nav.pagination li a:hover:not(.active) {background-color: #ddd;}
   line-height: 20px;
   font-size: 12px;
   color: #fff;
+  animation: jump 3s ease-out;
 }
+
+@keyframes jump {
+  0%  {transform: translate( 0%,-550%) scale( 0.5, 1.5);}
+  30% {transform: translate( 0%,   0%) scale( 1.4, 0.6);}
+  40% {transform: translate( 0%,-100%) scale( 0.6, 1.4);}
+  55% {transform: translate( 0%,   0%) scale( 1.2, 0.8);}
+  60% {transform: translate( 0%, -50%) scale( 0.7, 1.3);}
+  70% {transform: translate( 0%,   0%) scale( 1.1, 0.9);}
+  75% {transform: translate( 0%, -20%) scale( 0.8, 1.2);}
+  100%{transform: translate( 0%,   0%) scale(   1,   1);}
+}
+
