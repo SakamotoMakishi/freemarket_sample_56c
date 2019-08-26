@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   private
 
   def set_item
-    @item_seller = Item.with_attached_images.where(seller_id: current_user.id).order("id DESC").limit(10)
+    @item_seller = Item.with_attached_images.where(seller_id: current_user.id).where(buyer_id: nil).order("id DESC").limit(10)
     @item_buyer = Item.with_attached_images.where(buyer_id: current_user.id).order("id DESC").limit(5)
     @completed =  Item.with_attached_images.where("buyer_id > ?", 1).where(seller_id: current_user.id).order("id DESC").limit(10)
   end

@@ -62,16 +62,15 @@
       cursor: auto;
     }
   }
-
   a{
     text-decoration: none;
-    color: black;
   }
   .item-image{
     float: left;
   }
   .item-name{
     display: block;
+    color: black;
   }
   .item-stutas{
     display: inline-block;
