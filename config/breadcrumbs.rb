@@ -67,3 +67,8 @@ crumb :likes do
   parent :mypage
 end
 
+
+crumb :item_message do
+  link "取引画面", item_message_user_path
+  parent :mypage
+end
