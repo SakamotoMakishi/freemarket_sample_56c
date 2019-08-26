@@ -90,8 +90,8 @@ $(function(){
 });
 
 $(function(){
-  setTimeout("$('.notice').fadeOut('slow')", 2000) 
+  setTimeout("$('.notice').fadeOut('slow')", 1500) 
 })
 $(function(){
-  setTimeout("$('.alert').fadeOut('slow')", 2000) 
+  setTimeout("$('.alert').fadeOut('slow')", 1500) 
 })

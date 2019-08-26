@@ -30,6 +30,7 @@
             .notification
               -if @notifications.exists?
                 = render @notifications
+                = link_to '確認済みにする',notifications_none_notifications_path,class:"notifications_none"
               -else
                 .notification__message
                   通知はまだありません

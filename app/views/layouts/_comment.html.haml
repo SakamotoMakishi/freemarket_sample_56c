@@ -15,6 +15,9 @@
                       &#9700;
                   .comment__message__mycome__text
                     = c.text
+                    .time
+                      %i.far.fa-clock
+                      = " #{time_ago_in_words(c.created_at)}前"
               -else
                 .comment__message__other
                   .comment__message__other__user-avatar2
@@ -28,6 +31,9 @@
                         出品者
                   .comment__message__other__text
                     = c.text
+                    .time
+                      %i.far.fa-clock
+                      = " #{time_ago_in_words(c.created_at)}前"
                     .comment__message__mycome__text__triangle1
         .comment__from-m
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
