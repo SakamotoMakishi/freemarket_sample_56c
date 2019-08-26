@@ -13,13 +13,13 @@
           %li.mypage__nav__main-contents__listings__tabs__tab.active.trad
             %p やることリスト
         .mypage__nav__main-contents__bottom-tabcontents
-        -if @completed.empty?
+        -if @item_trading.empty?
           %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
             %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
               やることがありません
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
-          - @completed.zip(@user).each do |item, user|
+          - @item_trading.zip(@user).each do |item, user|
             = link_to item_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
