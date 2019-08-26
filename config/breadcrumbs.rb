@@ -51,3 +51,19 @@ crumb :purchased do
   link "購入した商品-過去の取引", purchased_user_path
   parent :mypage
 end
+
+crumb :notifications do
+  link "お知らせ", notifications_path
+  parent :mypage
+end
+
+crumb :things do
+  link "やることリスト", things_user_path
+  parent :mypage
+end
+
+crumb :likes do
+  link "いいね！一覧", likes_path
+  parent :mypage
+end
+
