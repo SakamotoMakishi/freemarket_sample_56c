@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :set_header, only: [:edit, :update]
   
 
   # GET /resource/sign_up
@@ -85,5 +86,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     sms_message_users_path
+  end
+
+  def set_header
+    @parrent_categories = Category.where(parrent_id: 0)
+    @child_categories = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
+    @grandchild_categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 end
