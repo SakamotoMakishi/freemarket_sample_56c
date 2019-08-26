@@ -1,0 +1,35 @@
+.notification-flash{
+  .notice {
+    padding-top: 23px;
+    padding-bottom: 20px;
+    background-color:#ea352d;
+    opacity: 0.9;
+    width: -webkit-fill-available;
+    position: absolute;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    height: 25px;
+    z-index: 10;
+    font-weight:bold;
+    letter-spacing: 5px;
+    font-size: 17px;
+  }
+
+  .alert {
+    padding-top: 23px;
+    padding-bottom: 20px;
+    background-color:#51dcf5;
+    opacity: 0.9;
+    width: -webkit-fill-available;
+    position: absolute;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    height: 25px;
+    z-index: 10;
+    font-weight:bold;
+    letter-spacing: 5px;
+    font-size: 17px;
+  }
+}

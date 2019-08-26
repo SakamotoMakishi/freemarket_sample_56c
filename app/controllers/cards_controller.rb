@@ -51,7 +51,7 @@ class CardsController < ApplicationController
       )
       if @item.update(buyer_id: current_user.id)
         @item.buy_notification_by(current_user)
-        flash[:notice] = '購入しました。'
+        flash[:notice] = '購入しました。発送までしばらくお待ちください'
         redirect_to action: 'show'
       else
         flash[:alert] = '購入に失敗しました。'
