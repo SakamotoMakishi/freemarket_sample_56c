@@ -21,7 +21,7 @@
       .mypage__nav__main-contents__tab-container
         %ul.mypage__nav__main-contents__tab-container__tabs
           %li.mypage__nav__main-contents__tab-container__tabs__tab.active 
-            %p 未読のお知らせ
+            %p 新着のお知らせ
           %li.mypage__nav__main-contents__tab-container__tabs__tab
             %p 過去のお知らせ
       .mypage__nav__main-contents__tab-contents
@@ -31,13 +31,15 @@
               -if @notifications.exists?
                 = render @notifications
               -else
-                通知はまだありません
+                .notification__message
+                  通知はまだありません
           %li.mypage__nav__main-contents__tab-contents__item-lists__list
             .notification
               -if @notifications_true.exists?
                 = render @notifications_true
               -else
-                通知はまだありません
+                .notification__message
+                  通知はまだありません
       .mypage__nav__main-contents__bottom-container
               
 = render "layouts/banner"

@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:root, :index, :show]
   protect_from_forgery
   before_action :set_item, only: [:show, :show_user_item, :edit, :update, :destroy]
-  before_action :set_header
 
 
   def root
@@ -82,12 +81,14 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     @delivary = Delivary.find_by(item_id:params[:id])
     @delivary.update(delivary_params)
+    flash[:notice] = '商品を編集しました'
     redirect_to action: 'show_user_item'
   end
 
   def destroy
     if @item.seller_id == current_user.id
       if @item.destroy
+        flash[:alert] = '商品を削除しました'
         redirect_to root_path
       else
         redirect_to action: 'show_user_item'
@@ -131,11 +132,5 @@ class ItemsController < ApplicationController
     @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
     @category2 = Category.find(@item.category.parrent_id)
     @category3 = @item.category
-  end
-
-  def set_header
-    @categories1 = Category.where(parrent_id: 0)
-    @categories2 = Category.where(parrent_id: Category.where(parrent_id: 0).ids).group_by(&:parrent_id)
-    @categories3 = Category.where(parrent_id: Category.where(parrent_id: Category.where(parrent_id: 0).ids).ids).group_by(&:parrent_id)
   end
 end
