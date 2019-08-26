@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_031820) do
+ActiveRecord::Schema.define(version: 2019_08_26_113100) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 2019_08_25_031820) do
     t.string "delivary_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
     t.string "price", null: false
     t.string "delivary_method"
-    t.integer "item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_031820) do
     t.string "size"
     t.integer "likes_count"
     t.integer "rating"
+    t.boolean "receipt", default: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
