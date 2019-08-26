@@ -28,6 +28,10 @@
             padding:20px;
             border-radius:15px; 
           }
+          .time{
+            color:#a7a4a4;
+            margin-top:20px; 
+          }
           &__name{
             float:right;
             margin: 0 10px 10px;
@@ -72,6 +76,10 @@
             background: #eef0f4;
             padding:20px;
             border-radius:15px;
+            .time{
+              color:#a7a4a4;
+              margin-top:20px; 
+            }
             &__triangle1{
               display: inline-block;
               width: 0;
