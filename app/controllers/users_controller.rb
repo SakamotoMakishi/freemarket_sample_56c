@@ -32,6 +32,13 @@ class UsersController < ApplicationController
   def purchased
   end
 
+  def item_message
+    @item = Item.with_attached_images.find(params[:id])
+    @comments = @item.comments.includes(:user)
+    # @delivary = Delivary.find_by(item_id:params[:id])
+    # @item_buyer = Item.with_attached_images.find_by(buyer_id: @item.id).find_by(seller_id: @item.id)
+  end
+
   private
 
   def set_item
