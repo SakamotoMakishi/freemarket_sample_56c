@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
     @category2 = Category.find(@item.category.parrent_id)
     @category3 = @item.category
-    @comments = Item.find(params[:id]).comments
+    # @comments = Item.find(params[:id]).comments
     @delivary = Item.find(params[:id]).delivary
     @seller   = Item.find(params[:id]).seller
     @buyer    = Item.find(params[:id]).buyer
@@ -55,9 +55,9 @@ class UsersController < ApplicationController
     @item = Item.with_attached_images.find(params[:id])
     @item_seller = Item.with_attached_images.where(seller_id: current_user.id).where(buyer_id: nil).order("id DESC").limit(10)
     @item_buyer = Item.with_attached_images.where(buyer_id: current_user.id).order("id DESC").limit(5)
-    @item_trading =  Item.with_attached_images.where(seller_id: current_user.id).where("buyer_id > ?", 1).order("id DESC").limit(10)
+    @item_trading =  Item.with_attached_images.where(seller_id: current_user.id).where("buyer_id > ?", 1)
     @users = User.all
-    @hash = @item_trading.map{|hash| hash[:buyer_id] + 1}
+    @hash = @item_trading.map{|hash| hash[:buyer_id] -1}
   end
 
   def set_card
