@@ -26,6 +26,8 @@ module NotificationsHelper
         else
           "エラーです。"
       end
+      when "shipping" then
+        "#{visiter.nickname}さんが『#{item.name}』を発送をしました！到着までしばらくお待ちください。"
     end
   end
 end

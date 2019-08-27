@@ -1,0 +1,80 @@
+.item_transaction
+  %section.item-details
+
+    %h1.item-details__name 
+      = "#{@item.name}"
+    .item-details__main
+      .item-details__photo
+        .item-details__photo__main
+          .item-details__photo__main__outer
+            .item-details__photo__main__outer__stage
+              .item-details__photo__main__outer__stage__item{style: "width: 300px;"}
+                .item-details__photo__main__outer__stage__item__inner
+                  = image_tag @item.images.first , class: 'item-details-outer-image'
+                  - if @item.buyer_id.presence
+                    .sold
+                      %p SOLD
+          = render 'layouts/show-image-hover'
+      %table.item-details__main__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              =link_to @user.nickname
+              %div
+                .item-details__main__table__ratings
+                  %i.fas.fa-laugh
+                  %span #{@rating_good}
+                .item-details__main__table__ratings
+                  %i.fas.fa-meh
+                  %span #{@rating_nomal}
+                .item-details__main__table__ratings
+                  %i.fas.fa-frown-open
+                  %span #{@rating_bad}
+          %tr
+            %th カテゴリー
+            %td
+              =link_to "/" do
+                = @category1.name
+              =link_to "/" do
+                %div.item-details__main__table__category__sub
+                  %i.fas.fa-angle-right
+                    = @category2.name
+              =link_to "/" do
+                %div.item-details__main__table__category__sub__sub
+                  %i.fas.fa-angle-right
+                    = @category3.name
+          %tr
+            %th ブランド
+            %td
+              = "#{@item.brand_name}"
+          %tr
+            %th 商品のサイズ
+            %td
+              = "#{@item.size}"
+          %tr
+            %th 商品の状態
+            %td 
+              = "#{@item.status}"
+          %tr
+            %th 配送料の負担
+            %td
+              = "#{@delivary.price}"
+          %tr
+            %th 配送の方法
+            %td
+              = "#{@delivary.delivary_method}"
+          %tr
+            %th 配送元地域
+            %td
+              =link_to "#{@delivary.area}", "/"
+          %tr
+            %th 発送日の目安
+            %td
+              = "#{@delivary.delivary_day}"
+
+    .item-details__price-box
+      %span.item-details__price-box__price
+        = "¥#{@item.price}"
+      %span.item-details__price-box__tax (税込)
+      %span.item-details__price-box__fee 送料込み
