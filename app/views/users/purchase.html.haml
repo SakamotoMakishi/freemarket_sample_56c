@@ -21,7 +21,7 @@
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
           - @item_buyer.each do |item|
-            = link_to item_path(item) do
+            = link_to transaction_item_user_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :address_inputs
   resources :notifications, only: :index do
     collection do
+      get 'things'
       get "notifications_none"
     end
   end
@@ -43,7 +44,8 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'purchased'
       get 'things'
-      get 'item_message'
+      get 'transaction_item'
+      get 'shipping'
     end
     collection  do
       get 'signup_page'

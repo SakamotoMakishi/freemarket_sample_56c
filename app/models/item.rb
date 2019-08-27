@@ -28,6 +28,15 @@ class Item < ApplicationRecord
     notification.save if notification.valid?
   end
 
+  def shipping_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.buyer.id,
+      action:"shipping"
+    )
+    notification.save if notification.valid?
+  end
+
   def create_notification_by(current_user)
     notification=current_user.active_notifications.new(
       item_id:self.id,
