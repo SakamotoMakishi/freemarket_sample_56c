@@ -24,7 +24,7 @@
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name
-                  = "#{@user[hash].nickname}さんが「#{item.name}」を購入しました。内容を確認の上、発送をお願いします。"
+                  = "#{@users[hash].nickname}さんが「#{item.name}」を購入しました。内容を確認の上、発送をお願いします。"
                 %span.item-stutas
                   出荷よー٩( 'ω' )و
                 %i.fas.fa-angle-right
