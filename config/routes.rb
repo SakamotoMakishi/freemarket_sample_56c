@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       get 'purchased'
       get 'things'
       get 'item_message'
+      get 'buyer'
     end
     collection  do
       get 'signup_page'
