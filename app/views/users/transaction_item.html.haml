@@ -19,26 +19,48 @@
               = "#{@buyer.nickname}"
               購入者
             .mypage__nav__main-contents__user-icon__number
-        .mypage__nav__main-contents__shipping
-          .mypage__nav__main-contents__shipping__message
-            .fas.fa-truck
-            .mypage__nav__main-contents__shipping__message__text
-              発送をしてください
-              %br/
-              .mypage__nav__main-contents__shipping__message__text__msg
-                商品が購入され支払いされました。商品のは発送を行ってください。
-            .mypage__nav__main-contents__shipping__message__hoge
-              = link_to "/",class:"hoge"do
-                商品が売れた後の流れ
-                %i.fa.fa-chevron-right
+        -if current_user.id == @buyer.id
+          .mypage__nav__main-contents__shipping
+            .mypage__nav__main-contents__shipping__message
+              .fas.fa-truck
+              .mypage__nav__main-contents__shipping__message__text
+                商品を受け取ったら受け取り通知を行ってください
                 %br/
+                .mypage__nav__main-contents__shipping__message__text__msg
+                  出品者から発送後に発送通知が届きます。
+              .mypage__nav__main-contents__shipping__message__hoge
+                = link_to "/",class:"hoge"do
+                  商品が売れた後の流れ
+                  %i.fa.fa-chevron-right
+                  %br/
+                  %br/
+                = link_to "/",class:"hoge" do
+                  出品者のよくある質問
+                  %i.fa.fa-chevron-right
+                  %br/
+            .mypage__nav__main-contents__shipping__notification
+              = link_to "商品を受け取ったので受け取り通知を送る",acceptance_user_path(@item),class:"notification_btn"
+        -elsif current_user.id == @seller.id
+          .mypage__nav__main-contents__shipping
+            .mypage__nav__main-contents__shipping__message
+              .fas.fa-truck
+              .mypage__nav__main-contents__shipping__message__text
+                発送をしてください
                 %br/
-              = link_to "/",class:"hoge" do
-                出品者のよくある質問
-                %i.fa.fa-chevron-right
-                %br/
-          .mypage__nav__main-contents__shipping__notification
-            = link_to "商品を発送をしたので、発送通知をする",shipping_user_path(@item),class:"notification_btn"
+                .mypage__nav__main-contents__shipping__message__text__msg
+                  商品が購入され支払いされました。商品は発送を行ってください。
+              .mypage__nav__main-contents__shipping__message__hoge
+                = link_to "/",class:"hoge"do
+                  商品が売れた後の流れ
+                  %i.fa.fa-chevron-right
+                  %br/
+                  %br/
+                = link_to "/",class:"hoge" do
+                  出品者のよくある質問
+                  %i.fa.fa-chevron-right
+                  %br/
+            .mypage__nav__main-contents__shipping__notification
+              = link_to "商品を発送をしたので、発送通知をする",shipping_user_path(@item),class:"notification_btn"
         .mypage__nav__main-contents__tab-container
           %ul.mypage__nav__main-contents__tab-container__tabs
             %li.mypage__nav__main-contents__tab-container__tabs__tab.active 
