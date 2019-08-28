@@ -53,9 +53,11 @@ class ItemsController < ApplicationController
     @rating_good = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:1).count
     @rating_nomal = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:2).count
     @rating_bad = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:3).count
-    notifications = current_user.passive_notifications.includes(:visiter,:item).find_by(checked: false)
-    unless notifications.nil?
-      notifications.update_attributes(checked: true)
+    if user_signed_in?
+      notifications = current_user.passive_notifications.includes(:visiter,:item).find_by(checked: false)
+      unless notifications.nil?
+        notifications.update_attributes(checked: true)
+      end
     end
     if user_signed_in?
       if @item.seller_id === current_user.id
