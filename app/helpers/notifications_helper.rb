@@ -30,6 +30,8 @@ module NotificationsHelper
         "#{visiter.nickname}さんが『#{item.name}』を発送をしました！到着までしばらくお待ちください。"
       when "acceptance" then
         "『#{item.name}』の受け取り通知が#{visiter.nickname}さんから届きました！取り引き完了です。お疲れ様でした！"
+      when "message" then
+        "#{visiter.nickname}さんから取り引きメッセージが届きました！"
     end
   end
 end
