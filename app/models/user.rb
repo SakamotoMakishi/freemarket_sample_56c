@@ -11,7 +11,8 @@ class User < ApplicationRecord
     validates :password
     validates :password_confirmation
   end
-
+  
+  default_scope->{order(created_at: :desc)}
   has_one_attached :avatar
   has_many :comments
   has_many :messages

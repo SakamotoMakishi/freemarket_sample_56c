@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'purchased'
       get 'things'
+      get 'buyer'
       get 'transaction_item'
       get 'shipping'
       get 'acceptance'

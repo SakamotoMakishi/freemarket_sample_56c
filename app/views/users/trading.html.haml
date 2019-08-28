@@ -22,7 +22,7 @@
               取引中の商品がありません
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
-          - @item_trading.zip(@hash) do |item, hash|
+          - @item_trading.zip(@hash_seller).each do |item, hash|
             = link_to item_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
