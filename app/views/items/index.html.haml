@@ -89,6 +89,9 @@
                 = link_to item_path(i) do
                   .search-container__right__contents__title__box__item__image
                     = image_tag url_for(i.images.first),class: 'item-image'
+                    - if i.buyer_id.presence
+                      .sold_search
+                        %p SOLD
                   .search-container__right__contents__title__box__item__text
                     .search-container__right__contents__title__box__item__text__name
                       = i.name
