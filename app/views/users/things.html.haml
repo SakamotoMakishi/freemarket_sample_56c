@@ -19,8 +19,8 @@
               やることがありません
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
-          - @item_trading.zip(@hash_seller).each do |item, hash|
-            = link_to item_path(item) do
+          - @item_trading.zip(@hash_seller) do |item, hash|
+            = link_to transaction_item_user_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name

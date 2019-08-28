@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :address_inputs
   resources :notifications, only: :index do
     collection do
+      get 'things'
       get "notifications_none"
     end
   end
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    resources :messages, only: [:create]
     member do
       get 'card_add_to'
       get 'listing'
@@ -43,8 +45,10 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'purchased'
       get 'things'
-      get 'item_message'
       get 'buyer'
+      get 'transaction_item'
+      get 'shipping'
+      get 'acceptance'
     end
     collection  do
       get 'signup_page'

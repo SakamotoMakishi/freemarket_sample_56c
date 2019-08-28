@@ -1,0 +1,108 @@
+=render 'layouts/header'
+- breadcrumb :transaction_item
+= render "layouts/breadcrumbs"
+.transaction_item
+  .mypage
+    .mypage__nav
+      = render 'layouts/mypage-sidebar'
+      .mypage__nav__main-contents
+        .mypage__nav__main-contents__buyer
+          = link_to "/" ,class:"user_name"do
+            = image_tag  url_for(@seller.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+            %h2.mypage__nav__main-contents__user-icon__name 
+              = "#{@seller.nickname}"
+              出品者
+        .mypage__nav__main-contents__seller
+          = link_to "/",class:"user_name" do
+            = image_tag  url_for(@buyer.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+            %h2.mypage__nav__main-contents__user-icon__name 
+              = "#{@buyer.nickname}"
+              購入者
+            .mypage__nav__main-contents__user-icon__number
+        -if current_user.id == @buyer.id
+          .mypage__nav__main-contents__shipping
+            .mypage__nav__main-contents__shipping__message
+              .fas.fa-truck
+              .mypage__nav__main-contents__shipping__message__text
+                商品を受け取ったら受け取り通知を行ってください
+                %br/
+                .mypage__nav__main-contents__shipping__message__text__msg
+                  出品者から発送後に発送通知が届きます。
+              .mypage__nav__main-contents__shipping__message__hoge
+                = link_to "/",class:"hoge"do
+                  商品が売れた後の流れ
+                  %i.fa.fa-chevron-right
+                  %br/
+                  %br/
+                = link_to "/",class:"hoge" do
+                  出品者のよくある質問
+                  %i.fa.fa-chevron-right
+                  %br/
+            .mypage__nav__main-contents__shipping__notification
+              = link_to "商品を受け取ったので受け取り通知を送る",acceptance_user_path(@item),class:"notification_btn"
+        -elsif current_user.id == @seller.id
+          .mypage__nav__main-contents__shipping
+            .mypage__nav__main-contents__shipping__message
+              .fas.fa-truck
+              .mypage__nav__main-contents__shipping__message__text
+                発送をしてください
+                %br/
+                .mypage__nav__main-contents__shipping__message__text__msg
+                  商品が購入され支払いされました。商品は発送を行ってください。
+              .mypage__nav__main-contents__shipping__message__hoge
+                = link_to "/",class:"hoge"do
+                  商品が売れた後の流れ
+                  %i.fa.fa-chevron-right
+                  %br/
+                  %br/
+                = link_to "/",class:"hoge" do
+                  出品者のよくある質問
+                  %i.fa.fa-chevron-right
+                  %br/
+            .mypage__nav__main-contents__shipping__notification
+              = link_to "商品を発送をしたので、発送通知をする",shipping_user_path(@item),class:"notification_btn"
+        .mypage__nav__main-contents__tab-container
+          %ul.mypage__nav__main-contents__tab-container__tabs
+            %li.mypage__nav__main-contents__tab-container__tabs__tab.active 
+              %p 取引メッセージ
+            %li.mypage__nav__main-contents__tab-container__tabs__tab
+              %p 商品情報
+        .mypage__nav__main-contents__tab-contents
+          %ul.mypage__nav__main-contents__tab-contents__item-lists
+            %li.mypage__nav__main-contents__tab-contents__item-lists__list.show
+              =render 'layouts/message'
+            %li.mypage__nav__main-contents__tab-contents__item-lists__list
+              .transaction_item
+                = link_to root_path do
+                  = image_tag @item.images.first,class:"transaction_image"
+                %tabl.transaction_tabl
+                  .transaction_tabl__name
+                    商品の名前
+                    = "#{@item.name}"
+                  .transaction_tabl__price
+                    金額
+                    = "#{@item.price}"
+                  .transaction_tabl__brand_name
+                    ブランド
+                    = "#{@item.brand_name}"
+                  .transaction_tabl__size
+                    サイズ
+                    = "#{@item.size}"
+                  .transaction_tabl__status
+                    商品の状態
+                    = "#{@item.status}"
+                  .transaction_tabl__price
+                    配送料
+                    = "#{@delivary.price}"
+                  .transaction_tabl__delivary_method
+                    配送方法
+                    = "#{@delivary.delivary_method}"
+                  .transaction_tabl__area
+                    配送地域
+                    = "#{@delivary.area}"
+                  .transaction_tabl__delivary_day
+                    発送までの日数
+                    = "#{@delivary.delivary_day}"
+        .mypage__nav__main-contents__bottom-container
+= render "layouts/banner"
+= render "layouts/footer"

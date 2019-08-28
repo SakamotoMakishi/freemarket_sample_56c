@@ -68,7 +68,7 @@ crumb :likes do
 end
 
 
-crumb :item_message do
-  link "取引画面", item_message_user_path
+crumb :transaction_item do
+  link "取引画面", transaction_item_user_path
   parent :mypage
 end

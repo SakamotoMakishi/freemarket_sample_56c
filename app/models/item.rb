@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true
   has_many_attached :images
   has_many :comments,foreign_key: :item_id, dependent: :destroy
+  has_many :messages,foreign_key: :item_id, dependent: :destroy
   has_one :delivary, foreign_key: :item_id, dependent: :destroy
   belongs_to :category, optional: true
 
@@ -24,6 +25,24 @@ class Item < ApplicationRecord
       item_id:self.id,
       visited_id:self.seller.id,
       action:"buy"
+    )
+    notification.save if notification.valid?
+  end
+
+  def acceptance_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"acceptance"
+    )
+    notification.save if notification.valid?
+  end
+
+  def shipping_notification_by(current_user)
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.buyer.id,
+      action:"shipping"
     )
     notification.save if notification.valid?
   end

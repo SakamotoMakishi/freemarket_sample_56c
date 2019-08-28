@@ -15,6 +15,7 @@ class User < ApplicationRecord
   default_scope->{order(created_at: :desc)}
   has_one_attached :avatar
   has_many :comments
+  has_many :messages
   has_many :items
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :saling_items, -> {where("buyer_id is NULL")}, foreign_key: "seller_id", class_name: "Item"
