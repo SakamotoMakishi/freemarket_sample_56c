@@ -1,44 +1,45 @@
 - if user_signed_in?
-  .message_transacion
-    .comment_contents
-      .contnets-main
-        .comment
-          .comment__message
-            - if @message
-              - @message.each do |c|
-                -if c.user_id == current_user.id
-                  .comment__message__mycome
-                    .comment__message__mycome__user-avatar1
-                      = image_tag c.user.avatar,class:"comment__message__mycome__user-avatar1"
-                    .comment__message__mycome__name
-                      = c.user.nickname
-                      .comment__message__mycome__name__san
-                        &#9700;
-                    .comment__message__mycome__text
-                      = c.text
-                      .time
-                        %i.far.fa-clock
-                        = " #{time_ago_in_words(c.created_at)}前"
-                -else
-                  .comment__message__other
-                    .comment__message__other__user-avatar2
-                      = image_tag c.user.avatar,class:"comment__message__other__user-avatar2"
-                    .comment__message__other__name
-                      = c.user.nickname
-                      .comment__message__other__name__san1
-                        &#9701;
-                      -if c.user_id == @seller.id
-                        .comment__message__other__name__seller
-                          出品者
-                    .comment__message__other__text
-                      = c.text
-                      .time
-                        %i.far.fa-clock
-                        = " #{time_ago_in_words(c.created_at)}前"
-                      .comment__message__mycome__text__triangle1
-          .comment__from-m
-            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          .comment__form
-            = form_with url: item_messages_path(@item), method: :post, local: true, id: "new_message" do |f|
-              = f.text_area :text, class: "textbox"
-              = f.submit 'メッセージを送る', class: "submit"
+  .comment_contents
+    .contnets-main
+      .comment
+        .comment__message
+          - if @message
+            - @message.each do |c|
+              -if c.user_id == current_user.id
+                .comment__message__mycome
+                  .comment__message__mycome__user-avatar1
+                    = image_tag c.user.avatar,class:"comment__message__mycome__user-avatar1"
+                  .comment__message__mycome__name
+                    = c.user.nickname
+                    .comment__message__mycome__name__san
+                      &#9700;
+                  .comment__message__mycome__text
+                    = c.text
+                    .time
+                      %i.far.fa-clock
+                      = " #{time_ago_in_words(c.created_at)}前"
+              -else
+                .comment__message__other
+                  .comment__message__other__user-avatar2
+                    = image_tag c.user.avatar,class:"comment__message__other__user-avatar2"
+                  .comment__message__other__name
+                    = c.user.nickname
+                    .comment__message__other__name__san1
+                      &#9701;
+                    .comment__message__other__name__seller1
+                      -if c.user_id == @item.seller_id
+                        出品者
+                      - elsif c.user_id == @item.buyer_id
+                        購入者
+                  .comment__message__other__text
+                    = c.text
+                    .time
+                      %i.far.fa-clock
+                      = " #{time_ago_in_words(c.created_at)}前"
+                    .comment__message__mycome__text__triangle1
+        .comment__from-m
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .comment__form
+          = form_with url: item_messages_path(@item), method: :post, local: true, id: "new_message" do |f|
+            = f.text_area :text, class: "textbox"
+            = f.submit 'メッセージを送る', class: "submit"
