@@ -19,12 +19,12 @@
               やることがありません
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
-          - @item_purchase.zip(@hash_buyer).each do |item, hash|
+          - @item_buyer.reverse_each do |item|
             = link_to item_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name
-                  = "#{@users[hash].nickname}さんから「#{item.name}」を購入しました。発送までお待ちください。"
+                  = "#{item.seller.nickname}さんから「#{item.name}」を購入しました。発送までお待ちください。"
                 %span.item-stutas
                   発送待ち
                 %i.fas.fa-angle-right
