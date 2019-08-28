@@ -19,6 +19,24 @@ class Item < ApplicationRecord
   def like?(user) 
     likes.where(user_id: user.id).exists?
   end
+  
+  def buy_notification_by(current_user)#出品者に送る
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"buy"
+    )
+    notification.save if notification.valid?
+  end
+
+  def acceptance_notification_by(current_user)#購入者に送る
+    notification=current_user.active_notifications.new(
+      item_id:self.id,
+      visited_id:self.seller.id,
+      action:"acceptance"
+    )
+    notification.save if notification.valid?
+  end
 
   def shipping_notification_by(current_user)#購入者に送る
     notification=current_user.active_notifications.new(
