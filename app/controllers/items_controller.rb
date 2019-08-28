@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
     @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids)).with_attached_images.order("id DESC").limit(4)
     @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids)).with_attached_images.order("id DESC").limit(4)
     @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids)).with_attached_images.order("id DESC").limit(4)
-    @chanel_items = Item.with_attached_images.order("id DESC").limit(4)
-    @vuitton_items = Item.with_attached_images.order("id DESC").limit(4)
+    @chanel_items = Item.with_attached_images.order("RAND()").limit(4)
+    @vuitton_items = Item.with_attached_images.order("RAND()").sample(4)
     @nike_items = Item.with_attached_images.order("id DESC").limit(4)
   end
 
@@ -53,6 +53,10 @@ class ItemsController < ApplicationController
     @rating_good = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:1).count
     @rating_nomal = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:2).count
     @rating_bad = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:3).count
+    notifications = current_user.passive_notifications.includes(:visiter,:item).find_by(checked: false)
+    unless notifications.nil?
+      notifications.update_attributes(checked: true)
+    end
     if user_signed_in?
       if @item.seller_id === current_user.id
         redirect_to action: 'show_user_item'
@@ -65,10 +69,6 @@ class ItemsController < ApplicationController
     @rating_good = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:1).count
     @rating_nomal = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:2).count
     @rating_bad = Item.where(seller_id:Item.find(params[:id]).seller_id).where(rating:3).count
-    notifications = current_user.passive_notifications.includes(:visiter,:item).find_by(checked: false)
-    unless notifications.nil?
-      notifications.update_attributes(checked: true)
-    end
   end
 
   def edit

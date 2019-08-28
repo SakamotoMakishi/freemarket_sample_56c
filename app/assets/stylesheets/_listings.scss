@@ -15,7 +15,7 @@
       background: #eee;
       height: 74px;
       &__tab{
-        display: inline-block;
+        display: block;
         float: left;
         text-align: center;
         p{
@@ -67,10 +67,13 @@
   }
   .item-image{
     float: left;
+    width: 40px;
+    height: 40px;
   }
   .item-name{
     display: block;
     color: black;
+    font-size: 12px;
   }
   .item-stutas{
     display: inline-block;

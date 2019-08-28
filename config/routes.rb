@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :brands, only: :show
   resources :address_inputs
-  resources :notifications, only: :index
+  resources :notifications, only: :index do
+    collection do
+      get 'things'
+      get "notifications_none"
+    end
+  end
   resources :items do
     resources :comments, only: [:create]
     collection  do
@@ -31,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    resources :messages, only: [:create]
     member do
       get 'card_add_to'
       get 'listing'
@@ -38,6 +44,11 @@ Rails.application.routes.draw do
       get 'completed'
       get 'purchase'
       get 'purchased'
+      get 'things'
+      get 'buyer'
+      get 'transaction_item'
+      get 'shipping'
+      get 'acceptance'
     end
     collection  do
       get 'signup_page'

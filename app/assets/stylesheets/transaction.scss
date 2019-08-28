@@ -1,0 +1,174 @@
+.mypage__nav__main-contents__buyer{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 50%;
+  float: left;
+  height:90px;
+  text-align: center;
+  background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?2094209);
+  .user_name{
+    color: #666464;
+    }
+}
+.mypage__nav__main-contents__seller{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 50%;
+  float: left;
+  text-align: center;
+  background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?2094209);
+  .user_name{
+  color: #656664;
+  }
+}
+.mypage__nav__main-contents__shipping{
+  width: 100%;
+  height: 500px;
+  background:#eeeeee;
+  &__message{
+    width: 100%;
+    height: 300px;
+    background:#fff6de;
+    .fas{
+      font-size:25px;
+      float: left;
+      margin-top:20px;
+      margin-left:40px;
+      color:#E3463D;
+    }
+    &__text{
+      float: left;
+      font-size:20px;
+      margin-top:20px;
+      margin-left: 10px;
+      font-weight:bold;
+      &__msg{
+        margin-top:10px; 
+        font-size:15px;
+        font-weight:100;
+      }
+    }
+    &__hoge{
+      font-size:13px;
+      float: right;
+      margin-top: 120px;
+      .hoge{
+        color:#E3463D;
+      }
+    }
+  }
+  &__notification{
+    text-align: center;
+    .notification_btn{
+      position: relative;
+      bottom: -105px;
+      left: 75px;
+      border-radius:5px; 
+      margin-top: 300px;
+      color:white;
+      background:#E3463D;
+      font-weight: bold;
+      padding: 30px 50px 30px 50px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .notification_btn:hover{
+      opacity: 0.9;
+      transition: 0.2s;
+    }
+  }
+}
+.mypage__nav__main-contents__shipping{
+  width: 100%;
+  height: 500px;
+  background:#eeeeee;
+  &__message{
+    width: 100%;
+    height: 300px;
+    background:#fff6de;
+    .fas{
+      font-size:25px;
+      float: left;
+      margin-top:20px;
+      margin-left:40px;
+      color:#E3463D;
+    }
+    &__text{
+      float: left;
+      font-size:20px;
+      margin-top:20px;
+      margin-left: 10px;
+      font-weight:bold;
+      &__msg{
+        margin-top:10px; 
+        font-size:15px;
+        font-weight:100;
+      }
+    }
+    &__hoge{
+      font-size:13px;
+      float: right;
+      margin-top: 120px;
+      .hoge{
+        color:#E3463D;
+      }
+    }
+  }
+  &__notification{
+    text-align: center;
+    .notification_btn{
+      position: relative;
+      bottom: -105px;
+      left: 75px;
+      border-radius:5px; 
+      margin-top: 300px;
+      color:white;
+      background:#E3463D;
+      font-weight: bold;
+      padding: 30px 50px 30px 50px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .notification_btn:hover{
+      opacity: 0.9;
+      transition: 0.2s;
+    }
+  }
+}
+
+
+
+
+.transaction_item{
+  .transaction_image{
+    width: 100px;
+    height: 100px;
+    display: inline;
+    float: left;
+  }
+  .transaction_tabl{
+    width: 39%;
+    color:black;
+    text-align: left;
+    font-weight: 400;
+    background: #fafafa;
+    padding: 8px;;
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    display: table-cell;
+    vertical-align: center;
+    tr{
+      width: 61%;
+      background: #fff;
+      padding: 8px;
+      border-collapse: collapse;
+      border: 1px solid #f5f5f5;
+    }
+    th{width: 61%;
+    background: #fff;
+    padding: 8px;
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    }
+  }
+}

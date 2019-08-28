@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_031820) do
+ActiveRecord::Schema.define(version: 2019_08_27_162243) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_031820) do
     t.string "size"
     t.integer "likes_count"
     t.integer "rating"
+    t.boolean "receipt", default: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
   end
@@ -114,6 +115,16 @@ ActiveRecord::Schema.define(version: 2019_08_25_031820) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "watch"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_messages_on_item_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -147,4 +158,6 @@ ActiveRecord::Schema.define(version: 2019_08_25_031820) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "items"
+  add_foreign_key "messages", "users"
 end

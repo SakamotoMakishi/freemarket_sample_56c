@@ -43,7 +43,7 @@
                     .nav-count1
                       = unchecked_notifications.count
               %li.header__inner__main__right__nav__user__todo
-                =link_to "/" do
+                =link_to things_user_path(current_user) do
                   %i.fa.fa-check
                   %span やることリスト
               = render 'layouts/drop-mypage'

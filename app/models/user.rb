@@ -11,13 +11,15 @@ class User < ApplicationRecord
     validates :password
     validates :password_confirmation
   end
-
+  
+  default_scope->{order(created_at: :desc)}
   has_one_attached :avatar
   has_many :comments
+  has_many :messages
   has_many :items
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-  has_many :saling_items, -> {where("buyer_id is NULL")}, foreign_key: "saler_id", class_name: "Item"
-  has_many :sold_items, -> {where("buyer_id is not NULL")}, foreign_key: "saler_id", class_name: "Item"
+  has_many :saling_items, -> {where("buyer_id is NULL")}, foreign_key: "seller_id", class_name: "Item"
+  has_many :sold_items, -> {where("buyer_id is not NULL")}, foreign_key: "seller_id", class_name: "Item"
   has_one :address_input
   has_one :card
   has_many :likes, dependent: :destroy
