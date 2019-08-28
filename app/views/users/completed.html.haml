@@ -28,7 +28,7 @@
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name
                   = "「#{item.name}」"
-                %span.item-stutas
+                %span.item-stutas{style:"color:white;background:#ea352d;"}
                   売却済み
                 %i.fas.fa-angle-right
 = render "layouts/banner"

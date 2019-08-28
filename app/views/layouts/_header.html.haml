@@ -46,6 +46,9 @@
                 =link_to things_user_path(current_user) do
                   %i.fa.fa-check
                   %span やることリスト
+                  - if trading_count(current_user) > 0
+                    .nav-count1
+                      = trading_count(current_user)
               = render 'layouts/drop-mypage'
         - else
           .header__inner__main__btn

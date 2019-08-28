@@ -69,40 +69,12 @@
               %p 商品情報
         .mypage__nav__main-contents__tab-contents
           %ul.mypage__nav__main-contents__tab-contents__item-lists
-            %li.mypage__nav__main-contents__tab-contents__item-lists__list.show
-              =render 'layouts/message'
-            %li.mypage__nav__main-contents__tab-contents__item-lists__list
+            %li.mypage__nav__main-contents__tab-contents__item-lists__list.show{style:"padding-top:30px;padding-bottom:0px;"}
+              .message_transaction
+                =render 'layouts/message'
+            %li.mypage__nav__main-contents__tab-contents__item-lists__list{style:"padding-top:0;padding-bottom:0px;"}
               .transaction_item
-                = link_to root_path do
-                  = image_tag @item.images.first,class:"transaction_image"
-                %tabl.transaction_tabl
-                  .transaction_tabl__name
-                    商品の名前
-                    = "#{@item.name}"
-                  .transaction_tabl__price
-                    金額
-                    = "#{@item.price}"
-                  .transaction_tabl__brand_name
-                    ブランド
-                    = "#{@item.brand_name}"
-                  .transaction_tabl__size
-                    サイズ
-                    = "#{@item.size}"
-                  .transaction_tabl__status
-                    商品の状態
-                    = "#{@item.status}"
-                  .transaction_tabl__price
-                    配送料
-                    = "#{@delivary.price}"
-                  .transaction_tabl__delivary_method
-                    配送方法
-                    = "#{@delivary.delivary_method}"
-                  .transaction_tabl__area
-                    配送地域
-                    = "#{@delivary.area}"
-                  .transaction_tabl__delivary_day
-                    発送までの日数
-                    = "#{@delivary.delivary_day}"
+                =render 'layouts/transaction'
         .mypage__nav__main-contents__bottom-container
 = render "layouts/banner"
 = render "layouts/footer"

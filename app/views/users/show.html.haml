@@ -21,13 +21,26 @@
       .mypage__nav__main-contents__tab-container
         %ul.mypage__nav__main-contents__tab-container__tabs
           %li.mypage__nav__main-contents__tab-container__tabs__tab.active 
-            %p お知らせ
+            %p 新着お知らせ
           %li.mypage__nav__main-contents__tab-container__tabs__tab
-            %p やることリスト
+            %p 過去のお知らせ
       .mypage__nav__main-contents__tab-contents
         %ul.mypage__nav__main-contents__tab-contents__item-lists
-          %li.mypage__nav__main-contents__tab-contents__item-lists__list.show 現在、やることリストはありません
-          %li.mypage__nav__main-contents__tab-contents__item-lists__list 現在、お知らせはありません
+          %li.mypage__nav__main-contents__tab-contents__item-lists__list.show
+            .notification
+              -if @notifications.exists?
+                = render @notifications
+                = link_to '確認済みにする',notifications_none_notifications_path,class:"notifications_none"
+              -else
+                .notification__message
+                  通知はまだありません
+          %li.mypage__nav__main-contents__tab-contents__item-lists__list{style:"padding-bottom:120px;"}
+            .notification
+              -if @notifications_true.exists?
+                = render @notifications_true
+              -else
+                .notification__message
+                  通知はまだありません
       .mypage__nav__main-contents__bottom-container
         %h3.mypage__nav__main-contents__bottom-container__tab-head 購入した商品
         %ul.mypage__nav__main-contents__bottom-container__tabs

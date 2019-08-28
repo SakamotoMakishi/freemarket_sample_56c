@@ -22,12 +22,12 @@ module NotificationsHelper
         if visiter.id == item.seller_id
           "あなたが#{item.name}を購入しました!やりとりリストを確認してください。"
         elsif visiter.id == item.buyer_id
-          "#{visiter.nickname}が『#{item.name}』を購入しました！購入者に発送しましょう。"
+          "#{visiter.nickname}が『#{item.name}』を購入しました！購入者に発送しやることリストから発送通知を送りましょう。"
         else
           "エラーです。"
       end
       when "shipping" then
-        "#{visiter.nickname}さんが『#{item.name}』を発送をしました！到着までしばらくお待ちください。"
+        "#{visiter.nickname}さんが『#{item.name}』を発送をしました！商品が到着したらやることリストから受け取り通知を送りましょう。"
       when "acceptance" then
         "『#{item.name}』の受け取り通知が#{visiter.nickname}さんから届きました！取り引き完了です。お疲れ様でした！"
       when "message" then
