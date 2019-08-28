@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def things
-    
+    @solod_items = current_user.sold_items.where(receipt: true)
   end
 
   def listing
