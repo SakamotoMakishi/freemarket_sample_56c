@@ -64,13 +64,9 @@ class UsersController < ApplicationController
 
   def set_item
     @item = Item.with_attached_images.find_by(params[:id])
-    @item_seller = Item.with_attached_images.where(seller_id: current_user.id).where(buyer_id: nil).order("id DESC").limit(10)
+    @item_seller = current_user.seling_items
     @item_buyer = current_user.buyed_items
-    @item_trading =  Item.with_attached_images.where(seller_id: current_user.id).where.not(buyer_id: nil)
-    @item_purchase =  Item.with_attached_images.where(buyer_id: current_user.id)
-    @users = User.all
-    @hash_seller = @item_trading.map{|hash| hash[:buyer_id] - 1}
-    @hash_buyer = @item_purchase.map{|hash| hash[:seller_id] - 1}
+    @item_trading =  current_user.sold_items
   end 
 
   def set_card
