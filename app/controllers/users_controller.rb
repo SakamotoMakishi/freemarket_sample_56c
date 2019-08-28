@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :card_add_to]
   before_action :set_header
-  before_action :set_item, only: [:show, :listing, :trading, :completed, :purchase, :purchased, :things, :shipping, :transaction_item]
+  before_action :set_item, only: [:show, :listing, :trading, :completed, :purchase, :purchased, :things, :shipping, :transaction_item,:acceptance]
   before_action :set_card, only: [:card_add_to]
 
   def show
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def completed
+    @solod_items = current_user.sold_items.where(receipt: true)
   end
 
   def purchase
@@ -32,7 +33,14 @@ class UsersController < ApplicationController
   def purchased
   end
 
-  def shipping
+  def acceptance #受け取り通知
+    @item.update_attributes(receipt: true)
+    @item.acceptance_notification_by(current_user)
+    flash[:notice] = '受け取り通知を送りました。取り引き完了です。お疲れ様でした！'
+    redirect_to root_path
+  end
+
+  def shipping #発送通知
     @item.shipping_notification_by(current_user)
     flash[:notice] = '発送通知を送りました。'
     redirect_to root_path
@@ -46,7 +54,10 @@ class UsersController < ApplicationController
     @delivary = Item.find(params[:id]).delivary
     @seller   = Item.find(params[:id]).seller
     @buyer    = Item.find(params[:id]).buyer
-    @notifications = current_user.passive_notifications.includes(:visiter,:item)
+    @notifications_buy = current_user.passive_notifications.includes(:visiter,:item).where(action: "buy")
+    @notifications = current_user.active_notifications.includes(:visiter,:item).where(action: "buy")
+    @notifications1 = current_user.active_notifications + current_user.passive_notifications
+    @notifications2 = @notifications + @notifications_buy
   end
 
   private

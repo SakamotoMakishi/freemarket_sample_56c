@@ -95,3 +95,49 @@ $(function(){
 $(function(){
   setTimeout("$('.alert').fadeOut('slow')", 1500) 
 })
+$(function(){
+  function buildHTML(message){
+    var message_text = message.text ? `${message.text}` : "";
+    var html = `
+    <div class="comment__message__mycome">
+    <div class="comment__message__mycome__user-avatar1">
+    <img class="comment__message__mycome__user-avatar1" src="${message.user_avatar}">
+    </div>
+    <div class="comment__message__mycome__name">
+    ${message.user_name}
+    <div class="comment__message__mycome__name__san">
+    ◤
+    </div>
+    </div>
+    <div class="comment__message__mycome__text">
+    ${message_text}
+    </div>
+    </div>`
+    return html;
+  }
+  $('#new_message').on('submit',function(e){
+    e.preventDefault();
+    var message = new FormData(this);
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: message,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.comment__message').append(html)
+      $('#new_message')[0].reset(); 
+      return false
+    })
+    .fail(function(){
+      alert('メッセージを入力してください');
+    })
+    .always(function(){
+      $('.submit').prop('disabled', false);
+    })
+  });
+});

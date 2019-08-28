@@ -16,8 +16,20 @@
               %p 取引中
           %li.mypage__nav__main-contents__listings__tabs__tab.active
             %p 売却済み
-        %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
-          %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
-            売却済みの商品がありません
+        -if @solod_items.empty?
+          %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
+            %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
+              売却済みの商品がありません
+        -else
+          %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
+          - @solod_items.each do |item|
+            = link_to item_path(item) do
+              %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
+                = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
+                .item-name
+                  = "「#{item.name}」"
+                %span.item-stutas
+                  売却済み
+                %i.fas.fa-angle-right
 = render "layouts/banner"
 = render "layouts/footer"

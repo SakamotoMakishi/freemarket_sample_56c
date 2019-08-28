@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    resources :messages, only: [:create]
     member do
       get 'card_add_to'
       get 'listing'
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
       get 'things'
       get 'transaction_item'
       get 'shipping'
+      get 'acceptance'
     end
     collection  do
       get 'signup_page'
