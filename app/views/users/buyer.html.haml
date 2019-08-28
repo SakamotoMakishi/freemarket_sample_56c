@@ -1,6 +1,6 @@
 =render 'layouts/header'
--# - breadcrumb :things
--# = render "layouts/breadcrumbs"
+- breadcrumb :buyer
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__nav
     = render 'layouts/mypage-sidebar'
@@ -13,14 +13,14 @@
             = link_to things_user_path do
               %p やることリスト（出品）
         .mypage__nav__main-contents__bottom-tabcontents
-        -if @item_trading.empty?
+        -if @item_buyer.empty?
           %ul.mypage__nav__main-contents__bottom-tabcontents__item-lists
             %li.mypage__nav__main-contents__bottom-tabcontents__item-lists__list.show
               やることがありません
         -else
           %ul.mypage__nav__main-contents__bottom-tabcontents__listing-lists
           - @item_buyer.reverse_each do |item|
-            = link_to item_path(item) do
+            = link_to transaction_item_user_path(item) do
               %li.mypage__nav__main-contents__bottom-tabcontents__listing-lists__list.new
                 = image_tag url_for(item.images.first), heigth: '50', width: '50', class: "item-image"
                 .item-name

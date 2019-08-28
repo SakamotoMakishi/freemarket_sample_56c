@@ -58,7 +58,12 @@ crumb :notifications do
 end
 
 crumb :things do
-  link "やることリスト", things_user_path
+  link "やることリスト(出品)", things_user_path
+  parent :mypage
+end
+
+crumb :buyer do
+  link "やることリスト(購入)", buyer_user_path
   parent :mypage
 end
 

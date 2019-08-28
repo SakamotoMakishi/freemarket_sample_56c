@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def things
-    
+    @solod_items = current_user.sold_items.where(receipt: true)
   end
 
   def listing
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     @delivary = Item.find(params[:id]).delivary
     @seller   = Item.find(params[:id]).seller
     @buyer    = Item.find(params[:id]).buyer
+    @message  = Item.find(params[:id]).messages
   end
 
   private

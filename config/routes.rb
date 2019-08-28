@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    resources :messages, only: [:create]
     resources :comments, only: [:create]
     collection  do
       get 'buy'
