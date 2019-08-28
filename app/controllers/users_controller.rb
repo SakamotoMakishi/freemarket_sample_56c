@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :card_add_to]
   before_action :set_header
-  before_action :set_item, only: [:show, :listing, :trading, :completed, :purchase, :purchased, :things, :shipping, :transaction_item,:acceptance, :buyer]
+  before_action :set_item, only: [:show, :listing, :trading, :completed, :purchase, :purchased, :things,:buyer]
   before_action :set_card, only: [:card_add_to]
 
   def show
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def things
+    
   end
 
   def listing
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def acceptance #受け取り通知
+    @item = Item.with_attached_images.find(params[:id])
     @item.update_attributes(receipt: true)
     @item.acceptance_notification_by(current_user)
     flash[:notice] = '受け取り通知を送りました。取り引き完了です。お疲れ様でした！'
@@ -45,29 +47,23 @@ class UsersController < ApplicationController
   end
 
   def shipping #発送通知
+    @item = Item.with_attached_images.find(params[:id])
     @item.shipping_notification_by(current_user)
     flash[:notice] = '発送通知を送りました。'
     redirect_to root_path
   end
 
-  def transaction_item
-    @category1 = Category.find(Category.find(@item.category.parrent_id).parrent_id)
-    @category2 = Category.find(@item.category.parrent_id)
-    @category3 = @item.category
-    # @comments = Item.find(params[:id]).comments
+  def transaction_item #取り引き画面
+    @item = Item.with_attached_images.find(params[:id])
     @delivary = Item.find(params[:id]).delivary
     @seller   = Item.find(params[:id]).seller
     @buyer    = Item.find(params[:id]).buyer
-    @notifications_buy = current_user.passive_notifications.includes(:visiter,:item).where(action: "buy")
-    @notifications = current_user.active_notifications.includes(:visiter,:item).where(action: "buy")
-    @notifications1 = current_user.active_notifications + current_user.passive_notifications
-    @notifications2 = @notifications + @notifications_buy
   end
 
   private
 
   def set_item
-    @item = Item.with_attached_images.find(params[:id])
+    @item = Item.with_attached_images.find_by(params[:id])
     @item_seller = Item.with_attached_images.where(seller_id: current_user.id).where(buyer_id: nil).order("id DESC").limit(10)
     @item_buyer = current_user.buyed_items
     @item_trading =  Item.with_attached_images.where(seller_id: current_user.id).where.not(buyer_id: nil)
