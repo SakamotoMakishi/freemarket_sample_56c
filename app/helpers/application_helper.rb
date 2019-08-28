@@ -3,8 +3,8 @@ module ApplicationHelper
     Item.where(seller_id: user.id).count
   end
 
-  def like_count
-    Like.where(watch: 0).count
+  def like_count(currnt_user)
+    current_user.likes.where(watch: 0).count
   end
 
   def rating_count(user)
