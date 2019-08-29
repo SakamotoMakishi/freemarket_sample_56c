@@ -1,5 +1,5 @@
 = link_to item_path(notification.item.id),class:"item_link" do
-  = image_tag notification.visiter.avatar
+  = image_tag avatar(notification.visiter)
   = image_tag notification.item.images.first
   .time
     %i.far.fa-clock

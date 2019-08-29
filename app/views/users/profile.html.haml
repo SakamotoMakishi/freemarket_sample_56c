@@ -9,7 +9,7 @@
       .mypage__nav__main-contents__form
         = form_with url: root_path do |form|
           .mypage__nav__main-contents__form__user-icon
-            = image_tag  url_for(current_user.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__form__user-icon__image'
+            = image_tag  avatar(current_user), height: '60', width: '60', class: 'mypage__nav__main-contents__form__user-icon__image'
             = form.text_field :nickname, name: "nickname", placeholder: "例)AYA☆セール中", value: "#{current_user.nickname}", class: "mypage__nav__main-contents__form__user-icon___input"  
           .mypage__nav__main-contents__form__profile-content
             = form.text_area :text ,name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "mypage__nav__main-contents__form__profile-content__text"

@@ -8,7 +8,8 @@
               -if c.user_id == current_user.id
                 .comment__message__mycome
                   .comment__message__mycome__user-avatar1
-                    = image_tag c.user.avatar,class:"comment__message__mycome__user-avatar1"
+                    -if c.user.avatar.attached?
+                      = image_tag avatar(c.user),class:"comment__message__mycome__user-avatar1"
                   .comment__message__mycome__name
                     = c.user.nickname
                     .comment__message__mycome__name__san
@@ -21,7 +22,7 @@
               -else
                 .comment__message__other
                   .comment__message__other__user-avatar2
-                    = image_tag c.user.avatar,class:"comment__message__other__user-avatar2"
+                    = image_tag avatar(c.user),class:"comment__message__other__user-avatar2"
                   .comment__message__other__name
                     = c.user.nickname
                     .comment__message__other__name__san1

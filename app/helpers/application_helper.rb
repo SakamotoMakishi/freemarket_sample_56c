@@ -17,9 +17,9 @@ module ApplicationHelper
     a+b
   end
 
-  def avatar(current_user)
-    if current_user.avatar.attached?
-      url_for(current_user.avatar)
+  def avatar(user)
+    if user.avatar.attached?
+      url_for(user.avatar)
     else
       '//static.mercdn.net/images/member_photo_noimage_thumb.png'
     end

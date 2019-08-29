@@ -1,4 +1,4 @@
 json.text  @comment.text
 json.user_id  @comment.user.id
 json.user_name  @comment.user.nickname
-json.user_avatar  url_for(@comment.user.avatar)
+json.user_avatar  avatar(current_user)

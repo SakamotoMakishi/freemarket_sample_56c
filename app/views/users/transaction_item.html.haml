@@ -8,13 +8,13 @@
       .mypage__nav__main-contents
         .mypage__nav__main-contents__buyer
           = link_to "/" ,class:"user_name"do
-            = image_tag  url_for(@seller.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+            = image_tag  avatar(@seller), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
             %h2.mypage__nav__main-contents__user-icon__name 
               = "#{@seller.nickname}"
               出品者
         .mypage__nav__main-contents__seller
           = link_to "/",class:"user_name" do
-            = image_tag  url_for(@buyer.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+            = image_tag  avatar(@buyer), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
             %h2.mypage__nav__main-contents__user-icon__name 
               = "#{@buyer.nickname}"
               購入者

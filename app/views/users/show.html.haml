@@ -7,7 +7,7 @@
     .mypage__nav__main-contents
       .mypage__nav__main-contents__user-icon
         = link_to "/" do
-          = image_tag  url_for(current_user.avatar), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
+          = image_tag avatar(current_user), height: '60', width: '60', class: 'mypage__nav__main-contents__user-icon__image'
           %h2.mypage__nav__main-contents__user-icon__name 
             = current_user.nickname
           .mypage__nav__main-contents__user-icon__number
