@@ -17,6 +17,15 @@ module ApplicationHelper
     a+b
   end
 
+  def price_total(user)
+    @price_total = current_user.sold_items.where(receipt: true)
+    @total_price  = 0
+    @price_total.each do |item|
+      @total_price += item.price
+    end
+    return "#{@total_price}円"
+  end
+
   def avatar(user)
     if user.avatar.attached?
       url_for(user.avatar)
