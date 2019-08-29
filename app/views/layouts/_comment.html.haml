@@ -8,8 +8,7 @@
               -if c.user_id == current_user.id
                 .comment__message__mycome
                   .comment__message__mycome__user-avatar1
-                    -if c.user.avatar.attached?
-                      = image_tag avatar(c.user),class:"comment__message__mycome__user-avatar1"
+                    = image_tag avatar(c.user),class:"comment__message__mycome__user-avatar1"
                   .comment__message__mycome__name
                     = c.user.nickname
                     .comment__message__mycome__name__san
