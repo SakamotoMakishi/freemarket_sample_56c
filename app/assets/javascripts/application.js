@@ -16,15 +16,3 @@
 
 //= require_tree .
 
-
-$(function() {
-  $(".pickup__brand__items__item1").click(function() {
-    $('html, body').scrollTop("3000");
-  });
-  $(".pickup__brand__items__item2").click(function() {
-    $('html, body').scrollTop("3500");
-  });
-  $(".pickup__brand__items__item3").click(function() {
-    $('html, body').scrollTop("4000");
-  });
-});
