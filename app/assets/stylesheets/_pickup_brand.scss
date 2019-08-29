@@ -1,30 +1,55 @@
 .pickup{
-&__brand{
-  background-color: #fff;
-  height: 85px;
-  padding: 56px 0px 30px;
-  &__main{
-    margin-bottom: 16px;
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  &__items{
-    text-align: center;
-    line-height: 25px;
-    border-radius: 8px;
-  }
-  &__item{
-    display: inline-block;
-    font-size: 14px;
-    margin: 10px;
-    background-color: #EFEFEF;
-    border-radius: 15px;
-    font-weight: bold;
-    padding: 0 16px;
-    &:hover{
-      cursor: pointer;
+  &__brand{
+    background-color: #fff;
+    height: 85px;
+    padding: 56px 0px 30px;
+    &__main{
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    &__items{
+      text-align: center;
+      line-height: 25px;
+      border-radius: 8px;
+    
+      &__item1{
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px;
+        background-color: #EFEFEF;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 0 16px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      &__item2{
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px;
+        background-color: #EFEFEF;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 0 16px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      &__item3{
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px;
+        background-color: #EFEFEF;
+        border-radius: 15px;
+        font-weight: bold;
+        padding: 0 16px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
     }
   }
-}
 }

@@ -68,7 +68,7 @@
     = render 'pickup_brand'
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/" do
+        = link_to "/" , class: "brand1" do
           シャネル 新着アイテム
       =render 'picup_content',{ items: @chanel_items }
       .pickup__view-all
@@ -77,7 +77,7 @@
 
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/" do
+        = link_to "/" , class: "brand2" do
           ルイ ヴィトン 新着アイテム
       =render 'picup_content',{ items: @vuitton_items }
       .pickup__view-all
@@ -86,7 +86,7 @@
 
     .pickup__content.clearfix
       %h3.pickup__text
-        = link_to "/" do
+        = link_to "/" , class: "brand3" do
           ナイキ 新着アイテム
       =render 'picup_content',{ items: @nike_items }
       .pickup__view-all
