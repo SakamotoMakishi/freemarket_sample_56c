@@ -1,0 +1,11 @@
+.popular-categories
+  %h2.popular-categories__head 人気のカテゴリー
+  .popular-categories__contents
+    %ul.popular-categories__contents__lists
+      %li.popular-categories__contents__lists__list
+        = link_to "レディース", category_path(1), class: "popular-categories__contents__lists__list__text"
+      %li.popular-categories__contents__lists__list
+        = link_to "メンズ", category_path(2), class: "popular-categories__contents__lists__list__text"
+      %li.popular-categories__contents__lists__list
+        = link_to "ベビー、キッズ", category_path(3), class: "popular-categories__contents__lists__list__text"
+        
