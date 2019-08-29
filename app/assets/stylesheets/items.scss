@@ -3,8 +3,12 @@
   .pickup {
   padding: 40px 0;
   a{
-    color: #0099E8;
+    color:black;
     text-decoration: none;
+    position: relative;
+    left: -410px;
+    bottom: -30px;
+
   }
   h2{
     font-size: 28px;
@@ -12,14 +16,12 @@
     font-weight: bold;
   }
   &__content{
-  width: 940px;
   margin: 0 auto;
   }
   &__text {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    margin: 26px 11px;
   }
   &__box {
     height: 330px;
@@ -109,7 +111,9 @@
     display: inline-block;
     a {
       font-size: 14px;
-
+      position: relative;
+      bottom: -10px;
+      left: -187px;
     }
     }
   }

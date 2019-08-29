@@ -1,12 +1,15 @@
 .top_page
   .top_page__box
-    = link_to "/" do
-      -@women_items.each do |item|
+    - items.each do |item|
+      = link_to item_path(item) do
         .top_page__box__contents
           .top_page__box__contents__image
             = image_tag item.images.first,class:"img",style:"width:200px;height:188px;"
-            .top_page__box__contents__image__price
-              = "$#{item.price}"
+            - if item.buyer_id.presence
+              .sold1
+                %p SOLD
+          .top_page__box__contents__price
+            = "$#{item.price}"
           .top_page__box__contents__name
             = "#{item.name}"
       
