@@ -13,7 +13,8 @@
           .mypage__nav__main-contents__user-icon__number
             %div
               評価
-              %span.mypage__nav__main-contents__user-icon__number__bold 20
+              %span.mypage__nav__main-contents__user-icon__number__bold 
+                = rating_count(current_user)
             %div
               出品数
               %span.mypage__nav__main-contents__user-icon__number__bold
