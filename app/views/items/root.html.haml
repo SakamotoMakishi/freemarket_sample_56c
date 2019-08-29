@@ -1,5 +1,4 @@
 =render 'layouts/header'
-
 %section.slideshow 
   .slideshow__outer
     .slideshow__outer__stage{left:"-4320px", width:"8640px"}
@@ -25,7 +24,6 @@
       .slideshow__outer__stage__item{width:"1440px"}
         =link_to "/", class:"slideshow-pull" do
           .slideshow-inner
-
   .slideshow-nav
     .slideshow-nav__prev prev
     .slideshow-nav__next next
@@ -34,10 +32,11 @@
       %span
     .slideshow-dot
       %span
+=render 'layouts/popular-categories'
 
 .main-contents
   .pickup
-    %h2.pickup__head ピックアップカテゴリー
+    -# %h2.pickup__head ピックアップカテゴリー
 
     .pickup__content.clearfix
       %h3.pickup__text
