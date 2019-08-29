@@ -1,5 +1,4 @@
 .top_page{
-  text-align: center;
   margin:auto;
   width: 1200px;
   height: 573px;
@@ -11,7 +10,7 @@
     padding: 0 50px 0 50px;
     &__contents{
       width: 200px;
-      height: 250px;
+      height: 260px;
       float: left;
       background: white;
       margin: 0 10px 20px;
@@ -26,27 +25,34 @@
       &__price{
         float: left;
         background:rgba(92, 91, 91, 0.719);
-        padding: 7px;
+        padding: 7px 10px 7px 10px;
         position: relative;
         bottom:50px;
         color:white;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         font-size: 14px;
-        letter-spacing: .02em;
+        letter-spacing: .04em;
         font-weight: 100;
       }
       &__name{
         padding-left: 10px;
-        padding-bottom:10px; 
+        padding-bottom: 10px;
         position: relative;
-        left: -50px;
-        float: left;
+        bottom:20px;
         display: inline-block;
         height: 2.8em;
         overflow: hidden;
-        color:black;
+        word-break: break-word;
+        color: black;
         font-size: 14px;
+        width: 190px;
+        .fas{
+          font-weight: lighter;
+          float: right;
+          padding-right: 10px;
+          padding-top: 30px;
+        }
       }
     }
     &__contents:hover{
