@@ -38,6 +38,7 @@
       &__name{
         padding-left: 10px;
         padding-bottom: 10px;
+        padding-right: 10px;
         position: relative;
         bottom:20px;
         display: inline-block;
@@ -47,12 +48,24 @@
         color: black;
         font-size: 14px;
         width: 190px;
-        .fas{
-          font-weight: lighter;
-          float: right;
-          padding-right: 10px;
-          padding-top: 30px;
-        }
+        width: 181px;
+      }
+      &__name:after {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 72%);
+        bottom: 0;
+        content: "";
+        height: 63%;
+        position: absolute;
+        right: 0;
+        width: 50%;
+        left: 92px;
+      }
+      .fas{
+        font-weight: lighter;
+        float: right;
+        position: relative;
+        bottom: 40px;
+        left: -10px;
       }
     }
     &__contents:hover{
