@@ -1,0 +1,32 @@
+.modal-image#modal-overlay
+  .modal-image__inner
+    .modal-image__inner__header
+      %h3.modal-image__inner__header__left 写真を切り取る
+      .modal-image__inner__header__right
+        =link_to "" , class: "modal-image__inner__header__right__change" do
+          %i.fas.fa-camera
+          %span 写真を変更する
+          -# %input{type:file, style:{display: none}}
+    .modal-image__inner__editor
+      %canvas{width:"380", height:"380",id:"modal_stage"}
+        -# =image_tag '',class:"modal-image__inner__editor__image"
+      .modal-image__inner__editor__range
+        %i.fas.fa-camera
+        %input{type:"range", step:"0.01", min:"1", max:"2", class:"input-range-default", name:"scale", value:"1"}
+        %i.fas.fa-camera
+    .modal-image__inner__errors
+      -# <!-- react-empty: 475 -->
+      -# <!-- react-empty: 476 -->
+      -# <!-- react-empty: 477 -->
+      -# <!-- react-empty: 478 -->
+      -# <!-- react-empty: 479 -->
+      -# <!-- react-empty: 480 -->
+      -# <!-- react-empty: 481 -->
+      -# <!-- react-empty: 482 -->
+      -# <!-- react-empty: 483 -->
+      -# <!-- react-empty: 484 -->
+    .modal-image__inner__crop-btn
+      =link_to "",class:"btn-default btn-gray l-left" do
+        キャンセル
+      =link_to "",class:"btn-default btn-red l-right" do
+        完了

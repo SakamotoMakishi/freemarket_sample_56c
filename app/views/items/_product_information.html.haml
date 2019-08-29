@@ -20,7 +20,7 @@
                     .sell__form__box__image__ul__li__content
                       = image_tag image,class: "sell-form-image"
                       .sell__form__box__image__ul__li__content__upload
-                        =link_to "編集","/", class: "sell-form-update"
+                        =link_to "編集","/", class: "sell-form-update modal-open"
                         =link_to "削除","/", class: "sell-form-update sell-form-delete"
               %label#file_photo_field(for="file_photo")
                 = form.file_field :images, multiple: true, type: "file", class: "sell__form__box__drop-box", id:"file_photo", style: "display:none;", value: "ドラッグアンドドロップ またはクリックしてファイルをアップロード"
@@ -204,3 +204,4 @@
     = link_to "ログアウト", "/users/sign_out", method: :delete,style: "color:white;"
 
 
+  =render 'modal_image'

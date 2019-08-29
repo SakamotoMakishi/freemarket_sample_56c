@@ -83,7 +83,7 @@ $(function(){
           <div class="sell__form__box__image__ul__li__content">
           <img class="sell-form-image" src="${ imageSrc }">
           <div class="sell__form__box__image__ul__li__content__upload">
-          <a class="sell-form-update" href="/">編集</a>
+          <a class="sell-form-update" id="modal-open" href="/">編集</a>
           <a class="sell-form-update sell-form-delete" href="/">削除</a>
           </div>
           </div>
@@ -200,5 +200,61 @@ $(function(){
       alert('error');
     })
   })
+
+  var uploadimg = new Image();
+  var editImgNum = 0;
+
+  function imgUpDate(img,size_range){
+    
+    var stage = $('#modal_stage');
+    var ctx = stage[0].getContext('2d');
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, 380, 380);
+  
+      
+    var	imgWidth = img.width*size_range,
+        imgHeight = img.height*size_range,
+        imgRate = imgWidth / imgHeight,
+        imgPos = 0;
+    
+    if(imgRate <= 1){
+      imgPos = (imgWidth - (imgWidth * imgRate)) / 2;
+      ctx.drawImage(img, imgPos+190-150*size_range, 190-150*size_range, 300 * imgRate*size_range, 300*size_range); 
+    }else{
+      imgPos = (imgWidth - (imgWidth / imgRate)) / 2;
+      ctx.drawImage(img, 190-150*size_range, imgPos+190-150*size_range, 300*size_range, 300 / imgRate*size_range);
+    }
+    ctx.lineWidth = 40;
+    // ctx.strokeRect(20,20,340,340)
+    uploadimg = img;
+  }
+
+  $(document).on("click", "#modal-open", function(e){
+    e.preventDefault;
+    editImgNum = $(this).parent().parent().parent().index();
+    $(this).blur();
+    $("#modal-overlay").css("display:block");
+    $("#modal-overlay").fadeIn("slow");
+    var img = new Image();
+    img.src = $(this).parent().parent().children('img').attr('src');
+    imgUpDate(img,1);
+    return false;
+    }
+  );
+
+  $(document).on("change", ".input-range-default", function(){
+    var size = $(this).context.value; 
+    imgUpDate(uploadimg,size);
+  });
+
+  $(".l-right").on("click",function(){
+    var stage = $('#modal_stage');
+    var ctx = stage[0].getContext('2d');
+    ctx.save();
+    var data = stage[0].toDataURL("image/png");
+    $(".sell__form__box__image__ul").find('img').eq(editImgNum).attr('src',data);
+    $("#modal-overlay").fadeOut("slow");
+    return false;
+  });
 });
 
