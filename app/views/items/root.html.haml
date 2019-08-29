@@ -36,8 +36,8 @@
 
 .main-contents
   .pickup
-    -# %h2.pickup__head ピックアップカテゴリー
-
+    %h2.pickup__head ピックアップカテゴリー
+    =render 'layouts/top_page'
     .pickup__content.clearfix
       %h3.pickup__text
         = link_to category_path(1) do

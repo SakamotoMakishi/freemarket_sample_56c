@@ -17,6 +17,11 @@
             出品数: 
             = item_count(current_user)
       %li.drop-list
+        %p{style:"color:black;font-weight:bold;"}
+          売上金
+          = price_total(current_user)
+          %i.fa.fa-chevron-right
+      %li.drop-list
         = link_to listing_user_path(current_user) do
           出品した商品 - 出品中
           %i.fa.fa-chevron-right
