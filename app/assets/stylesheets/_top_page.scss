@@ -1,0 +1,55 @@
+.top_page{
+  text-align: center;
+  margin:auto;
+  width: 1200px;
+  height: 573px;
+  a{
+    color:black;
+  }
+  &__box{
+    margin: auto;
+    padding: 50px;
+    &__contents{
+      width: 200px;
+      height: 250px;
+      float: left;
+      background: white;
+      margin: 0 10px 20px;
+      box-sizing: border-box;
+      -webkit-box-shadow: rgba(190, 190, 190, 0.2) 0px 0px 1px 1px;
+      -moz-box-shadow: rgba(233, 232, 232, 0.2) 0px 0px 1px 1px;
+      box-shadow: rgba(214, 214, 213, 0.856) 0px 0px 2px 2px;
+      &__image{
+        float: left;
+        height: 198px;
+        &__price{
+          float: left;
+          background:rgba(92, 91, 91, 0.719);
+          padding: 7px;
+          position: relative;
+          bottom:50px;
+          color:white;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          font-size: 14px;
+          letter-spacing: .02em;
+          font-weight: 100;
+        }
+      }
+      &__name{
+        padding-left: 10px;
+        padding-bottom:10px; 
+        float: left;
+        display: inline-block;
+        height: 2.8em;
+        overflow: hidden;
+        color:black;
+        font-size: 14px;
+      }
+    }
+    &__contents:hover{
+      -moz-box-shadow: rgba(124, 183, 223, 0.2) 0px 0px 1px 1px;
+      box-shadow: rgba(70, 187, 255, 0.856) 0px 0px 1px 1px;
+    }
+  }
+}
