@@ -6,11 +6,11 @@ class ItemsController < ApplicationController
 
   def root
     @women_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 1).ids)).with_attached_images.order("id DESC").limit(10)
-    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids)).with_attached_images.order("id DESC").limit(4)
-    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids)).with_attached_images.order("id DESC").limit(4)
-    @chanel_items = Item.with_attached_images.order("RAND()").limit(4)
-    @vuitton_items = Item.with_attached_images.order("RAND()").sample(4)
-    @nike_items = Item.with_attached_images.order("id DESC").limit(4)
+    @men_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 2).ids)).with_attached_images.order("id DESC").limit(10)
+    @child_items = Item.joins(:category).merge(Category.where(parrent_id: Category.where(parrent_id: 3).ids)).with_attached_images.order("id DESC").limit(10)
+    @chanel_items = Item.with_attached_images.order("RAND()").limit(10)
+    @vuitton_items = Item.with_attached_images.order("RAND()").sample(10)
+    @nike_items = Item.with_attached_images.order("id DESC").limit(10)
   end
 
   def index
