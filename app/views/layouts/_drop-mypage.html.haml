@@ -1,12 +1,12 @@
 %li.drop-mypage
   =link_to user_path(current_user) do
-    = image_tag  url_for(current_user.avatar)
+    = image_tag  avatar(current_user)
     %span
       マイページ
     %ul.drop-mypage-list
       %li.drop-icon
         = link_to "/" do
-          = image_tag url_for(current_user.avatar), height: '60', width: '60', class: 'drop-icon'
+          = image_tag avatar(current_user), height: '60', width: '60', class: 'drop-icon'
       %li.drop-name
         = current_user.nickname
         .drop-text

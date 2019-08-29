@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   @user.provider = session[:provider]
     #   @user.save
     # else
-      super
+      super 
     # end
     else
       self.resource = resource_class.new

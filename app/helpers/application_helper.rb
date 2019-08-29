@@ -16,5 +16,13 @@ module ApplicationHelper
     b = current_user.sold_items.where.not(receipt: true).count
     a+b
   end
+
+  def avatar(current_user)
+    if current_user.avatar.attached?
+      url_for(current_user.avatar)
+    else
+      '//static.mercdn.net/images/member_photo_noimage_thumb.png'
+    end
+  end
 end
 
