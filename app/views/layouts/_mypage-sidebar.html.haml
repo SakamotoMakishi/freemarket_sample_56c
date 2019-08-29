@@ -7,14 +7,23 @@
     %li.mypage__nav__side-bar__lists__list
       = link_to notifications_path do
         お知らせ
+        -if unchecked_notifications.any?
+          .nav-count0
+            = unchecked_notifications.count
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
       = link_to things_user_path(current_user) do
         やることリスト
+        - if trading_count(current_user) > 0
+          .nav-count0
+            = trading_count(current_user)
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
       = link_to likes_path do
         いいね！一覧
+        - if like_count(current_user) > 0
+          .nav-count0
+            = like_count(current_user)
         %i.fa.fa-chevron-right
     %li.mypage__nav__side-bar__lists__list
       = link_to new_item_path do 
