@@ -61,7 +61,7 @@
       .pickup__view-all
         = link_to category_path(3) do
           すべての商品を見る
-      =render 'layouts/top_page',{ items: @men_items }
+      =render 'layouts/top_page',{ items: @child_items }
 
 .main-contents
   .pickup
@@ -91,7 +91,7 @@
       .pickup__view-all
         = link_to "/" do
           すべての商品を見る
-      =render 'layouts/top_page',{ items: @vuitton_items }
+      =render 'layouts/top_page',{ items: @nike_items }
 = render "layouts/banner"
 = render "layouts/footer"
 = render 'layouts/post-btn'
