@@ -18,6 +18,7 @@
       -webkit-box-shadow: rgba(190, 190, 190, 0.2) 0px 0px 1px 1px;
       -moz-box-shadow: rgba(233, 232, 232, 0.2) 0px 0px 1px 1px;
       box-shadow: rgba(214, 214, 213, 0.856) 0px 0px 2px 2px;
+      transition:  0.3s;
       &__image{
         float: left;
         height: 198px;
@@ -32,7 +33,7 @@
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         font-size: 14px;
-        letter-spacing: .04em;
+        letter-spacing: .1em;
         font-weight: 100;
       }
       &__name{
@@ -70,7 +71,8 @@
     }
     &__contents:hover{
       -moz-box-shadow: rgba(124, 183, 223, 0.2) 0px 0px 1px 1px;
-      box-shadow: rgba(70, 187, 255, 0.856) 0px 0px 1px 1px;
+      box-shadow: rgba(48, 174, 247, 0.856) 0px 0px 2px 2px;
+      transition:  0.3s;
     }
   }
 }

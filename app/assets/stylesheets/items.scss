@@ -6,9 +6,8 @@
     color:black;
     text-decoration: none;
     position: relative;
-    left: -410px;
     bottom: -30px;
-
+    text-align: left;
   }
   h2{
     font-size: 28px;
@@ -17,6 +16,7 @@
   }
   &__content{
   margin: 0 auto;
+  width: fit-content;
   }
   &__text {
     font-size: 22px;
@@ -105,15 +105,17 @@
       }
     }
     &__view-all {
-    padding: 20px 0 30px;
-    width: 99.5%;
+      padding: 30px;
+      width: 90.5%;
     text-align: right;
     display: inline-block;
+    position: relative;
+    left: 33px;
     a {
       font-size: 14px;
       position: relative;
       bottom: -10px;
-      left: -187px;
+      color: #0095ee;
     }
     }
   }
