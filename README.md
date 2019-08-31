@@ -42,6 +42,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :authorizations
+- has_many :likes
 - has_one :card
 - has_one :address
 
@@ -88,6 +89,7 @@ Things you may want to cover:
 - belongs_to :brand
 - has_one :delivery
 - has_many_attached :images
+- has_many :likes
 
 
 
@@ -139,3 +141,14 @@ Things you may want to cover:
 ### Association
 - has_one :user
 
+## likesテーブル
+
+|Column           |Type    |Options                         |
+|-----------------|--------|--------------------------------|
+|user_id          |integer |                                |
+|item_id          |integer |                                |
+|watch            |integer |                                |
+
+### Association
+- belongs_to :item
+- belongs_to :user
